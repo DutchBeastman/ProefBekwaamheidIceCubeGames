@@ -1,2 +1,2 @@
 # ProefBekwaamheidIceCubeGames
-Repository  
+Repository of proef van bekwaamheid, group : IceCubeGames

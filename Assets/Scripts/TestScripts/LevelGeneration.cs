@@ -22,6 +22,9 @@ public class LevelGeneration : MonoBehaviour
 		{
 			levelTiles.Add (levelOneTiles.transform.GetChild (i).gameObject);
 		}
+		levelTiles.Add(strongTile);
+		levelTiles.Add(unbreakableTile);
+		levelTiles.Add(lifeTile);
 	}
 
 	protected void Start ()

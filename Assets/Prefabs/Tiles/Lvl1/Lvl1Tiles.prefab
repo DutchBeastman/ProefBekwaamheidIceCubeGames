@@ -26,7 +26,6 @@ GameObject:
   - 212: {fileID: 21252328}
   - 61: {fileID: 6138926}
   - 114: {fileID: 11465776}
-  - 50: {fileID: 5039668}
   m_Layer: 0
   m_Name: BlueTile
   m_TagString: Untagged
@@ -45,7 +44,6 @@ GameObject:
   - 212: {fileID: 21257424}
   - 61: {fileID: 6140806}
   - 114: {fileID: 11469622}
-  - 50: {fileID: 5052546}
   m_Layer: 0
   m_Name: RedTile
   m_TagString: Untagged
@@ -64,7 +62,6 @@ GameObject:
   - 212: {fileID: 21218036}
   - 61: {fileID: 6157342}
   - 114: {fileID: 11436000}
-  - 50: {fileID: 5098640}
   m_Layer: 0
   m_Name: GreenTile
   m_TagString: Untagged
@@ -83,7 +80,6 @@ GameObject:
   - 212: {fileID: 21251732}
   - 61: {fileID: 6177246}
   - 114: {fileID: 11495174}
-  - 50: {fileID: 5095798}
   m_Layer: 0
   m_Name: PurpleTile
   m_TagString: Untagged
@@ -102,7 +98,6 @@ GameObject:
   - 212: {fileID: 21261994}
   - 61: {fileID: 6125498}
   - 114: {fileID: 11457824}
-  - 50: {fileID: 5063412}
   m_Layer: 0
   m_Name: YellowTile
   m_TagString: Untagged
@@ -193,91 +188,6 @@ Transform:
   - {fileID: 401324}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5039668
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 139810}
-  m_UseAutoMass: 0
-  m_Mass: 0.2
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!50 &5052546
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 146082}
-  m_UseAutoMass: 0
-  m_Mass: 0.2
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!50 &5063412
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 183736}
-  m_UseAutoMass: 0
-  m_Mass: 0.2
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!50 &5095798
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 160232}
-  m_UseAutoMass: 0
-  m_Mass: 0.2
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!50 &5098640
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158004}
-  m_UseAutoMass: 0
-  m_Mass: 0.2
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &6125498
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -291,7 +201,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 1}
 --- !u!61 &6138926
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -305,7 +215,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 1}
 --- !u!61 &6140806
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -319,7 +229,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 1}
 --- !u!61 &6157342
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -333,7 +243,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 1}
 --- !u!61 &6177246
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -347,7 +257,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 1}
 --- !u!114 &11436000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -430,7 +340,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9c5e5e566b089074d8591dc5a0a1fe81, type: 3}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.9443503, g: 1, b: 0.68144464, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &21251732
@@ -460,7 +370,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9c5e5e566b089074d8591dc5a0a1fe81, type: 3}
-  m_Color: {r: 1, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.7205882, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &21252328
@@ -490,7 +400,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9c5e5e566b089074d8591dc5a0a1fe81, type: 3}
-  m_Color: {r: 0, g: 0.006896496, b: 1, a: 1}
+  m_Color: {r: 0.6764706, g: 0.9196754, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &21257424
@@ -520,7 +430,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9c5e5e566b089074d8591dc5a0a1fe81, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.97794116, g: 0.56806874, b: 0.56806874, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &21261994
@@ -550,7 +460,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9c5e5e566b089074d8591dc5a0a1fe81, type: 3}
-  m_Color: {r: 1, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 0.7775736, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000

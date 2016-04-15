@@ -41,18 +41,19 @@ public class Settings : MonoBehaviour
 		if (lastMasterVolume != masterVolume.value)
 		{
 			lastMasterVolume = masterVolume.value; 
-			ChangeMixerVolume (masterVolume, "MixerMasterVolume", LastChangedAudioMixer.Master);
+			ChangeMixerVolume (masterVolume.value, "MixerMasterVolume", LastChangedAudioMixer.Master);
 		}
 		else if(lastSFXVolume != SFXVolume.value)
 		{
 			lastSFXVolume = SFXVolume.value;
-			ChangeMixerVolume (SFXVolume, "MixerSFXVolume", LastChangedAudioMixer.SFX);
+			ChangeMixerVolume ((masterVolume.value * SFXVolume.value), "MixerSFXVolume", LastChangedAudioMixer.SFX);
 		}
 		else if (lastMusicVolume != musicVolume.value)
 		{
 			lastMusicVolume = musicVolume.value;
-			ChangeMixerVolume(musicVolume, "MixerMusicVolume", LastChangedAudioMixer.Music);
+			ChangeMixerVolume((masterVolume.value * musicVolume.value), "MixerMusicVolume", LastChangedAudioMixer.Music);
 		}
+		
 		if (!afterSoundPlayed && Input.GetMouseButtonUp(0))
 		{
 			afterSoundPlayed = true;
@@ -71,10 +72,10 @@ public class Settings : MonoBehaviour
 		}
 	}
 
-	private void ChangeMixerVolume (Slider mixerVolume, string mixerName, LastChangedAudioMixer lastChangedAudioMixer)
+	private void ChangeMixerVolume (float mixerVolume, string mixerName, LastChangedAudioMixer lastChangedAudioMixer)
 	{
-		AudioListener.volume = mixerVolume.value;
-		mixer.SetFloat (mixerName, mixerVolume.value);
+		AudioListener.volume = mixerVolume;
+		mixer.SetFloat (mixerName, mixerVolume);
 
 		lastChangedMixer = lastChangedAudioMixer;
 		afterSoundPlayed = false;

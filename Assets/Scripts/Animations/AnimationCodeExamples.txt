@@ -3,6 +3,8 @@ using Spine.Unity;
 [SpineAnimation]
 public string (animationName)Animation;
 
+SkeletonAnimation skeletonAnimation;
+
 // Spine.AnimationState and Spine.Skeleton are not Unity-serialized objects. You will not see them as fields in the inspector.
 public Spine.AnimationState spineAnimationState;
 public Spine.Skeleton skeleton;

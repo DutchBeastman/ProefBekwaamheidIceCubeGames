@@ -4,12 +4,18 @@ using System.Collections.Generic;
 
 public class BlockManager : MonoBehaviour
 {
-
+	
+	[SerializeField]private int fieldWidth;
+	[SerializeField]private int fieldHeight;
 	[SerializeField]private GameObject[] tiles;
-	[SerializeField]private Dictionary<Block, Vector2> listOfBlocks;
+	private List<List<Block>> blocks;
 	private List<Vector2> directionsList = new List<Vector2>();
-	[SerializeField]private int fieldX;
-	[SerializeField]private int fieldY;
+
+	[SerializeField] private Transform playerPosition;
+	private Vector3 nextLinePosition;
+
+	private int nextLine;
+
 
 	protected void Awake()
 	{
@@ -19,21 +25,78 @@ public class BlockManager : MonoBehaviour
 		directionsList.Add(new Vector2(0 , +1));
 		Generation();
 	}
+
 	private void Generation()
 	{
-		for (int x = 0; x < fieldX; x++)
+		blocks = new List<List<Block>>();
+		for (int x = 0; x < fieldWidth; x++)
 		{
-			for (int y = 0; y < fieldY; y++)
+			List<Block> tempList = new List<Block>();
+			for (int y = 0; y < fieldHeight; y++)
 			{
-				GameObject instatiateBlock = (GameObject)Instantiate(tiles[Random.Range(0 , tiles.Length)] , new Vector2(transform.position.x + x , transform.position.y - y ) , Quaternion.identity);
-				Block block = instatiateBlock.GetComponent<Block>();
-				//listOfBlocks.Add(block , new Vector2(x , y));
+				GameObject instantiateBlock = (GameObject)Instantiate(tiles[Random.Range(0 , tiles.Length)] , new Vector2(transform.position.x + x , transform.position.y - y ) , Quaternion.identity);
+				tempList.Add(instantiateBlock.GetComponent<Block>());
 			}
-
+			blocks.Add(tempList);
 		}
 	}
-	private void DetermineNeighbours(Block current)
-	{
 
+	protected void Update()
+	{
+		if(MathUtils.difference(playerPosition.position.y, nextLinePosition.y) < 10)
+		{
+			CheckLinesNeighbours();
+			nextLine++;
+		}
+	}
+
+	private void CheckLinesNeighbours()
+	{
+		if (nextLine < fieldWidth)
+		{
+			for (int i = 0; i < fieldHeight; i++)
+			{
+				DetermineNeighbours(nextLine, i);
+			}
+		}
+	}
+
+	private void CheckDrilledBlocksNeighbours()
+	{
+		//DetermineNeighbours(x, y);
+	}
+
+	private void DetermineNeighbours(int x, int y)
+	{
+		Block b = blocks[x][y];
+
+		if (x > 0)
+		{
+			if (blocks[x - 1][y].type == b.type)
+			{
+				b.neighbourLeft = true;
+			}
+		}
+		if (x < fieldWidth-1)
+		{
+			if (blocks[x + 1][y].type == b.type)
+			{
+				b.neighbourRight = true;
+			}
+		}
+		if (y < fieldHeight-1)
+		{
+			if (blocks[x][y + 1].type == b.type)
+			{
+				b.neighbourDown = true;
+			}
+		}
+		if (y > 0)
+		{
+			if (blocks[x][y - 1].type == b.type)
+			{
+				b.neighbourUp = true;
+			}
+		}
 	}
 }

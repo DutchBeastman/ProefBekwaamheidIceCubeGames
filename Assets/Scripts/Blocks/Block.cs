@@ -3,7 +3,7 @@ using System.Collections;
 
 public enum Type
 {
-	Blue = 0, Green, Pink, Yellow,
+	Blue = 0, Red, Purple, Yellow,
 	// Hard,
 	// Air,
 	Empty
@@ -23,4 +23,10 @@ public class Block : MonoBehaviour {
 			position = value;
 		}
 	}
+
+	//Testing Purposes
+	/*[HideInInspector]*/ public bool neighbourUp;
+	/*[HideInInspector]*/ public bool neighbourRight;
+	/*[HideInInspector]*/ public bool neighbourDown;
+	/*[HideInInspector]*/ public bool neighbourLeft;
 }

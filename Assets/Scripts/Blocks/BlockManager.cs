@@ -43,7 +43,7 @@ public class BlockManager : MonoBehaviour
 
 	protected void Update()
 	{
-		if(MathUtils.difference(playerPosition.position.y, nextLinePosition.y) < 10)
+		if(MathUtils.difference(playerPosition.position.y, -nextLinePosition.y) < 7)
 		{
 			CheckLinesNeighbours();
 			nextLine++;
@@ -52,20 +52,16 @@ public class BlockManager : MonoBehaviour
 
 	private void CheckLinesNeighbours()
 	{
-		if (nextLine < fieldWidth)
+		nextLinePosition.y = nextLine;
+		if (nextLine < fieldHeight)
 		{
-			for (int i = 0; i < fieldHeight; i++)
+			for (int i = 0; i < fieldWidth; i++)
 			{
-				DetermineNeighbours(nextLine, i);
+				DetermineNeighbours(i, nextLine);
 			}
 		}
 	}
-
-	private void CheckDrilledBlocksNeighbours()
-	{
-		//DetermineNeighbours(x, y);
-	}
-
+	
 	private void DetermineNeighbours(int x, int y)
 	{
 		Block b = blocks[x][y];
@@ -98,5 +94,6 @@ public class BlockManager : MonoBehaviour
 				b.neighbourUp = true;
 			}
 		}
+		b.SetOffset();
 	}
 }

@@ -29,4 +29,118 @@ public class Block : MonoBehaviour {
 	/*[HideInInspector]*/ public bool neighbourRight;
 	/*[HideInInspector]*/ public bool neighbourDown;
 	/*[HideInInspector]*/ public bool neighbourLeft;
+	private float xOffset;
+	private float yOffset; 
+	private int imageCount;
+
+	private float quarter = 0.25f;
+	private float half = 0.5f;
+	private float threeQuarter = 0.75f;
+
+
+	private SpriteRenderer rend;
+
+	private void Awake()
+	{
+		rend = gameObject.GetComponent<SpriteRenderer>();
+		SetOffset();
+	}
+
+	public void SetOffset()
+	{
+		if (neighbourUp)
+		{
+			imageCount++;
+		}
+		if (neighbourRight)
+		{
+			imageCount++;
+		}
+		if (neighbourDown)
+		{
+			imageCount++;
+		}
+		if (neighbourLeft)
+		{
+			imageCount++;
+		}
+		switch (imageCount)
+		{
+			case 0:
+				yOffset = 0;
+				xOffset = threeQuarter;
+				break;
+			case 1:
+				yOffset = threeQuarter;
+				xOffset = 0;
+				if (neighbourUp)
+				{
+					xOffset = quarter;
+				}
+				else if (neighbourLeft)
+				{
+					xOffset = half;
+				}
+				else if(neighbourRight)
+				{
+					xOffset = threeQuarter;
+				}
+				break;
+			case 2:
+				yOffset = 0;
+				xOffset = 0;
+				if(neighbourDown && neighbourUp)
+				{
+					xOffset = quarter;
+				}
+				else if(!neighbourLeft || !neighbourRight)
+				{
+					yOffset = quarter;
+					if (neighbourDown)
+					{
+						if (neighbourLeft)
+						{
+							xOffset = 0;
+						}
+						else
+						{
+							xOffset = quarter;
+						}
+					}
+					else
+					{
+						if (neighbourLeft)
+						{
+							xOffset = half;
+						}
+						else
+						{
+							xOffset = threeQuarter;
+						}
+					}
+				}
+				break;
+			case 3:
+				yOffset = half;
+				xOffset = 0;
+				if (!neighbourUp)
+				{
+					xOffset = quarter;
+				}
+				else if(!neighbourLeft)
+				{
+					xOffset = half;
+				}
+				else if (!neighbourRight)
+				{
+					xOffset = threeQuarter;
+				}
+				break;
+			case 4:
+				xOffset = half;
+				yOffset = 0;
+				break;
+		}
+		rend.material.mainTextureOffset = new Vector2(xOffset, yOffset);
+	}
 }

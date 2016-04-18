@@ -31,7 +31,7 @@ public class Block : MonoBehaviour {
 	/*[HideInInspector]*/ public bool neighbourLeft;
 	private float xOffset;
 	private float yOffset; 
-	private int imageCount;
+	private int neighbourCount;
 
 	private float quarter = 0.25f;
 	private float half = 0.5f;
@@ -50,21 +50,21 @@ public class Block : MonoBehaviour {
 	{
 		if (neighbourUp)
 		{
-			imageCount++;
+			neighbourCount++;
 		}
 		if (neighbourRight)
 		{
-			imageCount++;
+			neighbourCount++;
 		}
 		if (neighbourDown)
 		{
-			imageCount++;
+			neighbourCount++;
 		}
 		if (neighbourLeft)
 		{
-			imageCount++;
+			neighbourCount++;
 		}
-		switch (imageCount)
+		switch (neighbourCount)
 		{
 			case 0:
 				yOffset = 0;

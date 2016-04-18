@@ -12,7 +12,8 @@ public class Block : MonoBehaviour {
 
 	private Vector2 position;
 	public Type type;
-	public Vector2 Position
+    public bool killed;
+    public Vector2 Position
 	{
 		get
 		{

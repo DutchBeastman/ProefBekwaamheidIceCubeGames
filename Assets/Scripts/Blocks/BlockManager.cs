@@ -96,4 +96,33 @@ public class BlockManager : MonoBehaviour
 		}
 		b.SetOffset();
 	}
+    private void KillNeighbours(Block b)
+    {
+        if (b.neighbourDown)
+        {
+            KillTile(blocks[(int)b.Position.x][(int)b.Position.y + 1]);
+        }
+        if (b.neighbourLeft)
+        {
+            KillTile(blocks[(int)(b.Position.x - 1)][(int)b.Position.y]);
+        }
+        if (b.neighbourRight)
+        {
+            KillTile(blocks[(int)(b.Position.x + 1)][(int)b.Position.y]);
+        }
+        if (b.neighbourUp)
+        {
+            KillTile(blocks[(int)b.Position.x][(int)b.Position.y - 1]);
+        }
+    }
+
+    public void KillTile(Block b)
+    {
+        if (!b.killed)
+        {
+            b.killed = true;
+            KillNeighbours(b);
+            Destroy(b.gameObject);
+        }
+    }
 }

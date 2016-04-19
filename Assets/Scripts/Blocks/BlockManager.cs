@@ -34,7 +34,7 @@ public class BlockManager : MonoBehaviour
 			List<Block> tempList = new List<Block>();
 			for (int y = 0; y < fieldHeight; y++)
 			{
-				GameObject instantiateBlock = (GameObject)Instantiate(tiles[Random.Range(0 , tiles.Length)] , new Vector2(transform.position.x + x , transform.position.y - y ) , Quaternion.identity);
+				GameObject instantiateBlock = (GameObject)Instantiate(tiles[Random.Range(0 , tiles.Length)] , new Vector2(transform.position.x + x , transform.position.y - (fieldHeight - y) ) , Quaternion.identity);
 				instantiateBlock.GetComponent<Block>().Position = new Vector2(x , y);
 				tempList.Add(instantiateBlock.GetComponent<Block>());
 			}
@@ -46,8 +46,8 @@ public class BlockManager : MonoBehaviour
 	{
 		if(MathUtils.difference(playerPosition.position.y, -nextLinePosition.y) < 15)
 		{
-			CheckLinesNeighbours();
 			nextLine++;
+			CheckLinesNeighbours();
 		}
 	}
 
@@ -58,13 +58,14 @@ public class BlockManager : MonoBehaviour
 		{
 			for (int i = 0; i < fieldWidth; i++)
 			{
-				DetermineNeighbours(i, nextLine);
+				DetermineNeighbours(i, fieldHeight - nextLine);
 			}
 		}
 	}
 	
 	private void DetermineNeighbours(int x, int y)
 	{
+		
 		Block b = blocks[x][y];
 
 		if (x > 0)
@@ -81,16 +82,16 @@ public class BlockManager : MonoBehaviour
 				b.neighbourRight = true;
 			}
 		}
-		if (y < fieldHeight-1)
+		if (y > 0)
 		{
-			if (blocks[x][y + 1].type == b.type)
+			if (blocks[x][y - 1].type == b.type)
 			{
 				b.neighbourDown = true;
 			}
 		}
-		if (y > 0)
+		if (y < fieldHeight-1)
 		{
-			if (blocks[x][y - 1].type == b.type)
+			if (blocks[x][y + 1].type == b.type)
 			{
 				b.neighbourUp = true;
 			}
@@ -101,19 +102,19 @@ public class BlockManager : MonoBehaviour
     {
         if (b.neighbourDown)
         {
-            KillTile(blocks[(int)b.Position.x][(int)b.Position.y + 1]);
+            KillTile(blocks[(int)b.Position.x] [(int)b.Position.y - 1]);
         }
         if (b.neighbourLeft)
         {
-            KillTile(blocks[(int)(b.Position.x - 1)][(int)b.Position.y]);
+            KillTile(blocks[(int)(b.Position.x - 1)] [(int)b.Position.y]);
         }
         if (b.neighbourRight)
         {
-            KillTile(blocks[(int)(b.Position.x + 1)][(int)b.Position.y]);
+            KillTile(blocks[(int)(b.Position.x + 1)] [(int)b.Position.y]);
         }
         if (b.neighbourUp)
         {
-            KillTile(blocks[(int)b.Position.x][(int)b.Position.y - 1]);
+            KillTile(blocks[(int)b.Position.x] [(int)b.Position.y + 1]);
         }
     }
 
@@ -123,6 +124,7 @@ public class BlockManager : MonoBehaviour
         {
             b.killed = true;
             KillNeighbours(b);
+			//blocks[(int)b.Position.x][(int)b.Position.y] = null;
             Destroy(b.gameObject);
         }
     }

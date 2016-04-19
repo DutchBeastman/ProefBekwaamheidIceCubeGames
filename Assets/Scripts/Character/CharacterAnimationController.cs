@@ -22,14 +22,14 @@ public class CharacterAnimationController : MonoBehaviour
 	private SkeletonAnimation skeletonAnimation;
 
 	private Spine.AnimationState spineAnimationState;
-	private Spine.Skeleton skeleton;
+	//private Spine.Skeleton skeleton;
 
 
 	void Start()
 	{
 		skeletonAnimation = GetComponent<SkeletonAnimation>();
 		spineAnimationState = skeletonAnimation.state;
-		skeleton = skeletonAnimation.skeleton;
+		//skeleton = skeletonAnimation.skeleton;
 	}
 
 	public void MoveLeft(bool digging)

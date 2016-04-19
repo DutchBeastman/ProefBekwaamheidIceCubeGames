@@ -35,6 +35,7 @@ public class BlockManager : MonoBehaviour
 			for (int y = 0; y < fieldHeight; y++)
 			{
 				GameObject instantiateBlock = (GameObject)Instantiate(tiles[Random.Range(0 , tiles.Length)] , new Vector2(transform.position.x + x , transform.position.y - y ) , Quaternion.identity);
+				instantiateBlock.GetComponent<Block>().Position = new Vector2(x , y);
 				tempList.Add(instantiateBlock.GetComponent<Block>());
 			}
 			blocks.Add(tempList);
@@ -43,7 +44,7 @@ public class BlockManager : MonoBehaviour
 
 	protected void Update()
 	{
-		if(MathUtils.difference(playerPosition.position.y, -nextLinePosition.y) < 7)
+		if(MathUtils.difference(playerPosition.position.y, -nextLinePosition.y) < 15)
 		{
 			CheckLinesNeighbours();
 			nextLine++;

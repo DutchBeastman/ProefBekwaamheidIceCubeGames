@@ -42,8 +42,8 @@ GameObject:
   - 4: {fileID: 439422}
   - 114: {fileID: 11491596}
   - 212: {fileID: 21274332}
-  - 61: {fileID: 6171418}
   - 50: {fileID: 5049652}
+  - 58: {fileID: 5854690}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Untagged
@@ -209,7 +209,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.018, y: -0.191, z: -0.576}
+  m_LocalPosition: {x: 0.018, y: -0.191, z: -0.954}
   m_LocalScale: {x: 1.4285715, y: 1.4285715, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -265,7 +265,21 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 0
+--- !u!58 &5854690
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150536}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!61 &6161966
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -294,20 +308,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 100}
---- !u!61 &6171418
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150536}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
 --- !u!81 &8143554
 AudioListener:
   m_ObjectHideFlags: 1
@@ -331,10 +331,10 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.73
+  m_Color: {r: 0.92092013, g: 0.9485294, b: 0.6625757, a: 1}
+  m_Intensity: 8
   m_Range: 1
-  m_SpotAngle: 77
+  m_SpotAngle: 118
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -430,8 +430,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c5e5e566b089074d8591dc5a0a1fe81, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8d4655df2339a4245b0287161672b69a, type: 3}
+  m_Color: {r: 1, g: 0, b: 0.93103456, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000

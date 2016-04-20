@@ -10,6 +10,7 @@ public enum Type
 }
 public class Block : MonoBehaviour {
 
+	[SerializeField]private Sprite[] tileSprites = new Sprite[16];
 	private Vector2 position;
 	public Type type;
     public bool killed;
@@ -34,9 +35,9 @@ public class Block : MonoBehaviour {
 	private float yOffset; 
 	private int neighbourCount;
 
-	private float quarter = 0.25f;
-	private float half = 0.5f;
-	private float threeQuarter = 0.75f;
+	private float quarter = 2f;
+	private float half = 3f;
+	private float threeQuarter = 4f;
 
 
 	private SpriteRenderer rend;
@@ -68,12 +69,12 @@ public class Block : MonoBehaviour {
 		switch (neighbourCount)
 		{
 			case 0:
-				yOffset = 0;
+				yOffset = 1;
 				xOffset = threeQuarter;
 				break;
 			case 1:
 				yOffset = threeQuarter;
-				xOffset = 0;
+				xOffset = 1;
 				if (neighbourUp)
 				{
 					xOffset = quarter;
@@ -88,8 +89,8 @@ public class Block : MonoBehaviour {
 				}
 				break;
 			case 2:
-				yOffset = 0;
-				xOffset = 0;
+				yOffset = 1;
+				xOffset = 1;
 				if(neighbourDown && neighbourUp)
 				{
 					xOffset = quarter;
@@ -101,7 +102,7 @@ public class Block : MonoBehaviour {
 					{
 						if (neighbourLeft)
 						{
-							xOffset = 0;
+							xOffset = 1;
 						}
 						else
 						{
@@ -123,7 +124,7 @@ public class Block : MonoBehaviour {
 				break;
 			case 3:
 				yOffset = half;
-				xOffset = 0;
+				xOffset = 1;
 				if (!neighbourUp)
 				{
 					xOffset = quarter;
@@ -139,9 +140,13 @@ public class Block : MonoBehaviour {
 				break;
 			case 4:
 				xOffset = half;
-				yOffset = 0;
+				yOffset = 1;
 				break;
 		}
-		rend.material.mainTextureOffset = new Vector2(xOffset, yOffset);
+
+		int t = (int)xOffset + (int)(yOffset -1 ) * 4;
+		Debug.Log(t);
+		rend.sprite = tileSprites[t - 1];
+		//rend.material.mainTextureOffset = new Vector2(xOffset, yOffset);
 	}
 }

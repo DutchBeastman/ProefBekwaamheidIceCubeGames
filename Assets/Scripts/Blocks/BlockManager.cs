@@ -16,11 +16,11 @@ public class BlockManager : MonoBehaviour
 
 	private int nextLine;
 
-
 	protected void Awake()
 	{
 		Generation();
 	}
+
 	/// <summary>
 	/// Function for the generation
 	/// </summary>
@@ -42,10 +42,13 @@ public class BlockManager : MonoBehaviour
 
 	protected void Update()
 	{
-		if(MathUtils.difference(playerPosition.position.y, -nextLinePosition.y) < 15)
+		if (blocks != null)
 		{
-			nextLine++;
-			CheckLinesNeighbours();
+			if (MathUtils.difference(playerPosition.position.y , -nextLinePosition.y) < 15)
+			{
+				nextLine++;
+				CheckLinesNeighbours();
+			}
 		}
 	}
 	/// <summary>
@@ -125,6 +128,15 @@ public class BlockManager : MonoBehaviour
             KillTile(blocks[(int)b.Position.x] [(int)b.Position.y + 1]);
         }
     }
+	/*private void FloatingNeighbours(Block b)
+	{
+		List<Block> listFloatBlocks = new List<Block>();
+		listFloatBlocks.Add(blocks[(int)b.Position.x][(int)b.Position.y + 1]);
+		for (int i = 0; i < listFloatBlocks.Count; i++)
+		{
+			listFloatBlocks[i].Position -= new Vector2(0,-1);
+		}
+	}*/
 	/// <summary>
 	/// Funtion to kill of the one tile that needs to be removed, this is used on everyblock that killNeighbours requests
 	/// </summary>
@@ -138,5 +150,10 @@ public class BlockManager : MonoBehaviour
 			//blocks[(int)b.Position.x][(int)b.Position.y] = null;
             Destroy(b.gameObject);
         }
-    }
+	}
+	
+    public void Reset()
+	{
+		Invoke("Generation" , 2f);
+	}
 }

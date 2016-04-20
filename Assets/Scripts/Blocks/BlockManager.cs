@@ -1,15 +1,15 @@
-﻿using UnityEngine;
+﻿//Fabian Verkuijlen
+//Created on: 15/04/2016
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 public class BlockManager : MonoBehaviour
 {
-	
 	[SerializeField]private int fieldWidth;
 	[SerializeField]private int fieldHeight;
 	[SerializeField]private GameObject[] tiles;
 	private List<List<Block>> blocks;
-	private List<Vector2> directionsList = new List<Vector2>();
 
 	[SerializeField] private Transform playerPosition;
 	private Vector3 nextLinePosition;
@@ -19,13 +19,11 @@ public class BlockManager : MonoBehaviour
 
 	protected void Awake()
 	{
-		directionsList.Add(new Vector2(+1 , 0));
-		directionsList.Add(new Vector2(-1 , 0));
-		directionsList.Add(new Vector2(0 , -1));
-		directionsList.Add(new Vector2(0 , +1));
 		Generation();
 	}
-
+	/// <summary>
+	/// Function for the generation
+	/// </summary>
 	private void Generation()
 	{
 		blocks = new List<List<Block>>();
@@ -50,7 +48,9 @@ public class BlockManager : MonoBehaviour
 			CheckLinesNeighbours();
 		}
 	}
-
+	/// <summary>
+	/// Check of the next neighbour
+	/// </summary>
 	private void CheckLinesNeighbours()
 	{
 		nextLinePosition.y = nextLine;
@@ -62,7 +62,11 @@ public class BlockManager : MonoBehaviour
 			}
 		}
 	}
-	
+	/// <summary>
+	/// Determines the neighbour blocks
+	/// </summary>
+	/// <param name="x"> X value as in position relative to the list where they are in.</param>
+	/// <param name="y"> Y value as in position relative to the list where they are in.</param>
 	private void DetermineNeighbours(int x, int y)
 	{
 		
@@ -98,6 +102,10 @@ public class BlockManager : MonoBehaviour
 		}
 		b.SetOffset();
 	}
+	/// <summary>
+	/// Funtion to kill of the neighbour blocks
+	/// </summary>
+	/// <param name="b">in this param the value of Block is given as b</param>
     private void KillNeighbours(Block b)
     {
         if (b.neighbourDown)
@@ -117,8 +125,11 @@ public class BlockManager : MonoBehaviour
             KillTile(blocks[(int)b.Position.x] [(int)b.Position.y + 1]);
         }
     }
-
-    public void KillTile(Block b)
+	/// <summary>
+	/// Funtion to kill of the one tile that needs to be removed, this is used on everyblock that killNeighbours requests
+	/// </summary>
+	/// <param name="b"> in this param the value of Block is given as b</param>
+	public void KillTile(Block b)
     {
         if (!b.killed)
         {

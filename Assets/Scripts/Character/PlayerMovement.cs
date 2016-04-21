@@ -7,6 +7,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]private BlockManager manager;
+	[SerializeField]private float resetDigTime;
 	private bool canDig;
 	private Rigidbody2D rigid;
 
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 				Debug.Log("HitFinalTile");
 				Destroy(hit.collider.gameObject);
 				canDig = false;
-				Invoke("ResetDigTime", 0.7f);
+				Invoke("ResetDigTime", resetDigTime);
 			}
         }
     }

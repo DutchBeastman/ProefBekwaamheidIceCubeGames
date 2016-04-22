@@ -12,6 +12,6 @@ public class FinalTile : MonoBehaviour
 	protected void OnDestroy()
 	{
 		logo.ShowLogo();
-		manager.Reset();
+		//manager.Reset();
 	}
 }

@@ -2,18 +2,25 @@
 //Date: 29/03/2016
 
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MainMenuButtonCommands : MonoBehaviour
 {
 	[SerializeField] private GameObject mainMenu;
 	[SerializeField] private GameObject settings;
-	
+	[SerializeField] private GameObject gameCreation;
+
 	private bool fullAlpha;
 	
 	public void PlayButtonPushed ()
 	{
 		Overlay.FadeIn ();
-		Debug.Log ("Log Start");
+		Invoke("CreateLevel", 2);
+	}
+
+	private void CreateLevel()
+	{
+		EventManager.TriggerEvent(StaticEventNames.ENABLEGAMECREATION);
 	}
 
 	public void SettingsButtonPushed ()

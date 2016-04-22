@@ -25,5 +25,11 @@ public class GamePartsManager : MonoBehaviour
 	{
 		mainMenu.SetActive(false);
 		levelCreation.SetActive(true);
+		Invoke("FadeOut", .5f);	
+	}
+
+	private void FadeOut()
+	{
+		Overlay.FadeOut();
 	}
 }

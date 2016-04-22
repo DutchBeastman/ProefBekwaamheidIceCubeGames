@@ -145,7 +145,6 @@ public class Block : MonoBehaviour {
 		}
 
 		int t = (int)xOffset + (int)(yOffset -1 ) * 4;
-		Debug.Log(t);
 		rend.sprite = tileSprites[t - 1];
 		//rend.material.mainTextureOffset = new Vector2(xOffset, yOffset);
 	}

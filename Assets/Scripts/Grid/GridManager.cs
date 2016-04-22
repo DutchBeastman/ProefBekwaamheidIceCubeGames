@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// Created by: Fabian Verkuijlen
+// Date: 21/04/2016
+
+using UnityEngine;
 using System.Collections;
 
 public class GridManager : MonoBehaviour{

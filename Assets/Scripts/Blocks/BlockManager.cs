@@ -75,38 +75,40 @@ public class BlockManager : MonoBehaviour
 	/// <param name="y"> Y value as in position relative to the list where they are in.</param>
 	private void DetermineNeighbours(int x, int y)
 	{
-		
-		Block b = blocks[x][y];
+		if (blocks[x][y])
+		{	
+			Block b = blocks[x][y];
 
-		if (x > 0)
-		{
-			if (blocks[x - 1][y].type == b.type)
+			if (x > 0)
 			{
-				b.neighbourLeft = true;
+				if (blocks[x - 1][y].type == b.type)
+				{
+					b.neighbourLeft = true;
+				}
 			}
-		}
-		if (x < fieldWidth-1)
-		{
-			if (blocks[x + 1][y].type == b.type)
+			if (x < fieldWidth-1)
 			{
-				b.neighbourRight = true;
+				if (blocks[x + 1][y].type == b.type)
+				{
+					b.neighbourRight = true;
+				}
 			}
-		}
-		if (y > 0)
-		{
-			if (blocks[x][y - 1].type == b.type)
+			if (y > 0)
 			{
-				b.neighbourDown = true;
+				if (blocks[x][y - 1].type == b.type)
+				{
+					b.neighbourDown = true;
+				}
 			}
-		}
-		if (y < fieldHeight-1)
-		{
-			if (blocks[x][y + 1].type == b.type)
+			if (y < fieldHeight-1)
 			{
-				b.neighbourUp = true;
+				if (blocks[x][y + 1].type == b.type)
+				{
+					b.neighbourUp = true;
+				}
 			}
+			b.SetOffset();
 		}
-		b.SetOffset();
 	}
 	/// <summary>
 	/// Funtion to kill of the neighbour blocks
@@ -157,6 +159,17 @@ public class BlockManager : MonoBehaviour
 	
     public void Reset()
 	{
-		Invoke("Generation" , 2f);
+		Invoke("Generation" , 1f);
+		for (int x = 0; x < fieldWidth; x++)
+		{
+			for (int y = 0; y < fieldHeight; y++)
+			{
+				if (blocks[x][y])
+				{
+					Destroy(blocks[x][y].gameObject);
+				}
+			}
+		}
+		blocks = new List<List<Block>>();
 	}
 }

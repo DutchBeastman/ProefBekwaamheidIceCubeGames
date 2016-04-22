@@ -1,15 +1,46 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GridPoint : MonoBehaviour {
+namespace Grid
+{
+	public class GridPoint : MonoBehaviour
+	{
+		private Vector2 gridPos;
+		private Type type;
+		private bool empty;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		public Vector2 GridPos
+		{
+			get
+			{
+				return gridPos;
+			}
+			set
+			{
+				gridPos = value;
+			}
+		}
+		public Type PieceType
+		{
+			get
+			{
+				return type;
+			}
+			set
+			{
+				type = value;
+			}
+		}
+		public bool Empty
+		{
+			get
+			{
+				return empty;
+			}
+			set
+			{
+				empty = value;
+			}
+		}
 	}
 }

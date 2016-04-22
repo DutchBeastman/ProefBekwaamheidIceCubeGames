@@ -9,7 +9,6 @@ public class BlockManager : MonoBehaviour
 	[SerializeField]private int fieldWidth;
 	[SerializeField]private int fieldHeight;
 	[SerializeField]private GameObject[] tiles;
-	[SerializeField]private GameObject finalTile;
 	private List<List<Block>> blocks;
 
 	[SerializeField] private Transform playerPosition;
@@ -28,7 +27,6 @@ public class BlockManager : MonoBehaviour
 	private void Generation()
 	{
 		blocks = new List<List<Block>>();
-		Instantiate(finalTile, new Vector2(fieldWidth / 2, -fieldHeight), Quaternion.identity);
 		for (int x = 0; x < fieldWidth; x++)
 		{
 			List<Block> tempList = new List<Block>();

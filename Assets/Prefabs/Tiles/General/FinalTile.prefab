@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 169458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.35, y: 0.8, z: 1}
+  m_LocalScale: {x: 7, y: 3, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,13 +56,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1565e188ca99ab74fac0e71682bbef0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   type: 4
+  killed: 0
   neighbourUp: 0
   neighbourRight: 0
   neighbourDown: 0
   neighbourLeft: 0
-  tiles: []
-  killed: 0
 --- !u!212 &21266822
 SpriteRenderer:
   m_ObjectHideFlags: 1

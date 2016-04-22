@@ -15,7 +15,7 @@ public class LogoTransition : MonoBehaviour
 	private new SpriteRenderer renderer;
 	private int nextTransition;
 
-	protected void Awake()
+	protected void Start()
 	{
 		renderer = GetComponent<SpriteRenderer>();
 	}
@@ -23,14 +23,17 @@ public class LogoTransition : MonoBehaviour
 	public void ShowLogo()
 	{
 		currentLogo = transitionLogos[nextTransition];
-		renderer.sprite = currentLogo;
-		nextTransition++;
-		if (nextTransition == transitionLogos.Length)
+		if (renderer)
 		{
-			nextTransition = 0;
+			renderer.sprite = currentLogo;
+			nextTransition++;
+			if (nextTransition == transitionLogos.Length)
+			{
+				nextTransition = 0;
+			}
+			StartCoroutine(FadingIn());
+			Invoke("FadeOut", startFadingOutTime);
 		}
-		StartCoroutine(FadingIn());
-		Invoke("FadeOut", startFadingOutTime);
 	}
 
 	private IEnumerator FadingIn()

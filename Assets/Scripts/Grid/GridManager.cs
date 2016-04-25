@@ -13,22 +13,32 @@ namespace Grid
 		private Vector2 gridSize = new Vector2(6, 40);
 		[SerializeField]
 		private GameObject prefab;
-		[SerializeField]
-		private List<GameObject> listOfGrid;
+		
+		private List<List<GameObject>> listOfGrid;
+
+        public List<List<GameObject>> ListOfGrid
+        {
+            get
+            {
+                return listOfGrid;
+            }
+            set
+            {
+                listOfGrid = value;
+            }
+        }
 
         protected void Awake()
 		{
-			for (int i = 0; i < gridSize.x; i++)
+			for (int i = 0; i < gridSize.y; i++)
 			{
-				for (int j = 0; j < gridSize.y; j++)
+				for (int j = 0; j < gridSize.x; j++)
 				{
 					GameObject gridInstance = (GameObject)Instantiate(prefab ,new Vector3(tileSize.x + i,tileSize.y + -j, 0), Quaternion.identity);
-					listOfGrid.Add(gridInstance);
-					gridInstance.name = "GridInstance: " + (i+1);
-				}
-				
+					listOfGrid[j].Add(gridInstance);
+					gridInstance.name = "GridInstance: " + (j+1);
+				}	
 			}
-			
 		}
 	}
 }

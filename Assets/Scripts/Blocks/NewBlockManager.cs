@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Grid;
 
-public class NewBlockManager : MonoBehaviour {
+public class NewBlockManager : MonoBehaviour
+{
+    [SerializeField]private GridManager gridManager;
+    private void Generation()
+    {
 
-	[SerializeField]private int fieldHeight;
-	[SerializeField]private int fieldWidth;
-
-
-	protected void Awake()
-	{
-
-	}
+    }
 }

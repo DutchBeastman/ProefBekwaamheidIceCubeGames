@@ -30,13 +30,17 @@ namespace Grid
 
         protected void Awake()
 		{
-			for (int i = 0; i < gridSize.y; i++)
+			listOfGrid = new List<List<GameObject>>();
+			for (int x = 0; x < gridSize.x; x++)
 			{
-				for (int j = 0; j < gridSize.x; j++)
+				List<GameObject> newList = new List<GameObject>();
+				listOfGrid.Add(newList);
+				for (int y = 0; y < gridSize.y; y++)
 				{
-					GameObject gridInstance = (GameObject)Instantiate(prefab ,new Vector3(tileSize.x + i,tileSize.y + -j, 0), Quaternion.identity);
-					listOfGrid[j].Add(gridInstance);
-					gridInstance.name = "GridInstance: " + (j+1);
+					GameObject gridInstance = (GameObject)Instantiate(prefab ,new Vector3(tileSize.x + x,tileSize.y + -y, 0), Quaternion.identity);
+					gridInstance.GetComponent<GridPoint>().GridPos = new Vector2(x , y);
+					listOfGrid[x].Add(gridInstance);
+					gridInstance.name = "GridInstance: " + (y+1);
 				}	
 			}
 		}

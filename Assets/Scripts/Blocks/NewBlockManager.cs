@@ -28,7 +28,7 @@ public class NewBlockManager : MonoBehaviour
 	private void CheckNextLinesNeighbours()
 	{
 		int currentLine = 0;
-		if (MathUtils.difference(-currentLine , playerPosition.position.y) < 10)
+		if (MathUtils.Difference(-currentLine , playerPosition.position.y) < 10)
 		{
 			for (int y = 0; y < gridManager.ListOfGrid.Count; y++)
 			{

@@ -22,17 +22,6 @@ namespace Grid
 				gridPos = value;
 			}
 		}
-		public Type PieceType
-		{
-			get
-			{
-				return type;
-			}
-			set
-			{
-				type = value;
-			}
-		}
 		public Block Block
 		{
 			get

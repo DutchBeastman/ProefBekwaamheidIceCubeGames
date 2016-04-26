@@ -21,14 +21,14 @@ public class PlayerMovementTest : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.A))
             {
-                if (MathUtils.difference(startX, transform.position.x) < 3 || transform.position.x > startX)
+                if (MathUtils.Difference(startX, transform.position.x) < 3 || transform.position.x > startX)
                 {
                     transform.position += Vector3.left;
                 }
             }
             if (Input.GetKey(KeyCode.D))
             {
-                if (MathUtils.difference(startX, transform.position.x) < 3 || transform.position.x < startX)
+                if (MathUtils.Difference(startX, transform.position.x) < 3 || transform.position.x < startX)
                 {
                     transform.position += Vector3.right;
                 }

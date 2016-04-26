@@ -9,12 +9,13 @@ public class NextStageTrigger : MonoBehaviour
 {
 	[SerializeField] private LogoTransition logo;
 	[SerializeField] private BlockManager manager;
-	void OnTriggerEnter2D(Collider2D col)
+
+	protected void OnTriggerEnter2D(Collider2D col)
 	{
 		if(col.name == "Player")
 		{
 			logo.ShowLogo();
-			col.transform.position = new Vector3(-2, 35, 0);
+			col.transform.position = new Vector3(col.transform.position.x, 35, 0);
 			manager.Reset();
 		}
 	}

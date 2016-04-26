@@ -47,7 +47,7 @@ public class BlockManager : MonoBehaviour
 	{
 		if (blocks != null)
 		{
-			if (MathUtils.difference(playerPosition.position.y , -nextLinePosition.y) < 15)
+			if (MathUtils.Difference(playerPosition.position.y , -nextLinePosition.y) < 15)
 			{
 				nextLine++;
 				CheckLinesNeighbours();
@@ -170,6 +170,8 @@ public class BlockManager : MonoBehaviour
 				}
 			}
 		}
+		nextLine = 0;
+		nextLinePosition.y = nextLine;
 		blocks = new List<List<Block>>();
 	}
 }

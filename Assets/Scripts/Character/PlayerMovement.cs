@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("colliders name" + hit.collider.name);
                 manager.KillTile(hit.collider.GetComponent<Block>());
 				canDig = false;
-				Invoke("ResetDigTime" , 0.7f);
+				Invoke("ResetDigTime" , 0.4f);
             }
         }
     }

@@ -8,7 +8,7 @@ namespace Grid
 	public class GridPoint : MonoBehaviour
 	{
 		private Vector2 gridPos;
-		private Type type;
+		private Block block;
 		private bool empty;
 
 		public Vector2 GridPos
@@ -31,6 +31,17 @@ namespace Grid
 			set
 			{
 				type = value;
+			}
+		}
+		public Block Block
+		{
+			get
+			{
+				return block;
+			}
+			set
+			{
+				block = value;
 			}
 		}
 		public bool Empty

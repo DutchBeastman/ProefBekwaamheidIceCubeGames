@@ -32,7 +32,7 @@ public class NewBlockManager : MonoBehaviour
 		{
 			for (int y = 0; y < gridManager.ListOfGrid.Count; y++)
 			{
-
+				
 			}
 		}
 	}

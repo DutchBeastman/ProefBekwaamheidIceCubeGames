@@ -58,17 +58,18 @@ public class Block : MonoBehaviour {
 		originX += Vector2.left * distance;
 		Vector2 originY = transform.position;
 		originY += Vector2.up * distance;
+
 		if (XAxis)
 		{
-			Debug.DrawRay(originX, Vector2.right, Color.green, originX.x * distance);
-			RaycastHit2D[] hitsX = Physics2D.RaycastAll(originX, Vector2.right, originX.x * distance);
+			Debug.DrawRay(originX, Vector2.right * distance * 2, Color.green, 2);
+			RaycastHit2D[] hitsX = Physics2D.RaycastAll(originX, Vector2.right, distance * 2);
 			Debug.Log(hitsX.Length + " X count");// WRONG NUMBER
 			return hitsX;
 		}
 		else
 		{
-			Debug.DrawRay(originY, Vector2.down, Color.red, originY.y * distance);
-			RaycastHit2D[] hitsY = Physics2D.RaycastAll(originY, Vector2.down, originY.y * distance);
+			Debug.DrawRay(originY, Vector2.down * distance * 2, Color.red, 2);
+			RaycastHit2D[] hitsY = Physics2D.RaycastAll(originY, Vector2.down, distance * 2);
 			Debug.Log(hitsY.Length + " Y count");// WRONG NUMBER
 			return hitsY;
 		}
@@ -120,7 +121,11 @@ public class Block : MonoBehaviour {
 		RaycastHit2D[] hitsY = GetNeighbours(false);
 		for (int i = 0; i < hitsY.Length-1; i++)
 		{
-			hitsY[i].transform.GetComponent<Block>().StartFalling();
+			Block b;
+			if (b = hitsY[i].transform.GetComponent<Block>())
+			{
+				b.StartFalling();
+			}
 		}
 	}
 

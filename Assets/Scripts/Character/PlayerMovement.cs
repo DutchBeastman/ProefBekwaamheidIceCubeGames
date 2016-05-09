@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		rigid.AddRelativeForce(new Vector2(Mathf.Clamp(Input.GetAxis("Horizontal") * Time.deltaTime * 300,-6,6), 0) , ForceMode2D.Force);
 		rigid.velocity = new Vector2(Mathf.Clamp(Input.GetAxis("Horizontal") * Time.deltaTime * 300 , -6 , 6) , 0);
-		Debug.Log(new Vector2(Input.GetAxis("Horizontal") * Time.deltaTime * 300, 0));
+		//Debug.Log(new Vector2(Input.GetAxis("Horizontal") * Time.deltaTime * 300, 0));
 	}
     protected void Update()
     {
@@ -34,7 +34,8 @@ public class PlayerMovement : MonoBehaviour
             {
 				//Here we remove a block, and set the digging unavailiable and start the reset timer
                 Debug.Log("colliders name" + hit.collider.name);
-                manager.KillTile(hit.collider.GetComponent<Block>());
+				//manager.KillTile(hit.collider.GetComponent<Block>());
+				hit.collider.GetComponent<Block>().GetKilled();
 				canDig = false;
 				Invoke("ResetDigTime" , 0.4f);
             }

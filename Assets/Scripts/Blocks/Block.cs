@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public enum Type
 {
@@ -40,12 +41,145 @@ public class Block : MonoBehaviour {
 	private float threeQuarter = 4f;
 
 
+	private bool falling = false;
+
 	private SpriteRenderer rend;
 
 	private void Awake()
 	{
 		rend = gameObject.GetComponent<SpriteRenderer>();
 		SetOffset();
+	}
+
+	private RaycastHit2D[] GetNeighbours(bool XAxis)
+	{
+		float distance = transform.localScale.x + 0.1f;
+		Vector2 originX = transform.position;
+		originX += Vector2.left * distance;
+		Vector2 originY = transform.position;
+		originY += Vector2.up * distance;
+		if (XAxis)
+		{
+			Debug.DrawRay(originX, Vector2.right, Color.green, originX.x * distance);
+			RaycastHit2D[] hitsX = Physics2D.RaycastAll(originX, Vector2.right, originX.x * distance);
+			Debug.Log(hitsX.Length + " X count");// WRONG NUMBER
+			return hitsX;
+		}
+		else
+		{
+			Debug.DrawRay(originY, Vector2.down, Color.red, originY.y * distance);
+			RaycastHit2D[] hitsY = Physics2D.RaycastAll(originY, Vector2.down, originY.y * distance);
+			Debug.Log(hitsY.Length + " Y count");// WRONG NUMBER
+			return hitsY;
+		}
+	}
+
+	public void CheckNeighboursFalling()
+	{
+		RaycastHit2D[] hitsX = GetNeighbours(true);
+		for (int i = 0; i < hitsX.Length; i++)
+		{
+			if(hitsX[i].transform.name != this.name)
+			{
+				Block b;
+				if (b = hitsX[i].transform.GetComponent<Block>())
+				{
+					if (b.type == this.type && !b.falling)
+					{
+						falling = false;
+					}
+				}
+			}
+		}
+		RaycastHit2D[] hitsY = GetNeighbours(false);
+		for (int i = 0; i < hitsY.Length; i++)
+		{
+			if (hitsY[i].transform.name != this.name)
+			{
+				Block b;
+				if (b = hitsY[i].transform.GetComponent<Block>())
+				{
+					if (!b.falling)
+					{
+						falling = false;
+					}
+				}
+			}
+		}
+	}
+
+	public void GetKilled()
+	{
+		Debug.Log("log getting killed");
+		TellNeighboursToFall();
+		KillGroup();
+	}
+
+	private void TellNeighboursToFall()
+	{
+		RaycastHit2D[] hitsY = GetNeighbours(false);
+		for (int i = 0; i < hitsY.Length-1; i++)
+		{
+			hitsY[i].transform.GetComponent<Block>().StartFalling();
+		}
+	}
+
+	public void KillGroup()
+	{
+		killed = true;
+		RaycastHit2D[] hitsX = GetNeighbours(true);
+		Debug.Log("Length of xAxis neighbours " + hitsX.Length);
+		for (int i = 0; i < hitsX.Length; i++)
+		{
+			if (hitsX[i].transform.name != this.name)
+			{
+				Block b;
+				if (b = hitsX[i].transform.GetComponent<Block>())
+				{
+					if (b.type == this.type && !b.killed)
+					{
+						b.KillGroup();
+						Debug.Log("neighbour block on y axis");
+					}
+				}
+			}
+		}
+		RaycastHit2D[] hitsY = GetNeighbours(false);
+		Debug.Log("Length of yAxis neighbours " + hitsY.Length);
+		for (int i = 0; i < hitsY.Length; i++)
+		{
+			if (hitsY[i].transform.name != this.name)
+			{
+				Block b;
+				if (b = hitsY[i].transform.GetComponent<Block>())
+				{
+					if (b.type == this.type && !b.killed)
+					{
+						b.KillGroup();
+						Debug.Log("neighbour block on x axis");
+					}
+				}
+			}
+		}
+		Destroy(gameObject);
+	}
+
+	public void StartFalling()
+	{
+		falling = true;
+		StartCoroutine(Falling());
+	}
+
+	public void StopFalling()
+	{
+		falling = false;
+		StopCoroutine(Falling());
+	}
+
+	private IEnumerator Falling()
+	{
+		transform.Translate(0, 0.1f, 0);
+		yield return new WaitForSeconds(0.1f);
 	}
 
 	public void SetOffset()

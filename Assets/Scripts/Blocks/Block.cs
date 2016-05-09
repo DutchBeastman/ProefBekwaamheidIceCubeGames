@@ -61,14 +61,14 @@ public class Block : MonoBehaviour {
 
 		if (XAxis)
 		{
-			Debug.DrawRay(originX, Vector2.right * distance * 2, Color.green, 2);
+			//Debug.DrawRay(originX, Vector2.right * distance * 2, Color.green, 2);
 			RaycastHit2D[] hitsX = Physics2D.RaycastAll(originX, Vector2.right, distance * 2);
 			Debug.Log(hitsX.Length + " X count");// WRONG NUMBER
 			return hitsX;
 		}
 		else
 		{
-			Debug.DrawRay(originY, Vector2.down * distance * 2, Color.red, 2);
+			//Debug.DrawRay(originY, Vector2.down * distance * 2, Color.red, 2);
 			RaycastHit2D[] hitsY = Physics2D.RaycastAll(originY, Vector2.down, distance * 2);
 			Debug.Log(hitsY.Length + " Y count");// WRONG NUMBER
 			return hitsY;
@@ -119,7 +119,7 @@ public class Block : MonoBehaviour {
 	private void TellNeighboursToFall()
 	{
 		RaycastHit2D[] hitsY = GetNeighbours(false);
-		for (int i = 0; i < hitsY.Length-1; i++)
+		for (int i = 0; i < hitsY.Length; i++)
 		{
 			Block b;
 			if (b = hitsY[i].transform.GetComponent<Block>())
@@ -136,16 +136,15 @@ public class Block : MonoBehaviour {
 		Debug.Log("Length of xAxis neighbours " + hitsX.Length);
 		for (int i = 0; i < hitsX.Length; i++)
 		{
-			if (hitsX[i].transform.name != this.name)
+			Debug.Log(i);
+			Block b;
+			if (b = hitsX[i].transform.GetComponent<Block>())
 			{
-				Block b;
-				if (b = hitsX[i].transform.GetComponent<Block>())
+				Debug.Log(i);
+				if (b.type == this.type && !b.killed)
 				{
-					if (b.type == this.type && !b.killed)
-					{
-						b.KillGroup();
-						Debug.Log("neighbour block on y axis");
-					}
+					b.GetKilled();
+					Debug.Log("neighbour block on y axis");
 				}
 			}
 		}
@@ -153,16 +152,13 @@ public class Block : MonoBehaviour {
 		Debug.Log("Length of yAxis neighbours " + hitsY.Length);
 		for (int i = 0; i < hitsY.Length; i++)
 		{
-			if (hitsY[i].transform.name != this.name)
+			Block b;
+			if (b = hitsY[i].transform.GetComponent<Block>())
 			{
-				Block b;
-				if (b = hitsY[i].transform.GetComponent<Block>())
+				if (b.type == this.type && !b.killed)
 				{
-					if (b.type == this.type && !b.killed)
-					{
-						b.KillGroup();
-						Debug.Log("neighbour block on x axis");
-					}
+					b.GetKilled();
+					Debug.Log("neighbour block on x axis");
 				}
 			}
 		}
@@ -183,7 +179,7 @@ public class Block : MonoBehaviour {
 
 	private IEnumerator Falling()
 	{
-		transform.Translate(0, 0.1f, 0);
+		transform.Translate(0, 0.01f, 0);
 		yield return new WaitForSeconds(0.1f);
 	}
 

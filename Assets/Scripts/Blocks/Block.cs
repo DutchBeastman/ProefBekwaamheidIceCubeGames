@@ -221,15 +221,20 @@ public class Block : MonoBehaviour {
 	{
 		if (falling)
 		{
-			transform.Translate(0, -0.05f, 0);
-		}
-	}
-
-	private void OnCollisionEnter2D(Collision2D col)
-	{
-		if(col.gameObject.name != "Player")
-		{
-			falling = false;
+			transform.Translate(0, -0.01f, 0);
+			Vector2 originPoint = transform.position;
+			originPoint.y += -0.5f;
+			Vector2 downVec = new Vector2(0 , -0.05f);
+			RaycastHit2D hit = Physics2D.Raycast(originPoint, downVec);
+			Debug.DrawRay(originPoint , downVec , Color.cyan , 10);
+			if (hit.collider != null && hit.collider.name != "Player" && hit.collider != this.GetComponent<Collider2D>())
+			{
+				Debug.Log(hit.collider.name);
+				if (hit.collider.gameObject.GetComponent<Block>().falling == false && hit.collider != this.GetComponent<Collider2D>())
+				{
+					StopFalling();
+				}
+			}
 		}
 	}
 

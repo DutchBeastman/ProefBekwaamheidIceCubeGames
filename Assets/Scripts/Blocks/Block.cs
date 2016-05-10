@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 
 public enum Type
@@ -9,6 +10,12 @@ public enum Type
 	// Air,
 	Empty
 }
+
+public enum Side
+{
+	sides = 0, up, down
+}
+
 public class Block : MonoBehaviour {
 
 	[SerializeField]private Sprite[] tileSprites = new Sprite[16];
@@ -51,58 +58,66 @@ public class Block : MonoBehaviour {
 		SetOffset();
 	}
 
-	private RaycastHit2D[] GetNeighbours(bool XAxis)
+	private List<RaycastHit2D> GetNeighbours(Side side)
 	{
 		float distance = transform.localScale.x + 0.1f;
-		Vector2 originX = transform.position;
-		originX += Vector2.left * distance;
-		Vector2 originY = transform.position;
-		originY += Vector2.up * distance;
+		Vector2 origin = transform.position;
 
-		if (XAxis)
+		List<RaycastHit2D> hits = new List<RaycastHit2D>();
+		switch(side)
 		{
-			//Debug.DrawRay(originX, Vector2.right * distance * 2, Color.green, 2);
-			RaycastHit2D[] hitsX = Physics2D.RaycastAll(originX, Vector2.right, distance * 2);
-			Debug.Log(hitsX.Length + " X count");// WRONG NUMBER
-			return hitsX;
+			case Side.sides:
+				hits.Add(Physics2D.Raycast(origin + (Vector2.left * distance), Vector2.left, 0.1f));
+				hits.Add(Physics2D.Raycast(origin + (Vector2.right * distance), Vector2.right, 0.1f));
+				Debug.DrawRay(origin + (Vector2.left * distance), Vector2.left * 0.1f, Color.green, 2);
+				Debug.DrawRay(origin + (Vector2.right * distance), Vector2.right * 0.1f, Color.yellow, 2);
+				break;
+			case Side.up:
+				hits.Add(Physics2D.Raycast(origin + (Vector2.up * distance), Vector2.up, 0.1f));
+				Debug.DrawRay(origin + (Vector2.up * distance), Vector2.up * 0.1f, Color.blue, 2);
+				break;
+			case Side.down:
+				hits.Add(Physics2D.Raycast(origin + (Vector2.down * distance), Vector2.down, 0.1f));
+				Debug.DrawRay(origin + (Vector2.down * distance), Vector2.down * 0.1f, Color.red, 2);
+				break;
 		}
-		else
-		{
-			//Debug.DrawRay(originY, Vector2.down * distance * 2, Color.red, 2);
-			RaycastHit2D[] hitsY = Physics2D.RaycastAll(originY, Vector2.down, distance * 2);
-			Debug.Log(hitsY.Length + " Y count");// WRONG NUMBER
-			return hitsY;
-		}
+		return hits;
 	}
 
 	public void CheckNeighboursFalling()
 	{
-		RaycastHit2D[] hitsX = GetNeighbours(true);
-		for (int i = 0; i < hitsX.Length; i++)
+		List<RaycastHit2D> hitsX = GetNeighbours(Side.sides);
+		for (int i = 0; i < hitsX.Count; i++)
 		{
-			if(hitsX[i].transform.name != this.name)
+			if (hitsX[i].collider != null)
 			{
-				Block b;
-				if (b = hitsX[i].transform.GetComponent<Block>())
+				if (hitsX[i].transform.name != gameObject.name)
 				{
-					if (b.type == this.type && !b.falling && !b.killed)
+					Block b;
+					if (b = hitsX[i].transform.GetComponent<Block>())
 					{
-						falling = false;
+						if (b.type == this.type && !b.falling && !b.killed)
+						{
+							falling = false;
+						}
 					}
 				}
 			}
 		}
-		RaycastHit2D[] hitsY = GetNeighbours(false);
-		for (int i = 0; i < hitsY.Length; i++)
+		List<RaycastHit2D> hitsYDown = GetNeighbours(Side.down);
+		for (int i = 0; i < hitsYDown.Count; i++)
 		{
-			if (hitsY[i].transform.name != this.name)
+			if (hitsYDown[i].collider != null)
 			{
-				Block b;
-				if (b = hitsY[i].transform.GetComponent<Block>())
+				if (hitsYDown[i].transform.name != this.name)
 				{
-					if (!b.falling && !b.killed)
+					Block b;
+					if (b = hitsYDown[i].transform.GetComponent<Block>())
 					{
-						falling = false;
+						if (!b.falling && !b.killed)
+						{
+							falling = false;
+						}
 					}
 				}
 			}
@@ -111,20 +126,27 @@ public class Block : MonoBehaviour {
 
 	public void GetKilled()
 	{
-		Debug.Log("log getting killed");
+		killed = true;
 		TellNeighboursToFall();
 		KillGroup();
 	}
 
 	private void TellNeighboursToFall()
 	{
-		RaycastHit2D[] hitsY = GetNeighbours(false);
-		for (int i = 0; i < hitsY.Length; i++)
+		List<RaycastHit2D> hitsYUp = GetNeighbours(Side.up);
+		for (int i = 0; i < hitsYUp.Count; i++)
 		{
 			Block b;
-			if (b = hitsY[i].transform.GetComponent<Block>())
+			if(hitsYUp[i].collider != null)
 			{
-				b.StartFalling();
+				if (hitsYUp[i].collider.transform.GetComponent<Block>() != null)
+				{
+					b = hitsYUp[i].transform.GetComponent<Block>();
+					if (!b.killed)
+					{
+						b.StartFalling();
+					}
+				}
 			}
 		}
 	}
@@ -132,31 +154,51 @@ public class Block : MonoBehaviour {
 	public void KillGroup()
 	{
 		killed = true;
-		RaycastHit2D[] hitsX = GetNeighbours(true);
-		Debug.Log("Length of xAxis neighbours " + hitsX.Length);
-		for (int i = 0; i < hitsX.Length; i++)
+		List<RaycastHit2D> hitsX = GetNeighbours(Side.sides);
+		for (int i = 0; i < hitsX.Count; i++)
 		{
 			Block b;
-			if (b = hitsX[i].transform.GetComponent<Block>())
+			if (hitsX[i].collider != null)
 			{
-				if (b.type == this.type && !b.killed)
+				if (hitsX[i].transform.GetComponent<Block>())
 				{
-					b.GetKilled();
-					Debug.Log("neighbour block on y axis");
+					b = hitsX[i].transform.GetComponent<Block>();
+					if (b.type == this.type && !b.killed)
+					{
+						b.GetKilled();
+					}
 				}
 			}
 		}
-		RaycastHit2D[] hitsY = GetNeighbours(false);
-		Debug.Log("Length of yAxis neighbours " + hitsY.Length);
-		for (int i = 0; i < hitsY.Length; i++)
+		List<RaycastHit2D> hitsYUp = GetNeighbours(Side.up);
+		for (int i = 0; i < hitsYUp.Count; i++)
 		{
 			Block b;
-			if (b = hitsY[i].transform.GetComponent<Block>())
+			if (hitsYUp[i].collider != null)
 			{
-				if (b.type == this.type && !b.killed)
+				if (hitsYUp[i].transform.GetComponent<Block>())
 				{
-					b.GetKilled();
-					Debug.Log("neighbour block on x axis");
+					b = hitsYUp[i].transform.GetComponent<Block>();
+					if (b.type == this.type && !b.killed)
+					{
+						b.GetKilled();
+					}
+				}
+			}
+		}
+		List<RaycastHit2D> hitsYDown = GetNeighbours(Side.down);
+		for (int i = 0; i < hitsYDown.Count; i++)
+		{
+			Block b;
+			if (hitsYDown[i].collider != null)
+			{
+				if (hitsYDown[i].transform.GetComponent<Block>())
+				{
+					b = hitsYDown[i].transform.GetComponent<Block>();
+					if (b.type == this.type && !b.killed)
+					{
+						b.GetKilled();
+					}
 				}
 			}
 		}
@@ -166,21 +208,28 @@ public class Block : MonoBehaviour {
 	public void StartFalling()
 	{
 		CheckNeighboursFalling();
-		StartCoroutine(Falling());
+		TellNeighboursToFall();
+		falling = true;
 	}
 
 	public void StopFalling()
 	{
 		falling = false;
-		StopCoroutine(Falling());
 	}
 
-	private IEnumerator Falling()
+	private void Update()
 	{
 		if (falling)
 		{
 			transform.Translate(0, -0.05f, 0);
-			yield return new WaitForSeconds(0.05f);
+		}
+	}
+
+	protected void OnCollisionEnter2D(Collider col)
+	{
+		if(col.name != "Player")
+		{
+			falling = false;
 		}
 	}
 

@@ -225,9 +225,9 @@ public class Block : MonoBehaviour {
 		}
 	}
 
-	protected void OnCollisionEnter2D(Collider col)
+	private void OnCollisionEnter2D(Collision2D col)
 	{
-		if(col.name != "Player")
+		if(col.gameObject.name != "Player")
 		{
 			falling = false;
 		}

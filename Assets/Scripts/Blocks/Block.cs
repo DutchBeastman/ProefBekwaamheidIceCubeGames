@@ -85,7 +85,7 @@ public class Block : MonoBehaviour {
 				Block b;
 				if (b = hitsX[i].transform.GetComponent<Block>())
 				{
-					if (b.type == this.type && !b.falling)
+					if (b.type == this.type && !b.falling && !b.killed)
 					{
 						falling = false;
 					}
@@ -100,7 +100,7 @@ public class Block : MonoBehaviour {
 				Block b;
 				if (b = hitsY[i].transform.GetComponent<Block>())
 				{
-					if (!b.falling)
+					if (!b.falling && !b.killed)
 					{
 						falling = false;
 					}
@@ -136,11 +136,9 @@ public class Block : MonoBehaviour {
 		Debug.Log("Length of xAxis neighbours " + hitsX.Length);
 		for (int i = 0; i < hitsX.Length; i++)
 		{
-			Debug.Log(i);
 			Block b;
 			if (b = hitsX[i].transform.GetComponent<Block>())
 			{
-				Debug.Log(i);
 				if (b.type == this.type && !b.killed)
 				{
 					b.GetKilled();
@@ -167,7 +165,7 @@ public class Block : MonoBehaviour {
 
 	public void StartFalling()
 	{
-		falling = true;
+		CheckNeighboursFalling();
 		StartCoroutine(Falling());
 	}
 
@@ -179,8 +177,11 @@ public class Block : MonoBehaviour {
 
 	private IEnumerator Falling()
 	{
-		transform.Translate(0, 0.01f, 0);
-		yield return new WaitForSeconds(0.1f);
+		if (falling)
+		{
+			transform.Translate(0, -0.05f, 0);
+			yield return new WaitForSeconds(0.05f);
+		}
 	}
 
 	public void SetOffset()

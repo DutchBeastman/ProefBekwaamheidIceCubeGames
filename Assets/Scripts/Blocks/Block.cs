@@ -52,9 +52,12 @@ public class Block : MonoBehaviour {
 
 	private SpriteRenderer rend;
 
+	private Rigidbody2D rigid2D;
+
 	private void Awake()
 	{
 		rend = gameObject.GetComponent<SpriteRenderer>();
+		rigid2D = gameObject.GetComponent<Rigidbody2D>();
 		SetOffset();
 	}
 
@@ -209,36 +212,38 @@ public class Block : MonoBehaviour {
 	{
 		CheckNeighboursFalling();
 		TellNeighboursToFall();
+		Invoke("fall" , 0.3f);
+	}
+	private void fall()
+	{
 		falling = true;
 	}
 
 	public void StopFalling()
 	{
 		falling = false;
+		rigid2D.isKinematic = true;
 	}
 
 	private void Update()
 	{
 		if (falling)
 		{
-			transform.Translate(0, -0.01f, 0);
-			Vector2 originPoint = transform.position;
-			originPoint.y += -0.5f;
-			Vector2 downVec = new Vector2(0 , -0.05f);
-			RaycastHit2D hit = Physics2D.Raycast(originPoint, downVec);
-			Debug.DrawRay(originPoint , downVec , Color.cyan , 10);
-			if (hit.collider != null && hit.collider.name != "Player" && hit.collider != this.GetComponent<Collider2D>())
+			rigid2D.isKinematic = false;
+		}
+	}
+	private void OnCollisionEnter2D(Collision2D coll)
+	{
+		if (coll.collider.name != "Player")
+		{
+			if (rigid2D.velocity.y > 0.2f)
 			{
-				Debug.Log(hit.collider.name);
-				if (hit.collider.gameObject.GetComponent<Block>().falling == false && hit.collider != this.GetComponent<Collider2D>())
-				{
-					StopFalling();
-				}
+				Invoke("StopFalling" , 0.1f);
+				Debug.Log(coll.collider);
 			}
 		}
 	}
-
-	public void SetOffset()
+    public void SetOffset()
 	{
 		if (neighbourUp)
 		{

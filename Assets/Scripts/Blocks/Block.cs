@@ -52,9 +52,12 @@ public class Block : MonoBehaviour {
 
 	private SpriteRenderer rend;
 
+	private Rigidbody2D rigid2D;
+
 	private void Awake()
 	{
 		rend = gameObject.GetComponent<SpriteRenderer>();
+		rigid2D = gameObject.GetComponent<Rigidbody2D>();
 		SetOffset();
 	}
 
@@ -209,31 +212,38 @@ public class Block : MonoBehaviour {
 	{
 		CheckNeighboursFalling();
 		TellNeighboursToFall();
+		Invoke("fall" , 0.3f);
+	}
+	private void fall()
+	{
 		falling = true;
 	}
 
 	public void StopFalling()
 	{
 		falling = false;
+		rigid2D.isKinematic = true;
 	}
 
 	private void Update()
 	{
 		if (falling)
 		{
-			transform.Translate(0, -0.05f, 0);
+			rigid2D.isKinematic = false;
 		}
 	}
-
-	private void OnCollisionEnter2D(Collision2D col)
+	private void OnCollisionEnter2D(Collision2D coll)
 	{
-		if(col.gameObject.name != "Player")
+		if (coll.collider.name != "Player")
 		{
-			falling = false;
+			if (rigid2D.velocity.y > 0.2f)
+			{
+				Invoke("StopFalling" , 0.1f);
+				Debug.Log(coll.collider);
+			}
 		}
 	}
-
-	public void SetOffset()
+    public void SetOffset()
 	{
 		if (neighbourUp)
 		{

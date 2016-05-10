@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11462554}
   - 61: {fileID: 6116004}
   m_Layer: 0
-  m_Name: PurpleTile
+  m_Name: BlueBerry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

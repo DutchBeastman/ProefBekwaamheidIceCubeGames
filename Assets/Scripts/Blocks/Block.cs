@@ -239,7 +239,6 @@ public class Block : MonoBehaviour {
 			if (rigid2D.velocity.y > 0.2f)
 			{
 				Invoke("StopFalling" , 0.1f);
-				Debug.Log(coll.collider);
 			}
 		}
 	}

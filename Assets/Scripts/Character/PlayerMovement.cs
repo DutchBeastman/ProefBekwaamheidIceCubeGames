@@ -17,16 +17,23 @@ public class PlayerMovement : MonoBehaviour
 	private Rigidbody2D rigid;
 	private DrillDirection drillDir;
 	private bool canClimb = true;
+	private Vector2 playerPosition;
 
 	protected void Awake()
 	{
+		playerPosition = new Vector2(0 , 10);
 		rigid = GetComponent<Rigidbody2D>();
 		canDig = true;
 	}
 	protected void FixedUpdate()
 	{
-		rigid.AddRelativeForce(new Vector2(Mathf.Clamp(Input.GetAxis("Horizontal") * Time.deltaTime * 300,-6,6), 0) , ForceMode2D.Force);
+		playerPosition = new Vector2(Input.GetAxisRaw("Horizontal") , transform.position.y);
+		transform.position = playerPosition;
+		rigid.isKinematic = true;
+		/* Old movement
+		rigid.AddRelativeForce(new Vector2(Mathf.Clamp(Input.GetAxis("Horizontal") * Time.deltaTime * 300 , -6 , 6) , 0) , ForceMode2D.Force);
 		rigid.velocity = new Vector2(Mathf.Clamp(Input.GetAxis("Horizontal") * Time.deltaTime * 300 , -6 , 6) , 0);
+		*/
 
 		if (canClimb)
 		{

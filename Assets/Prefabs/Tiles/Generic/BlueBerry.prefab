@@ -91,6 +91,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: acb118a38e428af49a6bd89b37e58255, type: 3}
   - {fileID: 21300000, guid: acb118a38e428af49a6bd89b37e58255, type: 3}
   - {fileID: 21300000, guid: acb118a38e428af49a6bd89b37e58255, type: 3}
+  lives: 1
+  points: 20
+  damage: 1
+  killNeighbours: 1
+  unbreakable: 0
   type: 2
   killed: 0
   neighbourUp: 0

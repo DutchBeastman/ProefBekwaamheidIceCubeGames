@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿//Fabian Verkuijlen
+//Created on: 15/04/2016
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
 
 public enum Type
 {
-	Blue = 0, Red, Purple, Yellow,
+	Blue = 0, Red, Purple, Yellow, HardToGetThrough,
 	// Hard,
 	// Air,
 	Empty
@@ -18,7 +21,13 @@ public enum Side
 
 public class Block : MonoBehaviour {
 
-	[SerializeField]private Sprite[] tileSprites = new Sprite[16];
+	[SerializeField] private Sprite[] tileSprites = new Sprite[16];
+	[SerializeField] private int lives;
+	[SerializeField] public int points;
+	[SerializeField] public int damage;
+	[SerializeField] private bool killNeighbours;
+	[SerializeField] private bool unbreakable;
+
 	private Vector2 position;
 	public Type type;
     public bool killed;
@@ -94,7 +103,7 @@ public class Block : MonoBehaviour {
 		{
 			if (hitsX[i].collider != null)
 			{
-				if (hitsX[i].transform.name != gameObject.name)
+				if (hitsX[i].transform.name != this.name)
 				{
 					Block b;
 					if (b = hitsX[i].transform.GetComponent<Block>())
@@ -157,55 +166,42 @@ public class Block : MonoBehaviour {
 	public void KillGroup()
 	{
 		killed = true;
-		List<RaycastHit2D> hitsX = GetNeighbours(Side.sides);
-		for (int i = 0; i < hitsX.Count; i++)
+
+		if (killNeighbours)
+		{
+			List<RaycastHit2D> hitsX = GetNeighbours(Side.sides);
+			KillNeighbour (hitsX);
+			List<RaycastHit2D> hitsYUp = GetNeighbours(Side.up);
+			KillNeighbour (hitsYUp);
+			List<RaycastHit2D> hitsYDown = GetNeighbours(Side.down);
+			KillNeighbour (hitsYDown);
+		}
+
+		lives --;
+
+		if(lives == 0 && !unbreakable)
+		{
+			Destroy (gameObject);
+		}
+	}
+
+	private void KillNeighbour (List<RaycastHit2D> list)
+	{
+		for (int i = 0; i < list.Count; i++)
 		{
 			Block b;
-			if (hitsX[i].collider != null)
+			if (list[i].collider != null)
 			{
-				if (hitsX[i].transform.GetComponent<Block>())
+				if (list[i].transform.GetComponent<Block> ())
 				{
-					b = hitsX[i].transform.GetComponent<Block>();
+					b = list[i].transform.GetComponent<Block> ();
 					if (b.type == this.type && !b.killed)
 					{
-						b.GetKilled();
+						b.GetKilled ();
 					}
 				}
 			}
 		}
-		List<RaycastHit2D> hitsYUp = GetNeighbours(Side.up);
-		for (int i = 0; i < hitsYUp.Count; i++)
-		{
-			Block b;
-			if (hitsYUp[i].collider != null)
-			{
-				if (hitsYUp[i].transform.GetComponent<Block>())
-				{
-					b = hitsYUp[i].transform.GetComponent<Block>();
-					if (b.type == this.type && !b.killed)
-					{
-						b.GetKilled();
-					}
-				}
-			}
-		}
-		List<RaycastHit2D> hitsYDown = GetNeighbours(Side.down);
-		for (int i = 0; i < hitsYDown.Count; i++)
-		{
-			Block b;
-			if (hitsYDown[i].collider != null)
-			{
-				if (hitsYDown[i].transform.GetComponent<Block>())
-				{
-					b = hitsYDown[i].transform.GetComponent<Block>();
-					if (b.type == this.type && !b.killed)
-					{
-						b.GetKilled();
-					}
-				}
-			}
-		}
-		Destroy(gameObject);
 	}
 
 	public void StartFalling()

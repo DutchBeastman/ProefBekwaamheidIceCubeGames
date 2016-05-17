@@ -13,23 +13,27 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]private BlockManager manager;
 	[SerializeField]private float resetDigTime;
+
 	private bool canDig;
+	private bool canClimb = true;
+
 	private Rigidbody2D rigid;
 	private DrillDirection drillDir;
-	private bool canClimb = true;
 	private Vector2 playerPosition;
+	private bool canMove = true;
 
 	protected void Awake()
 	{
-		playerPosition = new Vector2(0 , 10);
+		playerPosition = new Vector2(0 , 15);
 		rigid = GetComponent<Rigidbody2D>();
 		canDig = true;
 	}
 	protected void FixedUpdate()
 	{
-		playerPosition = new Vector2(Input.GetAxisRaw("Horizontal") , transform.position.y);
-		transform.position = playerPosition;
-		rigid.isKinematic = true;
+
+		Move();
+		//playerPosition = new Vector2(transform.position.x + (Mathf.Clamp(Input.GetAxisRaw("Horizontal") * transform.localScale.x, -transform.localScale.x , transform.localScale.x) ), transform.position.y);
+		///transform.position = playerPosition;
 		/* Old movement
 		rigid.AddRelativeForce(new Vector2(Mathf.Clamp(Input.GetAxis("Horizontal") * Time.deltaTime * 300 , -6 , 6) , 0) , ForceMode2D.Force);
 		rigid.velocity = new Vector2(Mathf.Clamp(Input.GetAxis("Horizontal") * Time.deltaTime * 300 , -6 , 6) , 0);
@@ -94,6 +98,31 @@ public class PlayerMovement : MonoBehaviour
 			drillDir = DrillDirection.right;
 		}
     }
+	private void Move()
+	{
+		if (Mathf.RoundToInt(Input.GetAxis("Horizontal")) == 0)
+		{
+			canMove = true;
+		}
+		if (canMove)
+		{
+			Debug.Log(Input.GetAxis("Horizontal"));
+			if (Input.GetAxis("Horizontal") > 0)
+			{
+				playerPosition = new Vector2(transform.position.x + 1, transform.position.y);
+				transform.position = playerPosition;
+				//rigid.AddRelativeForce(playerPosition);
+				canMove = false;
+			}
+			else if (Input.GetAxis("Horizontal") < 0)
+			{
+				playerPosition = new Vector2(transform.position.x - 1, transform.position.y);
+				transform.position = playerPosition;
+				//rigid.AddRelativeForce(playerPosition);
+				canMove = false;
+			}
+		}
+	}
 	/// <summary>
 	/// Is in place for the dig funtion to be able to execute after a certain time.
 	/// </summary>

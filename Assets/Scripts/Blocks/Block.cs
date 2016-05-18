@@ -43,7 +43,7 @@ public class Block : MonoBehaviour {
 		}
 	}
 
-	//Testing Purposes
+	//Testing Purpose
 	/*[HideInInspector]*/ public bool neighbourUp;
 	/*[HideInInspector]*/ public bool neighbourRight;
 	/*[HideInInspector]*/ public bool neighbourDown;
@@ -67,7 +67,7 @@ public class Block : MonoBehaviour {
 	{
 		rend = gameObject.GetComponent<SpriteRenderer>();
 		rigid2D = gameObject.GetComponent<Rigidbody2D>();
-		SetOffset();
+		//Invoke("SetOffset", 0.1f);
 	}
 
 	private List<RaycastHit2D> GetNeighbours(Side side)
@@ -78,18 +78,56 @@ public class Block : MonoBehaviour {
 		List<RaycastHit2D> hits = new List<RaycastHit2D>();
 		switch(side)
 		{
+			/// sides
 			case Side.sides:
+				/// left
 				hits.Add(Physics2D.Raycast(origin + (Vector2.left * distance), Vector2.left, 0.1f));
+				/*
+				if (hits[hits.Count - 1].collider != null && hits[hits.Count - 1].collider.GetComponent<Block> ())
+				{
+					if (hits[hits.Count - 1].collider.GetComponent<Block> ().type == type)
+					{
+						neighbourLeft = true;
+					}
+				}*/
+				/// right
 				hits.Add(Physics2D.Raycast(origin + (Vector2.right * distance), Vector2.right, 0.1f));
+				/*if (hits[hits.Count - 1].collider != null && hits[hits.Count - 1].collider.GetComponent<Block> ())
+				{
+					if (hits[hits.Count - 1].collider.GetComponent<Block> ().type == type)
+					{
+						neighbourRight = true;
+					}
+				}*/
 				Debug.DrawRay(origin + (Vector2.left * distance), Vector2.left * 0.1f, Color.green, 2);
 				Debug.DrawRay(origin + (Vector2.right * distance), Vector2.right * 0.1f, Color.yellow, 2);
 				break;
+
+			/// up
 			case Side.up:
 				hits.Add(Physics2D.Raycast(origin + (Vector2.up * distance), Vector2.up, 0.1f));
+				/*if (hits[hits.Count - 1].collider != null && hits[hits.Count - 1].collider.GetComponent<Block> ())
+				{
+
+					if (hits[hits.Count - 1].collider.GetComponent<Block> ().type == type)
+					{
+						neighbourUp = true;
+					}
+				}*/
 				Debug.DrawRay(origin + (Vector2.up * distance), Vector2.up * 0.1f, Color.blue, 2);
 				break;
+
+			/// down
 			case Side.down:
 				hits.Add(Physics2D.Raycast(origin + (Vector2.down * distance), Vector2.down, 0.1f));
+				/*if (hits[hits.Count - 1].collider != null && hits[hits.Count - 1].collider.GetComponent<Block> ())
+				{
+
+					if (hits[hits.Count - 1].collider.GetComponent<Block> ().type == type)
+					{
+						neighbourDown = true;
+					}
+				}*/
 				Debug.DrawRay(origin + (Vector2.down * distance), Vector2.down * 0.1f, Color.red, 2);
 				break;
 		}
@@ -140,6 +178,7 @@ public class Block : MonoBehaviour {
 	{
 		killed = true;
 		TellNeighboursToFall();
+		EventManager.TriggerEvent("GetPoints" + points);
 		KillGroup();
 	}
 
@@ -210,6 +249,7 @@ public class Block : MonoBehaviour {
 		TellNeighboursToFall();
 		Invoke("fall" , 0.3f);
 	}
+
 	private void fall()
 	{
 		falling = true;
@@ -238,8 +278,16 @@ public class Block : MonoBehaviour {
 			}
 		}
 	}
+
+	/// Old connecting tiles art to each other code
+	/// Not used due art issues
+	/*
     public void SetOffset()
 	{
+		List<RaycastHit2D> l;
+		l = GetNeighbours (Side.down);
+		l = GetNeighbours (Side.up);
+		l = GetNeighbours (Side.sides);
 		if (neighbourUp)
 		{
 			neighbourCount++;
@@ -334,8 +382,10 @@ public class Block : MonoBehaviour {
 				break;
 		}
 
-		int t = (int)xOffset + (int)(yOffset -1 ) * 4;
-		rend.sprite = tileSprites[t - 1];
+		int t = (int)xOffset + (int)(4-(yOffset)) * 4;
+		rend.sprite = tileSprites[(t - 1)];
+		Debug.Log(t-1);
 		//rend.material.mainTextureOffset = new Vector2(xOffset, yOffset);
 	}
+	*/
 }

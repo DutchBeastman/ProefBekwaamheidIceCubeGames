@@ -8,7 +8,10 @@ public class BlockManager : MonoBehaviour
 {
 	[SerializeField] private int fieldWidth;
 	[SerializeField] private int fieldHeight;
-	[SerializeField] private GameObject[] tiles;
+	[SerializeField] private GameObject[] firstStageTiles;
+	[SerializeField] private GameObject[] secondStageTiles;
+	private GameObject[] currentStageTiles;
+	private int stageID;
 	private List<List<Block>> blocks;
 
 	[SerializeField] private Transform playerPosition;
@@ -18,7 +21,8 @@ public class BlockManager : MonoBehaviour
 
 	protected void Awake()
 	{
-		Generation();
+		currentStageTiles = firstStageTiles;
+		Generation ();
 	}
 
 	/// <summary>
@@ -32,7 +36,7 @@ public class BlockManager : MonoBehaviour
 			List<Block> tempList = new List<Block>();
 			for (int y = 0; y < fieldHeight; y++)
 			{
-				GameObject instantiateBlock = (GameObject)Instantiate(tiles[Random.Range(0, tiles.Length)], new Vector2(transform.position.x + x, transform.position.y - (fieldHeight - y)), Quaternion.identity);
+				GameObject instantiateBlock = (GameObject)Instantiate(currentStageTiles[Random.Range(0, currentStageTiles.Length)], new Vector2(transform.position.x + x, transform.position.y - (fieldHeight - y)), Quaternion.identity);
 				instantiateBlock.GetComponent<Block>().Position = new Vector2(x, y);
 				tempList.Add(instantiateBlock.GetComponent<Block>());
 			}
@@ -150,7 +154,7 @@ public class BlockManager : MonoBehaviour
 	/// Funtion to kill of the one tile that needs to be removed, this is used on everyblock that killNeighbours requests
 	/// </summary>
 	/// <param name="b"> in this param the value of Block is given as b</param>
-	public void KillTile(Block b)
+	/*public void KillTile(Block b)
 	{
 		if (!b.killed)
 		{
@@ -160,9 +164,24 @@ public class BlockManager : MonoBehaviour
 			Destroy(b.gameObject);
 		}
 	}
+	*/
 
 	public void Reset()
 	{
+		stageID ++;
+		if (stageID == 2)
+		{
+			stageID = 0;
+		}
+		switch (stageID)
+		{
+			case 0:
+			currentStageTiles = firstStageTiles;
+				break;
+			case 1:
+			currentStageTiles = secondStageTiles;
+				break;
+		}
 		Invoke("Generation", 1f);
 		for (int x = 0; x < fieldWidth; x++)
 		{

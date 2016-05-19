@@ -12,7 +12,7 @@ public class LogoTransition : MonoBehaviour
 	[SerializeField, Range(1, 5)] private float startFadingOutTime = 3;
 	[SerializeField] private Sprite[] transitionLogos;
 	private Sprite currentLogo;
-	private SpriteRenderer renderer;
+	private new SpriteRenderer renderer;
 	private int nextTransition;
 
 	protected void Start()

@@ -14,9 +14,15 @@ public class NextStageTrigger : MonoBehaviour
 	{
 		if(col.name == "Player")
 		{
+			TriggerNextStageArt();
 			logo.ShowLogo();
 			col.transform.position = new Vector3(col.transform.position.x, 35, 0);
 			manager.Reset();
 		}
+	}
+
+	private void TriggerNextStageArt ()
+	{
+		EventManager.TriggerEvent("NextStage");
 	}
 }

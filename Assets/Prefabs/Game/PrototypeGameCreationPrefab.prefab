@@ -10,7 +10,6 @@ GameObject:
   - 224: {fileID: 22412278}
   - 222: {fileID: 22264892}
   - 114: {fileID: 11494282}
-  - 114: {fileID: 11407112}
   m_Layer: 5
   m_Name: Gradient
   m_TagString: Untagged
@@ -28,7 +27,6 @@ GameObject:
   - 224: {fileID: 22409108}
   - 222: {fileID: 22234194}
   - 114: {fileID: 11400356}
-  - 114: {fileID: 11468938}
   m_Layer: 5
   m_Name: HungerMeter
   m_TagString: Untagged
@@ -46,7 +44,6 @@ GameObject:
   - 224: {fileID: 22416578}
   - 222: {fileID: 22260830}
   - 114: {fileID: 11417614}
-  - 114: {fileID: 11437780}
   m_Layer: 5
   m_Name: Lives
   m_TagString: Untagged
@@ -64,7 +61,6 @@ GameObject:
   - 224: {fileID: 22469028}
   - 222: {fileID: 22271882}
   - 114: {fileID: 11475314}
-  - 114: {fileID: 11443938}
   m_Layer: 5
   m_Name: Pilfer
   m_TagString: Untagged
@@ -98,7 +94,6 @@ GameObject:
   - 224: {fileID: 22415640}
   - 222: {fileID: 22230844}
   - 114: {fileID: 11444544}
-  - 114: {fileID: 11447954}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -202,7 +197,6 @@ GameObject:
   - 224: {fileID: 22442546}
   - 222: {fileID: 22224248}
   - 114: {fileID: 11416128}
-  - 114: {fileID: 11435592}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -220,7 +214,6 @@ GameObject:
   - 224: {fileID: 22493764}
   - 222: {fileID: 22230338}
   - 114: {fileID: 11424558}
-  - 114: {fileID: 11405344}
   m_Layer: 5
   m_Name: HungerMeterText
   m_TagString: Untagged
@@ -718,38 +711,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11405344
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee55ab9aa44e004fb613afeeb841137, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stagesImages:
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  renderer: {fileID: 0}
-  image: {fileID: 11424558}
---- !u!114 &11407112
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 102656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee55ab9aa44e004fb613afeeb841137, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stagesImages:
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  renderer: {fileID: 0}
-  image: {fileID: 11494282}
 --- !u!114 &11415058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -898,38 +859,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToFallWith: {fileID: 150536}
---- !u!114 &11435592
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 157072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee55ab9aa44e004fb613afeeb841137, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stagesImages:
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  renderer: {fileID: 0}
-  image: {fileID: 11416128}
---- !u!114 &11437780
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee55ab9aa44e004fb613afeeb841137, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stagesImages:
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  renderer: {fileID: 0}
-  image: {fileID: 11417614}
 --- !u!114 &11438458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -967,22 +896,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &11443938
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee55ab9aa44e004fb613afeeb841137, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stagesImages:
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  renderer: {fileID: 0}
-  image: {fileID: 11475314}
 --- !u!114 &11444544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1010,22 +923,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11447954
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 132328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee55ab9aa44e004fb613afeeb841137, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stagesImages:
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  renderer: {fileID: 0}
-  image: {fileID: 11444544}
 --- !u!114 &11457686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1091,22 +988,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11468938
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 102986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee55ab9aa44e004fb613afeeb841137, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stagesImages:
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  renderer: {fileID: 0}
-  image: {fileID: 11400356}
 --- !u!114 &11470102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1214,7 +1095,7 @@ MonoBehaviour:
   duration: 1
   startFadingOutTime: 2
   transitionLogos:
-  - {fileID: 21300000, guid: 375f5a0a5288a405485e842a2e58f944, type: 3}
+  - {fileID: 0}
 --- !u!114 &11491596
 MonoBehaviour:
   m_ObjectHideFlags: 1

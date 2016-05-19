@@ -178,7 +178,8 @@ public class Block : MonoBehaviour {
 	{
 		killed = true;
 		TellNeighboursToFall();
-		EventManager.TriggerEvent("GetPoints" + points);
+		string pointsTrigger = "GetPoints" + points.ToString ();
+		EventManager.TriggerEvent(pointsTrigger);
 		KillGroup();
 	}
 

@@ -100,26 +100,23 @@ public class PlayerMovement : MonoBehaviour
     }
 	private void Move()
 	{
-		if (Mathf.RoundToInt(Input.GetAxis("Horizontal")) == 0)
+		if (Mathf.RoundToInt(Input.GetAxis("Horizontal")) != 0)
 		{
-			canMove = true;
-		}
-		if (canMove)
-		{
-			Debug.Log(Input.GetAxis("Horizontal"));
-			if (Input.GetAxis("Horizontal") > 0)
+			Vector3 fwd = new Vector3(Mathf.RoundToInt(Input.GetAxis("Horizontal")), transform.position.y);
+			Debug.DrawRay(transform.position , Mathf.RoundToInt(Input.GetAxis("Horizontal")) * Vector3.right , Color.red , 1);
+			if (canMove)
 			{
-				playerPosition = new Vector2(transform.position.x + 1, transform.position.y);
-				transform.position = playerPosition;
-				//rigid.AddRelativeForce(playerPosition);
-				canMove = false;
-			}
-			else if (Input.GetAxis("Horizontal") < 0)
-			{
-				playerPosition = new Vector2(transform.position.x - 1, transform.position.y);
-				transform.position = playerPosition;
-				//rigid.AddRelativeForce(playerPosition);
-				canMove = false;
+				if (!Physics2D.Raycast(transform.position , fwd))
+				{
+					playerPosition = new Vector2(transform.position.x + Mathf.RoundToInt(Input.GetAxis("Horizontal")) , transform.position.y);
+					transform.position = playerPosition;
+					canMove = false;
+					Invoke("ResetMovementTimer" , 0.3f);
+				}
+				else
+				{
+					Debug.Log("hititititi");
+				}
 			}
 		}
 	}
@@ -130,7 +127,10 @@ public class PlayerMovement : MonoBehaviour
 	{
 		canDig = true;
 	}
-
+	private void ResetMovementTimer()
+	{
+		canMove = true;
+	}
 	protected IEnumerator ClimbTimer()
 	{
 		yield return new WaitForSeconds(0.7f);

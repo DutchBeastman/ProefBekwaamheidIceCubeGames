@@ -21,7 +21,7 @@ public enum Side
 
 public class Block : MonoBehaviour {
 
-	[SerializeField] private Sprite[] tileSprites = new Sprite[16];
+	//[SerializeField] private Sprite[] tileSprites = new Sprite[16];
 	[SerializeField] private int lives;
 	[SerializeField] public int points;
 	[SerializeField] public int damage;
@@ -44,28 +44,28 @@ public class Block : MonoBehaviour {
 	}
 
 	//Testing Purpose
-	/*[HideInInspector]*/ public bool neighbourUp;
-	/*[HideInInspector]*/ public bool neighbourRight;
-	/*[HideInInspector]*/ public bool neighbourDown;
-	/*[HideInInspector]*/ public bool neighbourLeft;
-	private float xOffset;
-	private float yOffset; 
-	private int neighbourCount;
+	/*[HideInInspector]*/ //public bool neighbourUp;
+	/*[HideInInspector]*/ //public bool neighbourRight;
+	/*[HideInInspector]*/ //public bool neighbourDown;
+	/*[HideInInspector]*/ //public bool neighbourLeft;
+	//private float xOffset;
+	//private float yOffset; 
+	//private int neighbourCount;
 
-	private float quarter = 2f;
-	private float half = 3f;
-	private float threeQuarter = 4f;
+	//private float quarter = 2f;
+	//private float half = 3f;
+	//private float threeQuarter = 4f;
 
 
 	private bool falling = false;
 
-	private SpriteRenderer rend;
+	//private SpriteRenderer rend;
 
 	private Rigidbody2D rigid2D;
 
 	private void Awake()
 	{
-		rend = gameObject.GetComponent<SpriteRenderer>();
+		//rend = gameObject.GetComponent<SpriteRenderer>();
 		rigid2D = gameObject.GetComponent<Rigidbody2D>();
 		//Invoke("SetOffset", 0.1f);
 	}

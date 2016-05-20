@@ -37,6 +37,7 @@ public class NewBlockManager : MonoBehaviour
 		}
 	}
 
+	/*
 	private void CheckAllNeighbours(Block b)
 	{
 		b.neighbourLeft = CheckLeftSide(b);
@@ -44,6 +45,7 @@ public class NewBlockManager : MonoBehaviour
 		b.neighbourDown = CheckBottom(b);
 		b.neighbourUp = CheckUpper(b);
 	}
+	*/
 
 	private Block CheckLeftSide(Block b)
 	{

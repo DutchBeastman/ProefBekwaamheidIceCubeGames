@@ -8,8 +8,8 @@ public class BlockManager : MonoBehaviour
 {
 	[SerializeField] private int fieldWidth;
 	[SerializeField] private int fieldHeight;
-	[SerializeField] private GameObject[] firstStageTiles;
-	[SerializeField] private GameObject[] secondStageTiles;
+	[SerializeField] private GameObject[] farmStageTiles;
+	[SerializeField] private GameObject[] forrestStageTiles;
 	private GameObject[] currentStageTiles;
 	private int stageID;
 	private List<List<Block>> blocks;
@@ -21,7 +21,7 @@ public class BlockManager : MonoBehaviour
 
 	protected void Awake()
 	{
-		currentStageTiles = firstStageTiles;
+		currentStageTiles = farmStageTiles;
 		Generation ();
 	}
 
@@ -176,10 +176,10 @@ public class BlockManager : MonoBehaviour
 		switch (stageID)
 		{
 			case 0:
-			currentStageTiles = firstStageTiles;
+			currentStageTiles = farmStageTiles;
 				break;
 			case 1:
-			currentStageTiles = secondStageTiles;
+			currentStageTiles = forrestStageTiles;
 				break;
 		}
 		Invoke("Generation", 1f);

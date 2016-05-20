@@ -29,6 +29,10 @@ public class StageArtManager : MonoBehaviour
 	private void NextStage ()
 	{
 		currentState++;
+		if (currentState == stagesImages.Length)
+		{
+			currentState = 0;
+		}
 		SetNewSprite();
 	}
 

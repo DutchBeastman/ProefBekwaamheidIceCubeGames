@@ -2,10 +2,18 @@
 // Date: 
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
 	[HideInInspector] public int score;
+	[SerializeField] private Text[] scoreTexts;
+
+	protected void Awake ()
+	{
+		UpdateUI();
+	}
+
 	protected void OnEnable ()
 	{
 		EventManager.AddListener ("GetPoints10", Get10Points);
@@ -48,6 +56,10 @@ public class Score : MonoBehaviour
 
 	private void UpdateUI ()
 	{
+		foreach (Text scoreText in scoreTexts)
+		{
+			scoreText.text = score.ToString ();
+		}
 		Debug.Log(score);
 	}
 }

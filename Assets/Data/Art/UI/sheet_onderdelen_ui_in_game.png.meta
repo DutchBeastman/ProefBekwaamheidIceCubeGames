@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6af0bd346e7e4e34ba9b7bd34d0b285c
-timeCreated: 1463484569
+timeCreated: 1463749841
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,7 +9,7 @@ TextureImporter:
     21300004: Score_Text
     21300006: Lives_2
     21300008: HungerMeter_Text
-    21300010: Lives_
+    21300010: Lives_1
     21300012: HungerMeter_Container
     21300014: Lives_0
     21300016: HungerMeter
@@ -195,7 +195,7 @@ TextureImporter:
         - {x: -144, y: -26}
         - {x: 146, y: -26}
         - {x: 146, y: 26}
-    - name: Lives_
+    - name: Lives_1
       rect:
         serializedVersion: 2
         x: 388
@@ -399,14 +399,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 160, y: 30}
-        - {x: -170, y: 30}
-        - {x: -170, y: -30}
-        - {x: 157, y: -30}
-        - {x: 160, y: -29}
-        - {x: 170, y: -17}
-        - {x: 170, y: 17}
+      outline: []
     - name: sheet_onderdelen_ui_in_game_23
       rect:
         serializedVersion: 2
@@ -417,22 +410,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 19.5, y: 22}
-        - {x: -44.5, y: 22}
-        - {x: -56.5, y: 17}
-        - {x: -56.5, y: -13}
-        - {x: -48.5, y: -16}
-        - {x: -24.5, y: -15}
-        - {x: -22.5, y: -13}
-        - {x: -22.5, y: 5}
-        - {x: -22.5, y: -9}
-        - {x: 1.5, y: -22}
-        - {x: 49.5, y: -22}
-        - {x: 55.5, y: -21}
-        - {x: 56.5, y: -15}
-        - {x: 56.5, y: 12}
-        - {x: 47.5, y: 20}
+      outline: []
     - name: sheet_onderdelen_ui_in_game_24
       rect:
         serializedVersion: 2
@@ -443,12 +421,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -17.5, y: 16.5}
-        - {x: -18.5, y: 14.5}
-        - {x: -18.5, y: -16.5}
-        - {x: 18.5, y: -16.5}
-        - {x: 18.5, y: 16.5}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 

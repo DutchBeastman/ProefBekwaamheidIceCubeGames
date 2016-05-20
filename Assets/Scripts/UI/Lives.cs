@@ -4,14 +4,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Lives : MonoBehaviour 
+public class Lives : MonoBehaviour
 {
 	[SerializeField] private Image livesImage;
 	[SerializeField] private Sprite[] lives;
 	private int livesCounter = 3;
 
 
-	protected void Awake () 
+	protected void Awake ()
 	{
 		livesImage.sprite = lives[livesCounter];
 	}
@@ -23,12 +23,22 @@ public class Lives : MonoBehaviour
 
 	protected void OnDisable ()
 	{
-		EventManager.RemoveListener("LostLife", LossOfLife);
+		EventManager.RemoveListener ("LostLife", LossOfLife);
 	}
 
 	private void LossOfLife ()
 	{
-		livesCounter --;
+		livesCounter--;
 		livesImage.sprite = lives[livesCounter];
+
+		if (livesCounter == 0)
+		{
+			Invoke ("TriggerGameOver", 1.5f);
+		}
+	}
+
+	private void TriggerGameOver ()
+	{
+		EventManager.TriggerEvent ("GameOVer");
 	}
 }

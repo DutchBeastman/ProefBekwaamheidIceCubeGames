@@ -321,7 +321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &173074
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +389,22 @@ GameObject:
   - 114: {fileID: 11457848}
   m_Layer: 5
   m_Name: GameUICanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &192124
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 489290}
+  - 61: {fileID: 6157862}
+  m_Layer: 0
+  m_Name: DeadCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -525,6 +541,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 477956}
+  - {fileID: 489290}
   m_Father: {fileID: 469840}
   m_RootOrder: 4
 --- !u!4 &442338
@@ -601,6 +618,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 439422}
   m_RootOrder: 0
+--- !u!4 &489290
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02, y: 0.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 439422}
+  m_RootOrder: 1
 --- !u!20 &2028002
 Camera:
   m_ObjectHideFlags: 1
@@ -680,6 +710,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 7, y: 1}
+--- !u!61 &6157862
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192124}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 0.1}
 --- !u!61 &6161966
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1330,6 +1374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 11457686}
   resetDigTime: 0
+  deadCollider: {fileID: 0}
 --- !u!114 &11494282
 MonoBehaviour:
   m_ObjectHideFlags: 1

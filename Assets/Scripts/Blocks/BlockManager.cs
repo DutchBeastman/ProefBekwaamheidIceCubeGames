@@ -31,13 +31,14 @@ public class BlockManager : MonoBehaviour
 
 	protected void Awake()
 	{
-		StartGame();
+		currentStageTiles = farmStageTiles;
+		Generation();
 	}
 
 	private void StartGame ()
 	{
 		currentStageTiles = farmStageTiles;
-		Generation ();
+		Reset();
 	}
 
 	/// <summary>
@@ -198,18 +199,23 @@ public class BlockManager : MonoBehaviour
 				break;
 		}
 		Invoke("Generation", 1f);
+		RemoveBlocks();
+		nextLine = 0;
+		nextLinePosition.y = nextLine;
+		blocks = new List<List<Block>>();
+	}
+
+	private void RemoveBlocks ()
+	{
 		for (int x = 0; x < fieldWidth; x++)
 		{
 			for (int y = 0; y < fieldHeight; y++)
 			{
-				if (blocks[x][y])
+				if (blocks != null && blocks[x][y])
 				{
 					Destroy(blocks[x][y].gameObject);
 				}
 			}
 		}
-		nextLine = 0;
-		nextLinePosition.y = nextLine;
-		blocks = new List<List<Block>>();
 	}
 }

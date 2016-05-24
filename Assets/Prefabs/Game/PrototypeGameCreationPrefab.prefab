@@ -222,7 +222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &157050
 GameObject:
   m_ObjectHideFlags: 1
@@ -321,7 +321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &173074
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +332,6 @@ GameObject:
   - 4: {fileID: 407472}
   - 114: {fileID: 11415058}
   - 114: {fileID: 11455644}
-  - 114: {fileID: 11421694}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -885,23 +884,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 10
---- !u!114 &11421694
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 173074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cead801d37af574588e7cc1bc9f2f1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  livesImage: {fileID: 11417614}
-  lives:
-  - {fileID: 21300014, guid: 6af0bd346e7e4e34ba9b7bd34d0b285c, type: 3}
-  - {fileID: 21300010, guid: 6af0bd346e7e4e34ba9b7bd34d0b285c, type: 3}
-  - {fileID: 21300006, guid: 6af0bd346e7e4e34ba9b7bd34d0b285c, type: 3}
-  - {fileID: 21300002, guid: 6af0bd346e7e4e34ba9b7bd34d0b285c, type: 3}
 --- !u!114 &11424558
 MonoBehaviour:
   m_ObjectHideFlags: 1

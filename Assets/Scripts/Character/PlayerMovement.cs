@@ -28,6 +28,17 @@ public class PlayerMovement : MonoBehaviour
 		rigid = GetComponent<Rigidbody2D>();
 		canDig = true;
 	}
+
+	protected void OnEnable ()
+	{
+		EventManager.AddListener ("NextStage", NextStage);
+	}
+
+	protected void OnDisable ()
+	{
+		EventManager.RemoveListener("NextStage", NextStage);
+	}
+
 	protected void FixedUpdate()
 	{
 
@@ -98,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
 			drillDir = DrillDirection.right;
 		}
     }
+
 	private void Move()
 	{
 		if (Mathf.RoundToInt(Input.GetAxis("Horizontal")) != 0)
@@ -135,5 +147,17 @@ public class PlayerMovement : MonoBehaviour
 	{
 		yield return new WaitForSeconds(0.7f);
 		canClimb = true;
+	}
+
+	private void NextStage ()
+	{
+		transform.position = new Vector3(transform.position.x, 10, 0);
+		rigid.isKinematic = true;
+		Invoke("DisableKinematic", 2);
+	}
+
+	private void DisableKinematic ()
+	{
+		rigid.isKinematic = false;
 	}
 }

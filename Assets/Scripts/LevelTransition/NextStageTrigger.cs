@@ -16,7 +16,6 @@ public class NextStageTrigger : MonoBehaviour
 		{
 			TriggerNextStageArt();
 			logo.ShowLogo();
-			col.transform.position = new Vector3(col.transform.position.x, 35, 0);
 			manager.Reset();
 		}
 	}

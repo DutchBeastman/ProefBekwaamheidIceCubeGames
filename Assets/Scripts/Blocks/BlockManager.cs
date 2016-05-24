@@ -19,7 +19,22 @@ public class BlockManager : MonoBehaviour
 
 	private int nextLine;
 
+	protected void OnEnable ()
+	{
+		EventManager.AddListener(StaticEventNames.RESTART, StartGame);
+	}
+
+	protected void OnDisable ()
+	{
+		EventManager.RemoveListener(StaticEventNames.RESTART, StartGame);
+	}
+
 	protected void Awake()
+	{
+		StartGame();
+	}
+
+	private void StartGame ()
 	{
 		currentStageTiles = farmStageTiles;
 		Generation ();

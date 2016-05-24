@@ -32,11 +32,13 @@ public class PlayerMovement : MonoBehaviour
 	protected void OnEnable ()
 	{
 		EventManager.AddListener (StaticEventNames.NEXTSTAGE, NextStage);
+		EventManager.AddListener(StaticEventNames.RESTART, NextStage);
 	}
 
 	protected void OnDisable ()
 	{
 		EventManager.RemoveListener(StaticEventNames.NEXTSTAGE, NextStage);
+		EventManager.RemoveListener(StaticEventNames.RESTART, NextStage);
 	}
 
 	protected void FixedUpdate()
@@ -57,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 			{
 				if (Physics2D.Raycast(new Vector2(transform.position.x + (Input.GetAxis("Horizontal") / 2), transform.position.y + 1), new Vector2(Input.GetAxis("Horizontal"), 0), 0.1f).collider == null)
 				{
-					rigid.velocity = new Vector2(0, 2);
+					rigid.velocity = new Vector2(0, 20);
 					canClimb = false;
 					StartCoroutine(ClimbTimer());
 				}

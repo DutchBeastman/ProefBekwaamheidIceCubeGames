@@ -2,16 +2,13 @@
 // Date: 24/05/2016
 
 using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour 
 {
-
-	protected void Start () 
-	{
-		
-	}
-
+	[SerializeField] private GameObject gameOverObject;
+	[SerializeField] private Text[] scoreText;
+	
 	protected void OnEnable ()
 	{
 		EventManager.AddListener(StaticEventNames.ENDGAME, GameOverTrigger);
@@ -24,6 +21,10 @@ public class GameOverManager : MonoBehaviour
 
 	private void GameOverTrigger ()
 	{
-
+		gameOverObject.SetActive(false);
+		foreach (Text t in scoreText)
+		{
+			t.text = Score.score.ToString();
+		}
 	}
 }

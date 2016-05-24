@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-	[HideInInspector] public int score;
+	[HideInInspector] public static int score;
 	[SerializeField] private Text[] scoreTexts;
 
 	protected void Awake ()

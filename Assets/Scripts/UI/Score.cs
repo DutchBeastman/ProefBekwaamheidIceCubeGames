@@ -60,6 +60,6 @@ public class Score : MonoBehaviour
 		{
 			scoreText.text = score.ToString ();
 		}
-		Debug.Log(score);
+		//Debug.Log(score);
 	}
 }

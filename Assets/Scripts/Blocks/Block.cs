@@ -56,8 +56,8 @@ public class Block : MonoBehaviour {
 	//private float half = 3f;
 	//private float threeQuarter = 4f;
 
-
-	private bool falling = false;
+	[HideInInspector]
+	public bool falling = false;
 
 	//private SpriteRenderer rend;
 
@@ -69,7 +69,7 @@ public class Block : MonoBehaviour {
 		rigid2D = gameObject.GetComponent<Rigidbody2D>();
 		//Invoke("SetOffset", 0.1f);
 	}
-
+	
 	private List<RaycastHit2D> GetNeighbours(Side side)
 	{
 		float distance = transform.localScale.x + 0.1f;

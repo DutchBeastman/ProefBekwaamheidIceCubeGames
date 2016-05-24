@@ -118,9 +118,7 @@ public class PlayerMovement : MonoBehaviour
 			{
 
 				Vector3 movement = new Vector3(Mathf.RoundToInt(Input.GetAxis ("Horizontal")), 0, 0);
-				Debug.Log(movement);
-				RaycastHit2D[] hits = Physics2D.RaycastAll (transform.position + movement, transform.position + movement,0.1f);
-				Debug.DrawRay(transform.position + movement, transform.position + movement, Color.yellow, 5f);
+				RaycastHit2D[] hits = Physics2D.RaycastAll (transform.position + movement, movement,0.1f);
 
 				bool move = true;
 
@@ -128,13 +126,11 @@ public class PlayerMovement : MonoBehaviour
 				{
 					foreach (RaycastHit2D ray in hits)
 					{
-						Debug.Log(ray.collider.name);
 						if (ray.collider.name != "WallLeft" && ray.collider.name != "WallRight")
 						{
 							if (ray.collider.name != gameObject.name)
 							{
 								move = false;
-								Debug.Log ("move = " + move);
 							}
 						}
 					}
@@ -142,32 +138,12 @@ public class PlayerMovement : MonoBehaviour
 
 				if (move)
 				{
-					Debug.Log("moving");
 					playerPosition = new Vector2 (transform.position.x + Mathf.RoundToInt (Input.GetAxis ("Horizontal")), transform.position.y);
 					transform.position = playerPosition;
 					canMove = false;
 					Invoke ("ResetMovementTimer", 0.3f);
 				}
 			}
-
-			/*
-			Vector3 fwd = new Vector3(Mathf.RoundToInt(Input.GetAxis("Horizontal")), transform.position.y);
-			Debug.DrawRay(transform.position , Mathf.RoundToInt(Input.GetAxis("Horizontal")) * Vector3.right , Color.red , 1);
-			if (canMove)
-			{
-				if (!Physics2D.Raycast(transform.position , fwd))
-				{
-					playerPosition = new Vector2(transform.position.x + Mathf.RoundToInt(Input.GetAxis("Horizontal")) , transform.position.y);
-					transform.position = playerPosition;
-					canMove = false;
-					Invoke("ResetMovementTimer" , 0.3f);
-				}
-				else
-				{
-					Debug.Log("hititititi");
-				}
-			}
-			*/
 		}
 	}
 

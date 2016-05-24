@@ -135,13 +135,9 @@ Prefab:
       propertyPath: m_Name
       value: GameCreationPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 170708, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
+    - target: {fileID: 153712, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 104154, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
@@ -197,15 +193,13 @@ Prefab:
       propertyPath: levelCreation
       value: 
       objectReference: {fileID: 1681772376}
+    - target: {fileID: 183148, guid: f8f964feef708ec48b59860d00f9b1c4, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8f964feef708ec48b59860d00f9b1c4, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1017032223 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11417614, guid: 439fb75234fe72c4b9fb850c75401a66,
-    type: 2}
-  m_PrefabInternal: {fileID: 633394239}
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1569011694 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 124682, guid: 6dbe58ea68ccc4b468f805cfb6d5e3ac, type: 2}
@@ -332,24 +326,3 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dbe58ea68ccc4b468f805cfb6d5e3ac, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1969142464 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 173074, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
-  m_PrefabInternal: {fileID: 633394239}
---- !u!114 &1969142465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1969142464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cead801d37af574588e7cc1bc9f2f1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  livesImage: {fileID: 1017032223}
-  lives:
-  - {fileID: 21300014, guid: 6af0bd346e7e4e34ba9b7bd34d0b285c, type: 3}
-  - {fileID: 21300010, guid: 6af0bd346e7e4e34ba9b7bd34d0b285c, type: 3}
-  - {fileID: 21300006, guid: 6af0bd346e7e4e34ba9b7bd34d0b285c, type: 3}
-  - {fileID: 21300002, guid: 6af0bd346e7e4e34ba9b7bd34d0b285c, type: 3}

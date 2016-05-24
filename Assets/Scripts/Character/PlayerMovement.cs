@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 			{
 				if (Physics2D.Raycast(new Vector2(transform.position.x + (Input.GetAxis("Horizontal") / 2), transform.position.y + 1), new Vector2(Input.GetAxis("Horizontal"), 0), 0.1f).collider == null)
 				{
-					rigid.velocity = new Vector2(0, 90);
+					rigid.velocity = new Vector2(0, 2);
 					canClimb = false;
 					StartCoroutine(ClimbTimer());
 				}
@@ -112,8 +112,45 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Move()
 	{
-		if (Mathf.RoundToInt(Input.GetAxis("Horizontal")) != 0)
+		if (canMove)
 		{
+			if (Mathf.RoundToInt(Input.GetAxis("Horizontal")) != 0)
+			{
+
+				Vector3 movement = new Vector3(Mathf.RoundToInt(Input.GetAxis ("Horizontal")), 0, 0);
+				Debug.Log(movement);
+				RaycastHit2D[] hits = Physics2D.RaycastAll (transform.position + movement, transform.position + movement,0.1f);
+				Debug.DrawRay(transform.position + movement, transform.position + movement, Color.yellow, 5f);
+
+				bool move = true;
+
+				if (hits != null)
+				{
+					foreach (RaycastHit2D ray in hits)
+					{
+						Debug.Log(ray.collider.name);
+						if (ray.collider.name != "WallLeft" && ray.collider.name != "WallRight")
+						{
+							if (ray.collider.name != gameObject.name)
+							{
+								move = false;
+								Debug.Log ("move = " + move);
+							}
+						}
+					}
+				}
+
+				if (move)
+				{
+					Debug.Log("moving");
+					playerPosition = new Vector2 (transform.position.x + Mathf.RoundToInt (Input.GetAxis ("Horizontal")), transform.position.y);
+					transform.position = playerPosition;
+					canMove = false;
+					Invoke ("ResetMovementTimer", 0.3f);
+				}
+			}
+
+			/*
 			Vector3 fwd = new Vector3(Mathf.RoundToInt(Input.GetAxis("Horizontal")), transform.position.y);
 			Debug.DrawRay(transform.position , Mathf.RoundToInt(Input.GetAxis("Horizontal")) * Vector3.right , Color.red , 1);
 			if (canMove)
@@ -130,8 +167,10 @@ public class PlayerMovement : MonoBehaviour
 					Debug.Log("hititititi");
 				}
 			}
+			*/
 		}
 	}
+
 	/// <summary>
 	/// Is in place for the dig funtion to be able to execute after a certain time.
 	/// </summary>

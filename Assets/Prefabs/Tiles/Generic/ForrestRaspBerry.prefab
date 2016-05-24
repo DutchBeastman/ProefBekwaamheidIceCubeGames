@@ -62,7 +62,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 1.4, y: 1.5}
 --- !u!114 &11438640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74,23 +74,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1565e188ca99ab74fac0e71682bbef0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileSprites:
-  - {fileID: 21300000, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300002, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300004, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300006, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300008, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300010, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300012, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300014, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300016, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300018, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300020, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300022, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300024, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300026, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300028, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
-  - {fileID: 21300030, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
   lives: 1
   points: 20
   damage: 1
@@ -98,10 +81,6 @@ MonoBehaviour:
   unbreakable: 0
   type: 3
   killed: 0
-  neighbourUp: 0
-  neighbourRight: 0
-  neighbourDown: 0
-  neighbourLeft: 0
 --- !u!212 &21292304
 SpriteRenderer:
   m_ObjectHideFlags: 1

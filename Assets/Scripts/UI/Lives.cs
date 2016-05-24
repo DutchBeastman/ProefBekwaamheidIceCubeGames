@@ -18,12 +18,12 @@ public class Lives : MonoBehaviour
 
 	protected void OnEnable ()
 	{
-		EventManager.AddListener ("LostLife", LossOfLife);
+		EventManager.AddListener (StaticEventNames.LOSTLIFE, LossOfLife);
 	}
 
 	protected void OnDisable ()
 	{
-		EventManager.RemoveListener ("LostLife", LossOfLife);
+		EventManager.RemoveListener (StaticEventNames.LOSTLIFE, LossOfLife);
 	}
 
 	private void LossOfLife ()
@@ -39,6 +39,6 @@ public class Lives : MonoBehaviour
 
 	private void TriggerGameOver ()
 	{
-		EventManager.TriggerEvent ("GameOVer");
+		EventManager.TriggerEvent (StaticEventNames.ENDGAME);
 	}
 }

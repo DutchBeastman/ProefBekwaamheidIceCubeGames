@@ -22,6 +22,6 @@ public class NextStageTrigger : MonoBehaviour
 
 	private void TriggerNextStageArt ()
 	{
-		EventManager.TriggerEvent("NextStage");
+		EventManager.TriggerEvent(StaticEventNames.NEXTSTAGE);
 	}
 }

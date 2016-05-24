@@ -7,4 +7,6 @@ public class StaticEventNames
 	public const string ENABLEGAMECREATION = "EnableGameCreation";
 	public const string ENDGAME = "EndGame";
 	public const string RESTART = "Restart";
+	public const string LOSTLIFE = "LostLife";
+	public const string NEXTSTAGE = "NextStage";
 }

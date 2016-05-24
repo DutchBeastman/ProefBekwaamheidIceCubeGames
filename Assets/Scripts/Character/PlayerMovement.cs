@@ -31,12 +31,12 @@ public class PlayerMovement : MonoBehaviour
 
 	protected void OnEnable ()
 	{
-		EventManager.AddListener ("NextStage", NextStage);
+		EventManager.AddListener (StaticEventNames.NEXTSTAGE, NextStage);
 	}
 
 	protected void OnDisable ()
 	{
-		EventManager.RemoveListener("NextStage", NextStage);
+		EventManager.RemoveListener(StaticEventNames.NEXTSTAGE, NextStage);
 	}
 
 	protected void FixedUpdate()

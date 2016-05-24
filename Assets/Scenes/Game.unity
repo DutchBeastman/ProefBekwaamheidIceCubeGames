@@ -87,12 +87,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &62806393 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11491814, guid: 439fb75234fe72c4b9fb850c75401a66,
-    type: 2}
-  m_PrefabInternal: {fileID: 1828235604}
-  m_Script: {fileID: 11500000, guid: 6f3ecee13cfc671488ab8c9b9b191c74, type: 3}
 --- !u!20 &256187475 stripped
 Camera:
   m_PrefabParentObject: {fileID: 2093346, guid: 6dbe58ea68ccc4b468f805cfb6d5e3ac,
@@ -320,26 +314,6 @@ Prefab:
     - target: {fileID: 170708, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
       propertyPath: m_Name
       value: GameCreationPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 11464980, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 183052, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
-      propertyPath: m_Name
-      value: Image
-      objectReference: {fileID: 0}
-    - target: {fileID: 11435612, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 62806393}
-    - target: {fileID: 11435612, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResetGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 11435612, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}

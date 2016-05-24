@@ -29,11 +29,11 @@ public class HungerMeter : MonoBehaviour
 
 	private void DecreaseHunger ()
 	{
-		hungerPercent -= 10;
+		hungerPercent --;
 		UpdateUIArt();
 		if (hungerPercent >= 0)
 		{
-			Invoke ("DecreaseHunger", .6f);
+			Invoke ("DecreaseHunger", .7f);
 		}
 		else
 		{

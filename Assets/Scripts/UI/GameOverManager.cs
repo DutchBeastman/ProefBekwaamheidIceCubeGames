@@ -27,4 +27,9 @@ public class GameOverManager : MonoBehaviour
 			t.text = Score.score.ToString();
 		}
 	}
+
+	public void ResetGame ()
+	{
+		EventManager.TriggerEvent(StaticEventNames.RESTART);
+	}
 }

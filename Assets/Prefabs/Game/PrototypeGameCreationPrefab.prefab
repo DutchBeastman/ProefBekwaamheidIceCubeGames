@@ -296,6 +296,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 407472}
   - 114: {fileID: 11415058}
+  - 114: {fileID: 11455644}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -524,7 +525,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.027, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -993,6 +994,23 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11455644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cead801d37af574588e7cc1bc9f2f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livesImage: {fileID: 11417614}
+  lives:
+  - {fileID: 21300014, guid: 6af0bd346e7e4e34ba9b7bd34d0b285c, type: 3}
+  - {fileID: 21300010, guid: 6af0bd346e7e4e34ba9b7bd34d0b285c, type: 3}
+  - {fileID: 21300006, guid: 6af0bd346e7e4e34ba9b7bd34d0b285c, type: 3}
+  - {fileID: 21300002, guid: 6af0bd346e7e4e34ba9b7bd34d0b285c, type: 3}
 --- !u!114 &11457686
 MonoBehaviour:
   m_ObjectHideFlags: 1

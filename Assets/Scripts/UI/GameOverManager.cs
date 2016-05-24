@@ -21,7 +21,7 @@ public class GameOverManager : MonoBehaviour
 
 	private void GameOverTrigger ()
 	{
-		gameOverObject.SetActive(false);
+		gameOverObject.SetActive(true);
 		foreach (Text t in scoreText)
 		{
 			t.text = Score.score.ToString();
@@ -30,6 +30,7 @@ public class GameOverManager : MonoBehaviour
 
 	public void ResetGame ()
 	{
+		gameOverObject.SetActive(false);
 		EventManager.TriggerEvent(StaticEventNames.RESTART);
 	}
 }

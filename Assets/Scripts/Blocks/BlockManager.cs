@@ -10,6 +10,7 @@ public class BlockManager : MonoBehaviour
 	[SerializeField] private int fieldHeight;
 	[SerializeField] private GameObject[] farmStageTiles;
 	[SerializeField] private GameObject[] forrestStageTiles;
+	[SerializeField]private GameObject[] specialBlocks;
 	private GameObject[] currentStageTiles;
 	private int stageID;
 	private List<List<Block>> blocks;
@@ -49,12 +50,23 @@ public class BlockManager : MonoBehaviour
 		blocks = new List<List<Block>>();
 		for (int x = 0; x < fieldWidth; x++)
 		{
+
 			List<Block> tempList = new List<Block>();
 			for (int y = 0; y < fieldHeight; y++)
 			{
-				GameObject instantiateBlock = (GameObject)Instantiate(currentStageTiles[Random.Range(0, currentStageTiles.Length)], new Vector2(transform.position.x + x, transform.position.y - (fieldHeight - y)), Quaternion.identity);
-				instantiateBlock.GetComponent<Block>().Position = new Vector2(x, y);
-				tempList.Add(instantiateBlock.GetComponent<Block>());
+				int percentageCounter = Random.Range(0 , 100);
+				if (percentageCounter < 99)
+				{
+					GameObject instantiateBlock = (GameObject)Instantiate(currentStageTiles[Random.Range(0 , currentStageTiles.Length)] , new Vector2(transform.position.x + x , transform.position.y - ( fieldHeight - y )) , Quaternion.identity);
+					instantiateBlock.GetComponent<Block>().Position = new Vector2(x , y);
+					tempList.Add(instantiateBlock.GetComponent<Block>());
+				}
+				else
+				{
+					GameObject instantiateBlock = (GameObject)Instantiate(currentStageTiles[Random.Range(0 , specialBlocks.Length)] , new Vector2(transform.position.x + x , transform.position.y - ( fieldHeight - y )) , Quaternion.identity);
+					instantiateBlock.GetComponent<Block>().Position = new Vector2(x , y);
+					tempList.Add(instantiateBlock.GetComponent<Block>());
+				}
 			}
 			blocks.Add(tempList);
 		}

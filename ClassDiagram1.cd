@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Utils.AudioChannel">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAIACAgAAAACAAAAAAAAAQAEAAAoAJAAAAEIEg=</HashCode>
+      <FileName>Assets\Scripts\Audio\AudioChannel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Utils.AudioPlayer">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgQAAAAAAAAABAABAAgAAAAAIIAAAQQAAACEA=</HashCode>
+      <FileName>Assets\Scripts\Audio\AudioPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Utils.AudioMusicEvent">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EventSystem\SpecialEvents\AudioMusicEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Utils.AudioSFXEvent">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EventSystem\SpecialEvents\AudioSFXEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Block">
+    <Position X="7.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQBAACAAAAAgIBgAAAAIAAAAgINAAAgAiAgAAAAgkE=</HashCode>
+      <FileName>Assets\Scripts\Blocks\Block.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlockManager">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAACEBAAAAASAAAAgAAAAQAAoAAAgAAAAjVA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\BlockManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharacterAnimationController">
+    <Position X="11.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAQAAACBKAAAAAABAAACQAABAAAEIQgAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Character\CharacterAnimationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeadCollision">
+    <Position X="5.75" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Character\DeadCollision.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerMovement">
+    <Position X="14.5" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAAABoAgAAAAAAAAIAAEAABAAAAJQAAAAQCAiEA=</HashCode>
+      <FileName>Assets\Scripts\Character\PlayerMovement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventManager">
+    <Position X="14" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgQANEAAAAAAAABIABAIAMAAAACAAAQADA=</HashCode>
+      <FileName>Assets\Scripts\EventSystem\EventManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StaticEventNames">
+    <Position X="7.5" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAABAIEAAAAAAAAAAAAAAAAAAIAAQAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EventSystem\StaticEventNames.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GamePartsManager">
+    <Position X="21.25" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAEAAAACAAAAAAIAAAAAAAAAAAEAAAAAAAAAAAACA=</HashCode>
+      <FileName>Assets\Scripts\GameManagement\GamePartsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Initializer">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Initializer\Initializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LogoTransition">
+    <Position X="18.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAGAAAIABCAAAiAAAAAAAAAAAAEBEAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\LevelTransition\LogoTransition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NextStageTrigger">
+    <Position X="5.5" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAEAEAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\LevelTransition\NextStageTrigger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenuButtonCommands">
+    <Position X="18.5" Y="4.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>EQAABAAAIAEAAAAAAgAAAAYAAACAEAAAMAAAACAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MainMenu\MainMenuButtonCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuMovement">
+    <Position X="9.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQCAAAAAAAIAAAAAAAACBgAAAAAAAAACAAABAEAAEA=</HashCode>
+      <FileName>Assets\Scripts\MainMenu\MenuMovement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Settings">
+    <Position X="22" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAgAAQBAACAAAAAEAAAAAAAAAACACACAACAAIUA=</HashCode>
+      <FileName>Assets\Scripts\MainMenu\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FallWith">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Misc\FallWith.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MathUtils">
+    <Position X="5.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Misc\MathUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Overlay">
+    <Position X="16.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAACAAAAAAAAAABAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Misc\Overlay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOverManager">
+    <Position X="2.25" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAQEAAAAAAAEAAAAAAAAIAAAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\UI\GameOverManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HungerMeter">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAEABAAAAAAAAAAAAQAAAAAEAIAAAAQAAACFA=</HashCode>
+      <FileName>Assets\Scripts\UI\HungerMeter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lives">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAABAAAAAAAAAYAAAAIAAAAAAAACEA=</HashCode>
+      <FileName>Assets\Scripts\UI\Lives.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Score">
+    <Position X="20.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAgAAAAAAAAAxAAIAAAAAAAAAAAIAAAAABAACEA=</HashCode>
+      <FileName>Assets\Scripts\UI\Score.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StageArtManager">
+    <Position X="11.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAACAAAAAAIAAAAAAAEAAACAAIAAAAAIAAiAA=</HashCode>
+      <FileName>Assets\Scripts\UI\StageArtManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Type">
+    <Position X="16.5" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\Block.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Side">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAACAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Blocks\Block.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DrillDirection">
+    <Position X="4.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAIAAAAAAAAAgAAgAA=</HashCode>
+      <FileName>Assets\Scripts\Character\PlayerMovement.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LastChangedAudioMixer">
+    <Position X="2.25" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAACAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MainMenu\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

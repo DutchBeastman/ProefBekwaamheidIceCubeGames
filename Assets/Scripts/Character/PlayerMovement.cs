@@ -43,14 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
 	protected void FixedUpdate()
 	{
-
 		Move();
-		//playerPosition = new Vector2(transform.position.x + (Mathf.Clamp(Input.GetAxisRaw("Horizontal") * transform.localScale.x, -transform.localScale.x , transform.localScale.x) ), transform.position.y);
-		///transform.position = playerPosition;
-		/* Old movement
-		rigid.AddRelativeForce(new Vector2(Mathf.Clamp(Input.GetAxis("Horizontal") * Time.deltaTime * 300 , -6 , 6) , 0) , ForceMode2D.Force);
-		rigid.velocity = new Vector2(Mathf.Clamp(Input.GetAxis("Horizontal") * Time.deltaTime * 300 , -6 , 6) , 0);
-		*/
 
 		if (canClimb)
 		{
@@ -66,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 	}
+
     protected void Update()
     {
 		//Getting the axis for spacebar, which in unity is called jump
@@ -130,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
 					{
 						if (ray.collider.name != "WallLeft" && ray.collider.name != "WallRight")
 						{
-							if (ray.collider.name != gameObject.name)
+							if (ray.collider.name != gameObject.name && ray.collider.name != "LifeTile(Clone)")
 							{
 								move = false;
 							}
@@ -143,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
 					playerPosition = new Vector2 (transform.position.x + Mathf.RoundToInt (Input.GetAxis ("Horizontal")), transform.position.y);
 					transform.position = playerPosition;
 					canMove = false;
-					Invoke ("ResetMovementTimer", 0.3f);
+					Invoke ("ResetMovementTimer", 0.25f);
 				}
 			}
 		}
@@ -162,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
 	}
 	protected IEnumerator ClimbTimer()
 	{
-		yield return new WaitForSeconds(0.7f);
+		yield return new WaitForSeconds(1f);
 		canClimb = true;
 	}
 

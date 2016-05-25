@@ -14,17 +14,19 @@ public class HungerMeter : MonoBehaviour
 	protected void Awake () 
 	{
 		UpdateUIArt();
-		DecreaseHunger();
+		Invoke("DecreaseHunger", 0.7f);
 	}
 
 	protected void OnEnable ()
 	{
 		EventManager.AddListener(StaticEventNames.ENDGAME, StopWorking);
+		EventManager.AddListener(StaticEventNames.GOTPICKUP, GotPickUp);
 	}
 
 	protected void OnDisable ()
 	{
 		EventManager.RemoveListener(StaticEventNames.ENDGAME, StopWorking);
+		EventManager.RemoveListener(StaticEventNames.GOTPICKUP, GotPickUp);
 	}
 
 	private void DecreaseHunger ()
@@ -54,6 +56,15 @@ public class HungerMeter : MonoBehaviour
 	private void StopWorking ()
 	{
 		refill = false;
+	}
+
+	private void GotPickUp ()
+	{
+		hungerPercent += 20;
+		if (hungerPercent > 100)
+		{
+			hungerPercent = 100;
+		}
 	}
 
 	private void UpdateUIArt ()

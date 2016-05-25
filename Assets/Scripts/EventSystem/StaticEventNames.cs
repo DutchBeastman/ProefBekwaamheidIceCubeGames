@@ -9,4 +9,5 @@ public class StaticEventNames
 	public const string RESTART = "Restart";
 	public const string LOSTLIFE = "LostLife";
 	public const string NEXTSTAGE = "NextStage";
+	public const string GOTPICKUP = "GotPickUp";
 }

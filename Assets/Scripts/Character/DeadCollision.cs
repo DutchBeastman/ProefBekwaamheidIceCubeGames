@@ -3,9 +3,10 @@ using System.Collections;
 
 public class DeadCollision : MonoBehaviour {
 
-	void OnCollisionEnter2D(Collision2D coll)
+	void OnTriggerEnter2D(Collider2D coll)
 	{
-		if (coll.collider.GetComponent<Block>().falling)
+		Block b = coll.GetComponent<Block>();
+		if (b.falling && !b.pickUp)
 		{
 			EventManager.TriggerEvent(StaticEventNames.LOSTLIFE);
 		}

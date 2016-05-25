@@ -315,6 +315,10 @@ Prefab:
       propertyPath: m_Name
       value: GameCreationPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 6159528, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
   m_IsPrefabParent: 0

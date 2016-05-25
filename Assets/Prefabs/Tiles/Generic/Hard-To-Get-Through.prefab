@@ -74,13 +74,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1565e188ca99ab74fac0e71682bbef0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 2
+  lives: 3
   points: 30
   damage: 15
   killNeighbours: 0
   unbreakable: 0
   type: 4
   killed: 0
+  falling: 0
 --- !u!212 &21232918
 SpriteRenderer:
   m_ObjectHideFlags: 1

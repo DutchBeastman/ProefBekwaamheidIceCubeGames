@@ -6,7 +6,7 @@ public class DeadCollision : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D coll)
 	{
 		Block b = coll.GetComponent<Block>();
-		if (b.falling && !b.pickUp)
+		if (b != null && b.falling && !b.pickUp)
 		{
 			EventManager.TriggerEvent(StaticEventNames.LOSTLIFE);
 		}

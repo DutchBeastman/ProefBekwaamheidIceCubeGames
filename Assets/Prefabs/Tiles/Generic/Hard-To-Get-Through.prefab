@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11496830}
   - 61: {fileID: 6123396}
   - 50: {fileID: 5078778}
+  - 114: {fileID: 11406464}
   m_Layer: 0
   m_Name: Hard-To-Get-Through
   m_TagString: Untagged
@@ -63,6 +64,19 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1.4, y: 1.5}
+--- !u!114 &11406464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8facbb9278d423b419992085c7a5fe35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
 --- !u!114 &11496830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -79,9 +93,10 @@ MonoBehaviour:
   damage: 15
   killNeighbours: 0
   unbreakable: 0
-  type: 4
   killed: 0
   falling: 0
+  pickUp: 0
+  type: 4
 --- !u!212 &21232918
 SpriteRenderer:
   m_ObjectHideFlags: 1

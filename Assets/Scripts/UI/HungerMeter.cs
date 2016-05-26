@@ -21,12 +21,20 @@ public class HungerMeter : MonoBehaviour
 	{
 		EventManager.AddListener(StaticEventNames.ENDGAME, StopWorking);
 		EventManager.AddListener(StaticEventNames.GOTPICKUP, GotPickUp);
+		EventManager.AddListener (StaticEventNames.RESTART, Restart);
 	}
 
 	protected void OnDisable ()
 	{
 		EventManager.RemoveListener(StaticEventNames.ENDGAME, StopWorking);
 		EventManager.RemoveListener(StaticEventNames.GOTPICKUP, GotPickUp);
+		EventManager.RemoveListener (StaticEventNames.RESTART, Restart);
+	}
+
+	private void Restart ()
+	{
+		hungerPercent = 100;
+		UpdateUIArt();
 	}
 
 	private void DecreaseHunger ()

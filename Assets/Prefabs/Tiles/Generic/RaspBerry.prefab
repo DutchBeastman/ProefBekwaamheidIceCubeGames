@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11456066}
   - 61: {fileID: 6163890}
   - 50: {fileID: 5095004}
+  - 114: {fileID: 11461534}
   m_Layer: 0
   m_Name: RaspBerry
   m_TagString: Untagged
@@ -79,8 +80,23 @@ MonoBehaviour:
   damage: 1
   killNeighbours: 1
   unbreakable: 0
-  type: 1
   killed: 0
+  falling: 0
+  pickUp: 0
+  type: 1
+--- !u!114 &11461534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8facbb9278d423b419992085c7a5fe35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: f10872d1cbd6a5e408aa1f0bb6b2591e, type: 3}
 --- !u!212 &21270576
 SpriteRenderer:
   m_ObjectHideFlags: 1

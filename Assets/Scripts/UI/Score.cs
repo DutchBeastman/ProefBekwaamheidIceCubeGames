@@ -20,6 +20,7 @@ public class Score : MonoBehaviour
 		EventManager.AddListener ("GetPoints20", Get20Points);
 		EventManager.AddListener ("GetPoints30", Get30Points);
 		EventManager.AddListener ("GetPoints50", Get50Points);
+		EventManager.AddListener (StaticEventNames.RESTART, Restart);
 	}
 
 	protected void OnDisable ()
@@ -28,6 +29,13 @@ public class Score : MonoBehaviour
 		EventManager.RemoveListener ("GetPoints20", Get20Points);
 		EventManager.RemoveListener ("GetPoints30", Get30Points);
 		EventManager.RemoveListener ("GetPoints50", Get50Points);
+		EventManager.RemoveListener (StaticEventNames.RESTART, Restart);
+	}
+
+	private void Restart ()
+	{
+		score = 0;
+		UpdateUI();
 	}
 
 	private void Get10Points ()
@@ -60,6 +68,5 @@ public class Score : MonoBehaviour
 		{
 			scoreText.text = score.ToString ();
 		}
-		//Debug.Log(score);
 	}
 }

@@ -54,7 +54,6 @@ public class BlockManager : MonoBehaviour
 			for (int y = 0; y < fieldHeight; y++)
 			{
 				int percentageCounter = Random.Range(0 , 100);
-				Debug.Log(percentageCounter);
 				if (percentageCounter < 93)
 				{
 					GameObject instantiateBlock = (GameObject)Instantiate(currentStageTiles[Random.Range(0 , currentStageTiles.Length)] , new Vector2(transform.position.x + x , transform.position.y - ( fieldHeight - y )) , Quaternion.identity);

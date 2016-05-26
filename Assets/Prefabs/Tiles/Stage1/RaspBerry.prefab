@@ -14,7 +14,7 @@ GameObject:
   - 50: {fileID: 5036044}
   - 114: {fileID: 11425598}
   m_Layer: 0
-  m_Name: ForrestRaspBerry
+  m_Name: RaspBerry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: bab3d1af010ff0044b7e5fe07ba95eaa, type: 3}
+  - {fileID: 21300006, guid: 3db0f075be20088488abe3d31be06e4d, type: 3}
 --- !u!114 &11438640
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -41,14 +41,14 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144810}
   m_UseAutoMass: 0
-  m_Mass: 8
-  m_LinearDrag: 1
-  m_AngularDrag: 0.2
-  m_GravityScale: 0.6
+  m_Mass: 5
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0.35
   m_IsKinematic: 1
-  m_Interpolate: 2
+  m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 5
 --- !u!61 &6123396
 BoxCollider2D:
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 1a5a1995f73951a498be1daaa1d7b7ba, type: 3}
+  - {fileID: 21300006, guid: fe487376132b3324daace209c54ae3ec, type: 3}
 --- !u!114 &11496830
 MonoBehaviour:
   m_ObjectHideFlags: 1

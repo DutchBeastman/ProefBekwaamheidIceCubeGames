@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class StageArtManager : MonoBehaviour 
 {
-	[SerializeField] private Sprite[] stagesImages;
 	[SerializeField] private new SpriteRenderer renderer;
 	[SerializeField] private Image image;
+	[SerializeField] private Sprite[] stagesImages;
 	private int currentState;
 
 	protected void OnEnable ()

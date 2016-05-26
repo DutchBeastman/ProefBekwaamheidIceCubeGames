@@ -156,6 +156,26 @@ public class Block : MonoBehaviour {
 		}
 	}
 
+	private void TellNeighboursToStopFalling ()
+	{
+		List<RaycastHit2D> hitsYUp = GetNeighbours (Side.up);
+		for (int i = 0; i < hitsYUp.Count; i++)
+		{
+			Block b;
+			if (hitsYUp[i].collider != null)
+			{
+				if (hitsYUp[i].collider.transform.GetComponent<Block> () != null)
+				{
+					b = hitsYUp[i].transform.GetComponent<Block> ();
+					if (!b.killed)
+					{
+						b.StopFalling ();
+					}
+				}
+			}
+		}
+	}
+
 	public void KillGroup()
 	{
 		killed = true;
@@ -211,6 +231,7 @@ public class Block : MonoBehaviour {
 
 	public void StopFalling()
 	{
+		TellNeighboursToStopFalling();
 		falling = false;
 		rigid2D.isKinematic = true;
 	}
@@ -226,7 +247,7 @@ public class Block : MonoBehaviour {
 	{
 		if (coll.collider.name != "Player")
 		{	
-			if (rigid2D.velocity.y > 0.2f)
+			if (rigid2D.velocity.y < -0.2f)
 			{
 				Invoke ("StopFalling", 0.1f);
 			}

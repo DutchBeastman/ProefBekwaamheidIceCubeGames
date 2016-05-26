@@ -1358,11 +1358,9 @@ MonoBehaviour:
   - {fileID: 161592, guid: 9d0e608a646101f48aebc320043a7bae, type: 2}
   - {fileID: 193228, guid: 80b9454449886f04daf449c5f8c52308, type: 2}
   - {fileID: 193986, guid: 0ba160930e8dbf7488cf20c11506f09e, type: 2}
-  - {fileID: 192758, guid: 5232cb36740065f40b82be3aee431ccd, type: 2}
   forrestStageTiles:
   - {fileID: 161592, guid: 9d0e608a646101f48aebc320043a7bae, type: 2}
   - {fileID: 193228, guid: 80b9454449886f04daf449c5f8c52308, type: 2}
-  - {fileID: 144810, guid: 8bcb2964795107c418ba66360d15cc7e, type: 2}
   specialBlocks:
   - {fileID: 144810, guid: 8bcb2964795107c418ba66360d15cc7e, type: 2}
   - {fileID: 192758, guid: 5232cb36740065f40b82be3aee431ccd, type: 2}

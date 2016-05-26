@@ -50,12 +50,12 @@ public class BlockManager : MonoBehaviour
 		blocks = new List<List<Block>>();
 		for (int x = 0; x < fieldWidth; x++)
 		{
-
 			List<Block> tempList = new List<Block>();
 			for (int y = 0; y < fieldHeight; y++)
 			{
 				int percentageCounter = Random.Range(0 , 100);
-				if (percentageCounter < 99)
+				Debug.Log(percentageCounter);
+				if (percentageCounter < 93)
 				{
 					GameObject instantiateBlock = (GameObject)Instantiate(currentStageTiles[Random.Range(0 , currentStageTiles.Length)] , new Vector2(transform.position.x + x , transform.position.y - ( fieldHeight - y )) , Quaternion.identity);
 					instantiateBlock.GetComponent<Block>().Position = new Vector2(x , y);
@@ -63,7 +63,7 @@ public class BlockManager : MonoBehaviour
 				}
 				else
 				{
-					GameObject instantiateBlock = (GameObject)Instantiate(currentStageTiles[Random.Range(0 , specialBlocks.Length)] , new Vector2(transform.position.x + x , transform.position.y - ( fieldHeight - y )) , Quaternion.identity);
+					GameObject instantiateBlock = (GameObject)Instantiate(specialBlocks[Random.Range(0 , specialBlocks.Length)] , new Vector2(transform.position.x + x , transform.position.y - ( fieldHeight - y )) , Quaternion.identity);
 					instantiateBlock.GetComponent<Block>().Position = new Vector2(x , y);
 					tempList.Add(instantiateBlock.GetComponent<Block>());
 				}

@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
 				{
 					foreach (RaycastHit2D ray in hits)
 					{
-						if (ray.collider.name != "WallLeft" && ray.collider.name != "WallRight")
+						if (ray.collider.name == "WallLeft" || ray.collider.name == "WallRight")
 						{
 							if (ray.collider.name != gameObject.name && ray.collider.name != "LifeTile(Clone)")
 							{

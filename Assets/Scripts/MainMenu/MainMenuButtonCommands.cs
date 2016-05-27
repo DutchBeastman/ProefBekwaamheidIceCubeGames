@@ -9,6 +9,7 @@ public class MainMenuButtonCommands : MonoBehaviour
 	[SerializeField] private GameObject mainMenu;
 	[SerializeField] private GameObject settings;
 	[SerializeField] private GameObject gameCreation;
+	[SerializeField] private AudioClips[] buttonPushSounds;
 
 	private bool fullAlpha;
 	
@@ -16,6 +17,7 @@ public class MainMenuButtonCommands : MonoBehaviour
 	{
 		Overlay.FadeIn ();
 		Invoke("CreateLevel", 2);
+		EventManager.TriggerAudioSFXEvent(AudioClips.buttonSound);
 	}
 
 	private void CreateLevel()
@@ -27,12 +29,13 @@ public class MainMenuButtonCommands : MonoBehaviour
 	{
 		Overlay.FadeIn ();
 		Invoke ("SwitchFromMainToSettings", 1);
+		EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
 	}
 
 	public void ExitButtonPushed ()
 	{
-		Debug.Log ("Log Quit");
 		Application.Quit ();
+		EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
 	}
 
 	public void BackToMainMenuButtonPushed()

@@ -44,17 +44,19 @@ public class PlayerMovement : MonoBehaviour
 	protected void FixedUpdate()
 	{
 		Move();
-
 		if (canClimb)
 		{
-			RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + (Input.GetAxis("Horizontal") / 2), transform.position.y - 0.3f), new Vector2(Input.GetAxis("Horizontal"), 0), 0.1f);
+			RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + (Input.GetAxis("Horizontal") / 2), transform.position.y - 0.3f), new Vector2(Input.GetAxis("Horizontal") * 0.1f, 0), 0.1f);
+			Debug.DrawRay(new Vector2(transform.position.x + ( Input.GetAxis("Horizontal") / 2 ) , transform.position.y - 0.3f) , new Vector2(Input.GetAxis("Horizontal") * 0.1f , 0) , Color.red, 1f);
 			if (hit.collider != null && hit.collider.name != "Player")
 			{
 				if (Physics2D.Raycast(new Vector2(transform.position.x + (Input.GetAxis("Horizontal") / 2), transform.position.y + 1), new Vector2(Input.GetAxis("Horizontal"), 0), 0.1f).collider == null)
 				{
-					rigid.velocity = new Vector2(0, 20);
+					EnableKinematic();
+					transform.localPosition += new Vector3(0 , transform.localScale.y * 1.1f , 0);
+					DisableKinematic();
 					canClimb = false;
-					StartCoroutine(ClimbTimer());
+					Invoke("ClimbTimer" , 1.5f);
 				}
 			}
 		}
@@ -154,9 +156,8 @@ public class PlayerMovement : MonoBehaviour
 	{
 		canMove = true;
 	}
-	protected IEnumerator ClimbTimer()
+	protected void ClimbTimer()
 	{
-		yield return new WaitForSeconds(1f);
 		canClimb = true;
 	}
 
@@ -170,5 +171,9 @@ public class PlayerMovement : MonoBehaviour
 	private void DisableKinematic ()
 	{
 		rigid.isKinematic = false;
+	}
+	private void EnableKinematic()
+	{
+		rigid.isKinematic = true;
 	}
 }

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CharacterAnimationController : MonoBehaviour
 {
+	private SpriteRenderer sprRend;
+
+	[SerializeField] private Sprite[] idle;
 	//DigAnimations
 	[SerializeField] private string digLeftAnimation;
 	[SerializeField] private string digRightAnimation;
@@ -13,13 +16,21 @@ public class CharacterAnimationController : MonoBehaviour
 	[SerializeField] private string moveLeftAnimation;
 	[SerializeField] private string moveRightAnimation;
 	//FallingAnimations
-	[SerializeField] private string startFallingAnimation;
-	[SerializeField] private string fallingAnimation;
-	[SerializeField] private string stopFallingAnimation;
-	
+	[SerializeField] private Sprite[] fallSprites;
+	[SerializeField] private Sprite[] startFallingSprites;
+	[SerializeField] private Sprite[] stopFallingSprite;
+
+	[SerializeField] private Sprite playerSprite;
+
 	void Start()
 	{
+		playerSprite = idle[0];
+		sprRend = GetComponent<SpriteRenderer>();
+	}
 
+	private void AnimationState()
+	{
+		
 	}
 
 	public void MoveLeft(bool digging)

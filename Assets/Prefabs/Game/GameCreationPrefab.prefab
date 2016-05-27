@@ -1670,8 +1670,8 @@ MonoBehaviour:
   renderer: {fileID: 0}
   image: {fileID: 11457854}
   stagesImages:
-  - {fileID: 21300000, guid: f54ea44eae76645b98b50d1163286eca, type: 3}
-  - {fileID: 21300000, guid: c3ae68786204863429cb400396f51af3, type: 3}
+  - {fileID: 21300000, guid: c3a5c5ab27439ff448c19935794de20c, type: 3}
+  - {fileID: 21300000, guid: cddef08825b8a184c929ac1bf501bbbe, type: 3}
 --- !u!114 &11497918
 MonoBehaviour:
   m_ObjectHideFlags: 1

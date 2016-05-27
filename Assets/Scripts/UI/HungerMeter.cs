@@ -10,6 +10,7 @@ public class HungerMeter : MonoBehaviour
 	[SerializeField] private Image hungerBar;
 	private float hungerPercent = 100;
 	private bool refill = true;
+	private bool death = false;
 
 	protected void Awake () 
 	{
@@ -22,6 +23,7 @@ public class HungerMeter : MonoBehaviour
 		EventManager.AddListener(StaticEventNames.ENDGAME, StopWorking);
 		EventManager.AddListener(StaticEventNames.GOTPICKUP, GotPickUp);
 		EventManager.AddListener (StaticEventNames.RESTART, Restart);
+		EventManager.AddListener (StaticEventNames.ENDGAME, StopUIUpdate);
 	}
 
 	protected void OnDisable ()
@@ -29,11 +31,13 @@ public class HungerMeter : MonoBehaviour
 		EventManager.RemoveListener(StaticEventNames.ENDGAME, StopWorking);
 		EventManager.RemoveListener(StaticEventNames.GOTPICKUP, GotPickUp);
 		EventManager.RemoveListener (StaticEventNames.RESTART, Restart);
+		EventManager.RemoveListener (StaticEventNames.ENDGAME, StopUIUpdate);
 	}
 
 	private void Restart ()
 	{
 		hungerPercent = 100;
+		death = false;
 		UpdateUIArt();
 	}
 
@@ -41,7 +45,7 @@ public class HungerMeter : MonoBehaviour
 	{
 		hungerPercent --;
 		UpdateUIArt();
-		if (hungerPercent >= 0)
+		if (hungerPercent >= 0  && !death)
 		{
 			Invoke ("DecreaseHunger", .7f);
 		}
@@ -64,6 +68,11 @@ public class HungerMeter : MonoBehaviour
 	private void StopWorking ()
 	{
 		refill = false;
+	}
+
+	private void StopUIUpdate ()
+	{
+		death = true;
 	}
 
 	private void GotPickUp ()

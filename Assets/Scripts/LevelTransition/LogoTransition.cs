@@ -13,7 +13,7 @@ public class LogoTransition : MonoBehaviour
 	[SerializeField] private Sprite[] transitionLogos;
 	private Sprite currentLogo;
 	private new SpriteRenderer renderer;
-	private int nextTransition;
+	private int nextTransition = 1;
 
 	protected void Start()
 	{
@@ -22,16 +22,17 @@ public class LogoTransition : MonoBehaviour
 
 	public void ShowLogo()
 	{
-		currentLogo = transitionLogos[nextTransition];
 		if (renderer)
 		{
-			renderer.sprite = currentLogo;
 			nextTransition++;
 			if (nextTransition == transitionLogos.Length)
 			{
 				nextTransition = 0;
 			}
-			StartCoroutine(FadingIn());
+			currentLogo = transitionLogos[nextTransition];
+			renderer.sprite = currentLogo;
+
+			StartCoroutine (FadingIn());
 			Invoke("FadeOut", startFadingOutTime);
 		}
 	}

@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3c9ff0fbe65374ca69e923dd015a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logo: {fileID: 0}
+  logo: {fileID: 11464280}
   manager: {fileID: 11457686}
 --- !u!114 &11434512
 MonoBehaviour:

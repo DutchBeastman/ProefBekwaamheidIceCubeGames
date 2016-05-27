@@ -246,10 +246,14 @@ public class Block : MonoBehaviour {
 	private void OnCollisionEnter2D(Collision2D coll)
 	{
 		if (coll.collider.name != "Player")
-		{	
-			if (rigid2D.velocity.y < -0.2f)
+		{
+			if (coll.collider.GetComponent<Block> ().falling == false)
 			{
-				Invoke ("StopFalling", 0.1f);
+				if (rigid2D.velocity.y < -0.2f)
+				{
+					Invoke ("StopFalling", 0.1f);
+					Debug.Log(coll.collider.name);
+				}
 			}
 		}
 		else
@@ -257,6 +261,7 @@ public class Block : MonoBehaviour {
 			if (pickUp)
 			{
 				Destroy (gameObject);
+				TellNeighboursToFall();
 				EventManager.TriggerEvent (StaticEventNames.GOTPICKUP);
 			}
 		}

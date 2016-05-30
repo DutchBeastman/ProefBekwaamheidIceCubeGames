@@ -999,6 +999,7 @@ MonoBehaviour:
   mainMenu: {fileID: 124750}
   settings: {fileID: 146394}
   gameCreation: {fileID: 170708, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
+  buttonPushSounds: []
 --- !u!114 &11429274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1472,7 +1473,7 @@ MonoBehaviour:
   masterVolume: {fileID: 11474200}
   SFXVolume: {fileID: 11438740}
   musicVolume: {fileID: 11444368}
-  volumeChangedSound: {fileID: 8300000, guid: 8d78133eb7a152e4d8ae195eb16576b5, type: 3}
+  volumeChangedSound: {fileID: 8300000, guid: 58069ab2159ace2469a4b2cf0e44d186, type: 3}
 --- !u!114 &11454240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2471,16 +2472,16 @@ RectTransform:
   m_GameObject: {fileID: 117398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 22457002}
   m_Father: {fileID: 22469558}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20, y: -20}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -300, y: 150}
+  m_SizeDelta: {x: -600, y: -300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22436566
 RectTransform:

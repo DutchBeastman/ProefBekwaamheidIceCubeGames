@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
 	private Rigidbody2D rigid;
 	private DrillDirection drillDir;
 	private Vector2 playerPosition;
+	private bool died = false;
 	private bool canMove = true;
 
 	protected void Awake()
@@ -32,19 +33,21 @@ public class PlayerMovement : MonoBehaviour
 	protected void OnEnable ()
 	{
 		EventManager.AddListener (StaticEventNames.NEXTSTAGE, NextStage);
-		EventManager.AddListener(StaticEventNames.RESTART, NextStage);
+		EventManager.AddListener (StaticEventNames.RESTART, NextStage);
+		EventManager.AddListener (StaticEventNames.ENDGAME, DisableMovement);
 	}
 
 	protected void OnDisable ()
 	{
-		EventManager.RemoveListener(StaticEventNames.NEXTSTAGE, NextStage);
-		EventManager.RemoveListener(StaticEventNames.RESTART, NextStage);
+		EventManager.RemoveListener (StaticEventNames.NEXTSTAGE, NextStage);
+		EventManager.RemoveListener (StaticEventNames.RESTART, NextStage);
+		EventManager.RemoveListener (StaticEventNames.ENDGAME, DisableMovement);
 	}
 
 	protected void FixedUpdate()
 	{
 		Move();
-		if (canClimb)
+		if (canClimb && !died)
 		{
 			RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + (Input.GetAxis("Horizontal") / 2), transform.position.y - 0.3f), new Vector2(Input.GetAxis("Horizontal") * 0.1f, 0), 0.1f);
 			Debug.DrawRay(new Vector2(transform.position.x + ( Input.GetAxis("Horizontal") / 2 ) , transform.position.y - 0.3f) , new Vector2(Input.GetAxis("Horizontal") * 0.1f , 0) , Color.red, 1f);
@@ -82,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
 					break;
 			}
             Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + Vector2.down.y), Vector2.down, Color.red);
-            if (hit.collider != null && hit.collider.GetComponent<Block>() && canDig)
+            if (hit.collider != null && hit.collider.GetComponent<Block>() && canDig && !died)
             {
 				//Here we remove a block, and set the digging unavailiable and start the reset timer
 				hit.collider.GetComponent<Block>().GetKilled();
@@ -110,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Move()
 	{
-		if (canMove)
+		if (canMove && !died)
 		{
 			if (Mathf.RoundToInt(Input.GetAxis("Horizontal")) != 0)
 			{
@@ -166,6 +169,12 @@ public class PlayerMovement : MonoBehaviour
 		transform.position = new Vector3(transform.position.x, 10, 0);
 		rigid.isKinematic = true;
 		Invoke("DisableKinematic", 2);
+		died = false;
+	}
+
+	private void DisableMovement ()
+	{
+		died = true;
 	}
 
 	private void DisableKinematic ()

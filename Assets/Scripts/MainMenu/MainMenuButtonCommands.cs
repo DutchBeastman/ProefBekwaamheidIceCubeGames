@@ -42,6 +42,7 @@ public class MainMenuButtonCommands : MonoBehaviour
 	{
 		Overlay.FadeIn ();
 		Invoke ("SwitchFromSettingsToMain", 1);
+		EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
 	}
 
 	private void SwitchFromMainToSettings ()

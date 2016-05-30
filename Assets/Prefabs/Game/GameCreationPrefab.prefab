@@ -28,6 +28,7 @@ GameObject:
   - 224: {fileID: 22412278}
   - 222: {fileID: 22264892}
   - 114: {fileID: 11494282}
+  - 114: {fileID: 11464650}
   m_Layer: 5
   m_Name: Gradient
   m_TagString: Untagged
@@ -355,6 +356,23 @@ GameObject:
   - 114: {fileID: 11465178}
   m_Layer: 5
   m_Name: GameOverBackGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &166698
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22470840}
+  - 222: {fileID: 22280492}
+  - 114: {fileID: 11476950}
+  m_Layer: 5
+  m_Name: Pig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1060,7 +1078,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193942}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cee55ab9aa44e004fb613afeeb841137, type: 3}
   m_Name: 
@@ -1069,7 +1087,7 @@ MonoBehaviour:
   image: {fileID: 11482140}
   stagesImages:
   - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
-  - {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
+  - {fileID: 21300000, guid: 58f27e39911197747be387ddc14c7b70, type: 3}
 --- !u!114 &11428272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1355,14 +1373,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fieldWidth: 7
   fieldHeight: 100
-  farmStageTiles:
-  - {fileID: 161592, guid: 9d0e608a646101f48aebc320043a7bae, type: 2}
-  - {fileID: 193228, guid: 80b9454449886f04daf449c5f8c52308, type: 2}
-  - {fileID: 193986, guid: 0ba160930e8dbf7488cf20c11506f09e, type: 2}
-  - {fileID: 193228, guid: 80b9454449886f04daf449c5f8c52308, type: 2}
   forrestStageTiles:
+  - {fileID: 193986, guid: 0ba160930e8dbf7488cf20c11506f09e, type: 2}
   - {fileID: 161592, guid: 9d0e608a646101f48aebc320043a7bae, type: 2}
   - {fileID: 193228, guid: 80b9454449886f04daf449c5f8c52308, type: 2}
+  - {fileID: 193986, guid: d9277154956f2ee44879cb928c8543f9, type: 2}
   specialBlocks:
   - {fileID: 144810, guid: 8bcb2964795107c418ba66360d15cc7e, type: 2}
   - {fileID: 192758, guid: 5232cb36740065f40b82be3aee431ccd, type: 2}
@@ -1403,7 +1418,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f54ea44eae76645b98b50d1163286eca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd70fc7ca06734584aba7b0427007e34, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1417,7 +1432,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170594}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dec25ff6dc444194fa2cbf99a3b8b6ca, type: 3}
   m_Name: 
@@ -1427,6 +1442,22 @@ MonoBehaviour:
   transitionLogos:
   - {fileID: 21300000, guid: 3a0587ac673b4409ea335c38ce1d3dad, type: 3}
   - {fileID: 21300000, guid: fc09b5cf470324ab6b2d405c45783abc, type: 3}
+--- !u!114 &11464650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102656}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee55ab9aa44e004fb613afeeb841137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer: {fileID: 0}
+  image: {fileID: 11494282}
+  stagesImages:
+  - {fileID: 21300000, guid: cc3c717fc9cb7ed429278cd701fac0b0, type: 3}
+  - {fileID: 21300000, guid: 1fdda142d25ea9147a3e5c9a2398de45, type: 3}
 --- !u!114 &11464980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1574,6 +1605,33 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11476950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300006, guid: d5483b41a5a261745b3d923aa228f6b7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &11482140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1593,7 +1651,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6e74d3e60334cb74bbfe591b5de5bbef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58f27e39911197747be387ddc14c7b70, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1662,7 +1720,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157074}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cee55ab9aa44e004fb613afeeb841137, type: 3}
   m_Name: 
@@ -1671,7 +1729,7 @@ MonoBehaviour:
   image: {fileID: 11457854}
   stagesImages:
   - {fileID: 21300000, guid: c3a5c5ab27439ff448c19935794de20c, type: 3}
-  - {fileID: 21300000, guid: cddef08825b8a184c929ac1bf501bbbe, type: 3}
+  - {fileID: 21300000, guid: fd70fc7ca06734584aba7b0427007e34, type: 3}
 --- !u!114 &11497918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1868,6 +1926,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145186}
+--- !u!222 &22280492
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166698}
 --- !u!223 &22353986
 Canvas:
   m_ObjectHideFlags: 1
@@ -2128,7 +2192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 22486602}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 5, y: 37.5}
@@ -2208,6 +2272,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -14}
   m_SizeDelta: {x: 20, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22470840
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 22486602}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 5, y: -35.7}
+  m_SizeDelta: {x: -152, y: -166}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22474224
 RectTransform:
   m_ObjectHideFlags: 1
@@ -2220,11 +2302,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 22486602}
-  m_RootOrder: 2
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: -570, y: -400}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -114}
+  m_SizeDelta: {x: -200, y: -254}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22486602
 RectTransform:
@@ -2237,6 +2319,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 22470840}
   - {fileID: 22427970}
   - {fileID: 22489988}
   - {fileID: 22474224}
@@ -2259,7 +2342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 22486602}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 2.8, y: 40}

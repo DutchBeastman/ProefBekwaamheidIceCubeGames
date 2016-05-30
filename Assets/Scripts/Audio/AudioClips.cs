@@ -2,7 +2,6 @@
 // Date: 27/05/2016
 
 using UnityEngine;
-using System.Collections;
 
 public class AudioClips : MonoBehaviour 
 {

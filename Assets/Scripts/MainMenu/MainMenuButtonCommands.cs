@@ -9,7 +9,6 @@ public class MainMenuButtonCommands : MonoBehaviour
 	[SerializeField] private GameObject mainMenu;
 	[SerializeField] private GameObject settings;
 	[SerializeField] private GameObject gameCreation;
-	[SerializeField] private AudioClips[] buttonPushSounds;
 
 	private bool fullAlpha;
 	

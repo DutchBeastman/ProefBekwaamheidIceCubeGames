@@ -8,10 +8,10 @@ using System;
 
 public enum Type
 {
-	Blue = 0,
-	Red,
-	Purple,
-	Yellow,
+	RaspBerry = 0,
+	BlueBerry,
+	BlackBerry,
+	RedCurrent,
 	HardToGetThrough,
 	PickUp,
 	Empty

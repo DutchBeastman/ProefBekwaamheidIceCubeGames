@@ -15,7 +15,9 @@ namespace Utils
 		[SerializeField] private AudioMixerGroup musicGroup;
 
 		private const string AUDIOEVENT = "audioEvent";
-
+		/// <summary>
+		/// Creates al audio channels
+		/// </summary>
 		protected void Awake ()
 		{
 			channels = new HashSet<AudioChannel> ();
@@ -28,7 +30,10 @@ namespace Utils
 				channels.Add (channel.AddComponent<AudioChannel> ());
 			}
 		}
-
+		/// <summary>
+		/// Gets free audio channels
+		/// </summary>
+		/// <returns>Returns a channel</returns>
 		private AudioChannel GetFreeChannel ()
 		{
 			foreach (AudioChannel channel in channels)
@@ -40,29 +45,44 @@ namespace Utils
 			}
 			return null;
 		}
-
+		/// <summary>
+		/// OnEnable adds all Audio listeners
+		/// </summary>
 		protected void OnEnable ()
 		{
 			EventManager.AddAudioSFXListener (PlaySFXAudio);
 			EventManager.AddAudioMusicListener (PlayMusicAudio);
 		}
-
+		/// <summary>
+		/// OnDisable removes all listeners
+		/// </summary>
 		protected void OnDisable ()
 		{
 			EventManager.RemoveAudioSFXListener (PlaySFXAudio);
 			EventManager.RemoveAudioMusicListener (PlayMusicAudio);
 		}
-
+		/// <summary>
+		/// Plays an audio clip through the sfx channel
+		/// </summary>
+		/// <param name="clip">the specific clip of audio you want to play</param>
 		private void PlaySFXAudio (AudioClip clip)
 		{
 			PlayAudio(clip, SFXGroup);
 		}
 
+		/// <summary>
+		/// Plays an audio clip through the music channel
+		/// </summary>
+		/// <param name="clip">the specific clip of audio you want to play</param>
 		private void PlayMusicAudio(AudioClip clip)
 		{
 			PlayAudio(clip, musicGroup);
 		}
-
+		/// <summary>
+		/// Executes the given audio from other play audio functions.
+		/// </summary>
+		/// <param name="clip">The given audio clip to play</param>
+		/// <param name="group">the given group to output the sound to</param>
 		private void PlayAudio(AudioClip clip, AudioMixerGroup group)
 		{
 			AudioChannel channel = GetFreeChannel ();

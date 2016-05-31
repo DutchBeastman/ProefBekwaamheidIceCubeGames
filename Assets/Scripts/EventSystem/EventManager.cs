@@ -16,7 +16,9 @@ public class EventManager : MonoBehaviour
 
 	private static EventManager eventManager;
 	private const string AUDIOEVENT = "audioEvent";
-
+	/// <summary>
+	/// Sets the event manager
+	/// </summary>
 	public static EventManager instance
 	{
 		get
@@ -38,7 +40,9 @@ public class EventManager : MonoBehaviour
 			return eventManager;
 		}
 	}
-
+	/// <summary>
+	///Initialized the eventmanager 
+	/// </summary>
 	private void Init ()
 	{
 		if (eventDictionary == null)
@@ -54,7 +58,11 @@ public class EventManager : MonoBehaviour
 			audioMusicEventDictionary = new Dictionary<string, AudioMusicEvent> ();
 		}
 	}
-
+	/// <summary>
+	/// This function makes sure that Listeners could be added
+	/// </summary>
+	/// <param name="eventName">The name of the event you want to add</param>
+	/// <param name="listener">The name of the listener which you want to add</param>
 	public static void AddListener (string eventName, UnityAction listener)
 	{
 		UnityEvent thisEvent = null;
@@ -69,7 +77,10 @@ public class EventManager : MonoBehaviour
 			instance.eventDictionary.Add (eventName, thisEvent);
 		}
 	}
-
+	/// <summary>
+	/// This function makes it so you can add and AudioSFX listener
+	/// </summary>
+	/// <param name="listener">the listener you want to pass through</param>
 	public static void AddAudioSFXListener (UnityAction<AudioClip> listener)
 	{
 		AudioSFXEvent thisEvent = null;
@@ -84,7 +95,10 @@ public class EventManager : MonoBehaviour
 			instance.audioSFXEventDictionary.Add (AUDIOEVENT, thisEvent);
 		}
 	}
-
+	/// <summary>
+	/// This function makes it so you can add and AudioMusic listener
+	/// </summary>
+	/// <param name="listener">the listener you want to pass through</param>
 	public static void AddAudioMusicListener (UnityAction<AudioClip> listener)
 	{
 		AudioMusicEvent thisEvent = null;
@@ -99,7 +113,11 @@ public class EventManager : MonoBehaviour
 			instance.audioMusicEventDictionary.Add (AUDIOEVENT, thisEvent);
 		}
 	}
-
+	/// <summary>
+	/// This function makes it so that you can remove your listener
+	/// </summary>
+	/// <param name="eventName">The name of the event you want to remove</param>
+	/// <param name="listener">The name of the listener which you want to remove</param>
 	public static void RemoveListener (string eventName, UnityAction listener)
 	{
 		if (eventManager == null)
@@ -112,7 +130,10 @@ public class EventManager : MonoBehaviour
 			thisEvent.RemoveListener (listener);
 		}
 	}
-
+	/// <summary>
+	/// This function makes it so you can remove and AudioSFX listener
+	/// </summary>
+	/// <param name="listener">the listener you want to remove</param>
 	public static void RemoveAudioSFXListener (UnityAction<AudioClip> listener)
 	{
 		if (eventManager == null)
@@ -125,7 +146,10 @@ public class EventManager : MonoBehaviour
 			thisEvent.RemoveListener (listener);
 		}
 	}
-
+	/// <summary>
+	/// This function makes it so you can remove and AudioMusic listener
+	/// </summary>
+	/// <param name="listener">the listener you want to remove</param>
 	public static void RemoveAudioMusicListener (UnityAction<AudioClip> listener)
 	{
 		if (eventManager == null)
@@ -138,7 +162,10 @@ public class EventManager : MonoBehaviour
 			thisEvent.RemoveListener (listener);
 		}
 	}
-
+	/// <summary>
+	/// This function makes it that you can have an trigger event to execute all the events added to the listeners
+	/// </summary>
+	/// <param name="eventName">the event name you want to pass through</param>
 	public static void TriggerEvent (string eventName)
 	{
 		UnityEvent thisEvent = null;
@@ -147,7 +174,10 @@ public class EventManager : MonoBehaviour
 			thisEvent.Invoke ();
 		}
 	}
-
+	/// <summary>
+	/// Triggers AudioSFX event
+	/// </summary>
+	/// <param name="clip">Specific clip you want to trigger</param>
 	public static void TriggerAudioSFXEvent (AudioClip clip)
 	{
 		AudioSFXEvent thisEvent = null;
@@ -156,7 +186,10 @@ public class EventManager : MonoBehaviour
 			thisEvent.Invoke (clip);
 		}
 	}
-
+	/// <summary>
+	/// Triggers AudioMusic event
+	/// </summary>
+	/// <param name="clip">Specific clip you want to trigger</param>
 	public static void TriggerAudioMusicEvent (AudioClip clip)
 	{
 		AudioMusicEvent thisEvent = null;

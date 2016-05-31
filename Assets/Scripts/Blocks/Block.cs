@@ -38,6 +38,9 @@ public class Block : MonoBehaviour {
 	public Type type;
 
 	private Vector2 position;
+	/// <summary>
+	/// Getter and setter for vector 2 position of the block
+	/// </summary>
     public Vector2 Position
 	{
 		get
@@ -50,12 +53,18 @@ public class Block : MonoBehaviour {
 		}
 	}
 	
-
+	/// <summary>
+	/// In awake it sets the Rigidbody2D value. 
+	/// </summary>
 	private void Awake()
 	{
 		rigid2D = gameObject.GetComponent<Rigidbody2D>();
 	}
-	
+	/// <summary>
+	/// Gets the neighbours of the block
+	/// </summary>
+	/// <param name="side">represents each side of the block.</param>
+	/// <returns></returns>
 	private List<RaycastHit2D> GetNeighbours(Side side)
 	{
 		float distance = transform.localScale.x + 0.1f;
@@ -82,7 +91,9 @@ public class Block : MonoBehaviour {
 		}
 		return hits;
 	}
-
+	/// <summary>
+	/// Checks if the neighbours are falling to see if this block should fall too.
+	/// </summary>
 	public void CheckNeighboursFalling()
 	{
 		List<RaycastHit2D> hitsX = GetNeighbours(Side.sides);
@@ -122,7 +133,9 @@ public class Block : MonoBehaviour {
 			}
 		}
 	}
-
+	/// <summary>
+	/// when killed GetKilled will tell other neighbours to fall so it will fill its place and remove himself and his adjecent groups.
+	/// </summary>
 	public void GetKilled()
 	{
 		killed = true;
@@ -131,7 +144,9 @@ public class Block : MonoBehaviour {
 		EventManager.TriggerEvent(pointsTrigger);
 		KillGroup();
 	}
-
+	/// <summary>
+	/// this function tells the neighbours to fall.
+	/// </summary>
 	private void TellNeighboursToFall()
 	{
 		List<RaycastHit2D> hitsYUp = GetNeighbours(Side.up);
@@ -151,7 +166,9 @@ public class Block : MonoBehaviour {
 			}
 		}
 	}
-
+	/// <summary>
+	/// this funtion will tell the neighbours to stop falling.
+	/// </summary>
 	private void TellNeighboursToStopFalling ()
 	{
 		List<RaycastHit2D> hitsYUp = GetNeighbours (Side.up);
@@ -171,7 +188,9 @@ public class Block : MonoBehaviour {
 			}
 		}
 	}
-
+	/// <summary>
+	/// this function takes care of the group of neighbours it should kill
+	/// </summary>
 	public void KillGroup()
 	{
 		killed = true;
@@ -193,7 +212,10 @@ public class Block : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
-
+	/// <summary>
+	/// this funtion takes care of which neighbour it should kill 
+	/// </summary>
+	/// <param name="list">the list is a list of hits that it gets after the check of neighbours</param>
 	private void KillNeighbour (List<RaycastHit2D> list)
 	{
 		for (int i = 0; i < list.Count; i++)
@@ -212,26 +234,34 @@ public class Block : MonoBehaviour {
 			}
 		}
 	}
-
+	/// <summary>
+	/// this function takes care of the neighbours to start falling and the block himself
+	/// </summary>
 	public void StartFalling()
 	{
 		//CheckNeighboursFalling();
 		TellNeighboursToFall();
 		Invoke("Fall" , 1.5f);
 	}
-
+	/// <summary>
+	/// Sets falling true to indicate that the object should fall.
+	/// </summary>
 	private void Fall()
 	{
 		falling = true;
 	}
-
+	/// <summary>
+	/// Stops the object and neighbours of falling and locks them inplace.
+	/// </summary>
 	public void StopFalling()
 	{
 		TellNeighboursToStopFalling();
 		falling = false;
 		rigid2D.isKinematic = true;
 	}
-
+	/// <summary>
+	/// A check if the object should be falling 
+	/// </summary>
 	private void Update()
 	{
 		if (falling)
@@ -243,6 +273,10 @@ public class Block : MonoBehaviour {
 			rigid2D.isKinematic = true;
 		}
 	}
+	/// <summary>
+	/// Execute collision checks 
+	/// </summary>
+	/// <param name="coll">coll is the collider against which the block collides</param>
 	private void OnCollisionEnter2D(Collision2D coll)
 	{
 		if (coll.collider.name != "Player")

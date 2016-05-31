@@ -28,14 +28,18 @@ public class Settings : MonoBehaviour
 	private float startingVolume = 0.5f;
 	
 	private LastChangedAudioMixer lastChangedMixer;
-
+	/// <summary>
+	/// In this awake the starting volume values are set
+	/// </summary>
 	protected void Awake ()
 	{
 		masterVolume.value = startingVolume;
 		SFXVolume.value = startingVolume;
 		musicVolume.value = startingVolume;
 	}
-
+	/// <summary>
+	/// In the update all values are adjusted according to the correct sliders in the settings menu
+	/// </summary>
 	protected void Update ()
 	{
 		if (lastMasterVolume != masterVolume.value)
@@ -71,7 +75,12 @@ public class Settings : MonoBehaviour
 			}
 		}
 	}
-
+	/// <summary>
+	/// This function changes the Volume of given mixer
+	/// </summary>
+	/// <param name="mixerVolume">the number of what the volume should become</param>
+	/// <param name="mixerName">the name of the mixer</param>
+	/// <param name="lastChangedAudioMixer"></param>
 	private void ChangeMixerVolume (float mixerVolume, string mixerName, LastChangedAudioMixer lastChangedAudioMixer)
 	{
 		AudioListener.volume = mixerVolume;

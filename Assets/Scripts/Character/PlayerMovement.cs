@@ -2,6 +2,7 @@
 // Date: 15/04/2016
 
 using UnityEngine;
+
 using System.Collections;
 
 public enum DrillDirection
@@ -22,12 +23,14 @@ public class PlayerMovement : MonoBehaviour
 	private Vector2 playerPosition;
 	private bool died = false;
 	private bool canMove = true;
+	private Vector3 originScale;
 
 	protected void Awake()
 	{
 		playerPosition = new Vector2(0 , 15);
 		rigid = GetComponent<Rigidbody2D>();
 		canDig = true;
+		originScale = transform.localScale;
 	}
 
 	protected void OnEnable ()
@@ -35,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
 		EventManager.AddListener (StaticEventNames.NEXTSTAGE, NextStage);
 		EventManager.AddListener (StaticEventNames.RESTART, NextStage);
 		EventManager.AddListener (StaticEventNames.ENDGAME, DisableMovement);
+		EventManager.AddListener (StaticEventNames.LOSTLIFE, LostLife);
 	}
 
 	protected void OnDisable ()
@@ -42,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
 		EventManager.RemoveListener (StaticEventNames.NEXTSTAGE, NextStage);
 		EventManager.RemoveListener (StaticEventNames.RESTART, NextStage);
 		EventManager.RemoveListener (StaticEventNames.ENDGAME, DisableMovement);
+		EventManager.RemoveListener (StaticEventNames.LOSTLIFE, LostLife);
 	}
 
 	protected void FixedUpdate()
@@ -175,6 +180,52 @@ public class PlayerMovement : MonoBehaviour
 	private void DisableMovement ()
 	{
 		died = true;
+	}
+
+	private void EnableMovement ()
+	{
+		died = false;
+		transform.GetComponent<CircleCollider2D>().isTrigger = false;
+		DisableKinematic ();
+		gameObject.transform.localScale = originScale;
+	}
+
+	private void LostLife ()
+	{
+		DisableMovement ();
+		StartCoroutine(ShrinkPlayer());
+		transform.GetComponent<CircleCollider2D> ().isTrigger = true;
+		Invoke("EnableKinematic", 0.2f);
+		KillAllBlocksAbove ();
+		Invoke ("EnableMovement", 4f);
+	}
+
+	private void KillAllBlocksAbove ()
+	{
+		RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + Vector3.up, transform.position + Vector3.up * 100);
+		EmptyHitsArray (hits);
+		hits = Physics2D.RaycastAll (transform.position + Vector3.left, transform.position + Vector3.up * 100);
+		EmptyHitsArray (hits);
+		hits = Physics2D.RaycastAll (transform.position + Vector3.right, transform.position + Vector3.up * 100);
+		EmptyHitsArray (hits);
+	}
+
+	private void EmptyHitsArray (RaycastHit2D[] hits)
+	{
+		foreach (RaycastHit2D hit in hits)
+		{
+			Destroy (hit.collider.gameObject);
+		}
+	}
+
+	IEnumerator ShrinkPlayer ()
+	{
+		for (float y = 1; y > 0.3f; y -= 0.05f)
+		{
+			transform.localScale = new Vector3(originScale.x, y, 0);
+			Debug.Log(transform.localScale);
+			yield return new WaitForSeconds(0.03f);
+		}
 	}
 
 	private void DisableKinematic ()

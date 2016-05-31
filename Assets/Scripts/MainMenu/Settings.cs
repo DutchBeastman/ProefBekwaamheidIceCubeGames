@@ -46,6 +46,8 @@ public class Settings : MonoBehaviour
 		{
 			lastMasterVolume = masterVolume.value; 
 			ChangeMixerVolume (masterVolume.value, "MixerMasterVolume", LastChangedAudioMixer.Master);
+			ChangeMixerVolume ((masterVolume.value * SFXVolume.value), "MixerSFXVolume", LastChangedAudioMixer.SFX);
+			ChangeMixerVolume ((masterVolume.value * musicVolume.value), "MixerMusicVolume", LastChangedAudioMixer.Music);
 		}
 		else if(lastSFXVolume != SFXVolume.value)
 		{
@@ -69,9 +71,6 @@ public class Settings : MonoBehaviour
 				case LastChangedAudioMixer.SFX:
 					EventManager.TriggerAudioSFXEvent (volumeChangedSound);
 				break;
-				case LastChangedAudioMixer.Music:
-					EventManager.TriggerAudioMusicEvent (volumeChangedSound);
-				break;
 			}
 		}
 	}
@@ -83,8 +82,7 @@ public class Settings : MonoBehaviour
 	/// <param name="lastChangedAudioMixer"></param>
 	private void ChangeMixerVolume (float mixerVolume, string mixerName, LastChangedAudioMixer lastChangedAudioMixer)
 	{
-		AudioListener.volume = mixerVolume;
-		mixer.SetFloat (mixerName, mixerVolume);
+		mixer.SetFloat (mixerName, (mixerVolume * 60) - 60);
 
 		lastChangedMixer = lastChangedAudioMixer;
 		afterSoundPlayed = false;

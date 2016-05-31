@@ -55,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
 		if (canClimb && !died)
 		{
 			RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + (Input.GetAxis("Horizontal") / 2), transform.position.y - 0.3f), new Vector2(Input.GetAxis("Horizontal") * 0.1f, 0), 0.1f);
-			Debug.DrawRay(new Vector2(transform.position.x + ( Input.GetAxis("Horizontal") / 2 ) , transform.position.y - 0.3f) , new Vector2(Input.GetAxis("Horizontal") * 0.1f , 0) , Color.red, 1f);
 			if (hit.collider != null && hit.collider.name != "Player")
 			{
 				if (Physics2D.Raycast(new Vector2(transform.position.x + (Input.GetAxis("Horizontal") / 2), transform.position.y + 1), new Vector2(Input.GetAxis("Horizontal"), 0), 0.1f).collider == null)
@@ -89,7 +88,6 @@ public class PlayerMovement : MonoBehaviour
 					hit = Physics2D.Raycast(new Vector2(transform.position.x + Vector2.left.x, transform.position.y), Vector2.left, 0.1f);
 					break;
 			}
-            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + Vector2.down.y), Vector2.down, Color.red);
             if (hit.collider != null && hit.collider.GetComponent<Block>() && canDig && !died)
             {
 				//Here we remove a block, and set the digging unavailiable and start the reset timer
@@ -228,7 +226,6 @@ public class PlayerMovement : MonoBehaviour
 		for (float y = 1; y > 0.3f; y -= 0.05f)
 		{
 			transform.localScale = new Vector3(originScale.x, y, 0);
-			Debug.Log(transform.localScale);
 			yield return new WaitForSeconds(0.03f);
 		}
 	}

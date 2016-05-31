@@ -68,20 +68,16 @@ public class Block : MonoBehaviour {
 			case Side.sides:
 				hits.Add(Physics2D.Raycast(origin + (Vector2.left * distance), Vector2.left, 0.1f));
 				hits.Add(Physics2D.Raycast(origin + (Vector2.right * distance), Vector2.right, 0.1f));
-				Debug.DrawRay(origin + (Vector2.left * distance), Vector2.left * 0.1f, Color.green, 2);
-				Debug.DrawRay(origin + (Vector2.right * distance), Vector2.right * 0.1f, Color.yellow, 2);
 				break;
 
 			/// up
 			case Side.up:
 				hits.Add(Physics2D.Raycast(origin + (Vector2.up * distance), Vector2.up, 0.1f));
-				Debug.DrawRay(origin + (Vector2.up * distance), Vector2.up * 0.1f, Color.blue, 2);
 				break;
 
 			/// down
 			case Side.down:
 				hits.Add(Physics2D.Raycast(origin + (Vector2.down * distance), Vector2.down, 0.1f));
-				Debug.DrawRay(origin + (Vector2.down * distance), Vector2.down * 0.1f, Color.red, 2);
 				break;
 		}
 		return hits;
@@ -252,7 +248,6 @@ public class Block : MonoBehaviour {
 				if (rigid2D.velocity.y < -0.2f)
 				{
 					Invoke ("StopFalling", 0.1f);
-					Debug.Log(coll.collider.name);
 				}
 			}
 		}

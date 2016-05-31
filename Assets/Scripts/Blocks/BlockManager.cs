@@ -21,29 +21,39 @@ public class BlockManager : MonoBehaviour
 	private Vector3 nextLinePosition;
 
 	private int nextLine;
-
+	/// <summary>
+	/// Adds the listeners on enable
+	/// </summary>
 	protected void OnEnable ()
 	{
 		EventManager.AddListener(StaticEventNames.RESTART, RestartGame);
 	}
-
+	/// <summary>
+	/// removes the listeners on disable
+	/// </summary>
 	protected void OnDisable ()
 	{
 		EventManager.RemoveListener(StaticEventNames.RESTART, RestartGame);
 	}
-
+	/// <summary>
+	/// Sets the tiles and generates them.
+	/// </summary>
 	protected void Awake()
 	{
 		SetOriginTiles ();
 		Generation ();
 	}
-
+	/// <summary>
+	/// Sets the correct tiles so that the right tiles will be selected for generation
+	/// </summary>
 	private void SetOriginTiles ()
 	{
 		currentStageTiles = farmStageTiles;
 		specialBlocks = farmSpecialBlocks;
 	}
-	
+	/// <summary>
+	/// on reset it resets the tiles
+	/// </summary>
 	private void RestartGame ()
 	{
 		SetOriginTiles ();
@@ -51,7 +61,7 @@ public class BlockManager : MonoBehaviour
 	}
 
 	/// <summary>
-	/// Function for the generation
+	/// Generates all the blocks into the game
 	/// </summary>
 	private void Generation()
 	{
@@ -78,7 +88,9 @@ public class BlockManager : MonoBehaviour
 			blocks.Add(tempList);
 		}
 	}
-
+	/// <summary>
+	/// Sets and holds track of stage ID for the right type of block inspawning
+	/// </summary>
 	private void UpdateStageID ()
 	{
 		stageID++;
@@ -98,7 +110,10 @@ public class BlockManager : MonoBehaviour
 			break;
 		}
 	}
-
+	/// <summary>
+	/// resets stage and generation
+	/// </summary>
+	/// <param name="restart"></param>
 	public void Reset (bool restart)
 	{
 		if (!restart)
@@ -111,7 +126,9 @@ public class BlockManager : MonoBehaviour
 		nextLinePosition.y = nextLine;
 		blocks = new List<List<Block>>();
 	}
-
+	/// <summary>
+	/// Removes blocks at certain position.
+	/// </summary>
 	private void RemoveBlocks ()
 	{
 		for (int x = 0; x < fieldWidth; x++)

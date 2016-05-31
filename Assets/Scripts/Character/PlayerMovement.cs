@@ -25,7 +25,9 @@ public class PlayerMovement : MonoBehaviour
 	private bool gameOver = false;
 	private bool canMove = true;
 	private Vector3 originScale;
-
+	/// <summary>
+	/// The awake sets the playerposition, gets the rigidbody and sets the scale.
+	/// </summary>
 	protected void Awake()
 	{
 		playerPosition = new Vector2(0 , 15);
@@ -33,7 +35,9 @@ public class PlayerMovement : MonoBehaviour
 		canDig = true;
 		originScale = transform.localScale;
 	}
-
+	/// <summary>
+	/// OnEnable adds all listeners 
+	/// </summary>
 	protected void OnEnable ()
 	{
 		EventManager.AddListener (StaticEventNames.NEXTSTAGE, NextStage);
@@ -41,7 +45,9 @@ public class PlayerMovement : MonoBehaviour
 		EventManager.AddListener (StaticEventNames.ENDGAME, GameOver);
 		EventManager.AddListener (StaticEventNames.LOSTLIFE, LostLife);
 	}
-
+	/// <summary>
+	/// OnDisable removes all listeners
+	/// </summary>
 	protected void OnDisable ()
 	{
 		EventManager.RemoveListener (StaticEventNames.NEXTSTAGE, NextStage);
@@ -49,16 +55,18 @@ public class PlayerMovement : MonoBehaviour
 		EventManager.RemoveListener (StaticEventNames.ENDGAME, GameOver);
 		EventManager.RemoveListener (StaticEventNames.LOSTLIFE, LostLife);
 	}
-
-	protected void FixedUpdate()
-	{
+	/// <summary>
+	/// Regulates all movement and checks for the movement.
+	/// </summary>
+    protected void Update()
+    {
 		Move();
 		if (canClimb && !died)
 		{
-			RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + (Input.GetAxis("Horizontal") / 2), transform.position.y - 0.3f), new Vector2(Input.GetAxis("Horizontal") * 0.1f, 0), 0.1f);
+			RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + ( Input.GetAxis("Horizontal") / 2 ) , transform.position.y - 0.3f) , new Vector2(Input.GetAxis("Horizontal") * 0.1f , 0) , 0.1f);
 			if (hit.collider != null && hit.collider.name != "Player")
 			{
-				if (Physics2D.Raycast(new Vector2(transform.position.x + (Input.GetAxis("Horizontal") / 2), transform.position.y + 1), new Vector2(Input.GetAxis("Horizontal"), 0), 0.1f).collider == null)
+				if (Physics2D.Raycast(new Vector2(transform.position.x + ( Input.GetAxis("Horizontal") / 2 ) , transform.position.y + 1) , new Vector2(Input.GetAxis("Horizontal") , 0) , 0.1f).collider == null)
 				{
 					EnableKinematic();
 					transform.localPosition += new Vector3(0 , transform.localScale.y * 1.1f , 0);
@@ -68,10 +76,6 @@ public class PlayerMovement : MonoBehaviour
 				}
 			}
 		}
-	}
-
-    protected void Update()
-    {
 		//Getting the axis for spacebar, which in unity is called jump
 		if (Input.GetButtonDown("Jump"))
         {
@@ -115,7 +119,9 @@ public class PlayerMovement : MonoBehaviour
 			drillDir = DrillDirection.right;
 		}
     }
-
+	/// <summary>
+	/// Move contains the snapping movement of the player and checks if you can move to that position
+	/// </summary>
 	private void Move()
 	{
 		if (canMove && !died)
@@ -151,28 +157,38 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	/// <summary>
-	/// Is in place for the dig funtion to be able to execute after a certain time.
+	/// Resets the dig boolean, this function gets invoked somewhere to create an delay
 	/// </summary>
 	private void ResetDigTime()
 	{
 		canDig = true;
 	}
+	/// <summary>
+	/// Resets the movement boolean, this function gets invoked somewhere to create an delay
+	/// </summary>
 	private void ResetMovementTimer()
 	{
 		canMove = true;
 	}
+	/// <summary>
+	/// Resets the climb boolean, this function gets invoked somewhere to create an delay
+	/// </summary>
 	protected void ClimbTimer()
 	{
 		canClimb = true;
 	}
-
+	/// <summary>
+	/// Resets the player position and value's
+	/// </summary>
 	private void Restart ()
 	{
 		gameOver = false;
 		EnableMovement();
 		NextStage();
 	}
-
+	/// <summary>
+	/// Sets the player position and locks him there for 2 seconds
+	/// </summary>
 	private void NextStage ()
 	{
 		transform.position = new Vector3(transform.position.x, 10, 0);
@@ -180,18 +196,24 @@ public class PlayerMovement : MonoBehaviour
 		Invoke("DisableKinematic", 2);
 		died = false;
 	}
-
+	/// <summary>
+	/// GameOver disables movement when the player goes games over
+	/// </summary>
 	private void GameOver ()
 	{
 		gameOver = true;
 		DisableMovement();
 	}
-
+	/// <summary>
+	/// Disables the movement of the player
+	/// </summary>
 	private void DisableMovement ()
 	{
 		died = true;
 	}
-	
+	/// <summary>
+	/// Enables the movement of the player
+	/// </summary>
 	private void EnableMovement ()
 	{
 		if (!gameOver)
@@ -202,7 +224,9 @@ public class PlayerMovement : MonoBehaviour
 			gameObject.transform.localScale = originScale;
 		}
 	}
-
+	/// <summary>
+	/// Indicates if the player lost an life and disables his movement.
+	/// </summary>
 	private void LostLife ()
 	{
 		DisableMovement ();
@@ -217,7 +241,9 @@ public class PlayerMovement : MonoBehaviour
 
 		Invoke ("EnableMovement", 4f);
 	}
-
+	/// <summary>
+	/// Kills all blocks above the player
+	/// </summary>
 	private void KillAllBlocksAbove ()
 	{
 		RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + Vector3.up, transform.position + Vector3.up * 100);
@@ -227,7 +253,10 @@ public class PlayerMovement : MonoBehaviour
 		hits = Physics2D.RaycastAll (transform.position + Vector3.right, transform.position + Vector3.up * 100);
 		EmptyHitsArray (hits);
 	}
-
+	/// <summary>
+	/// Empties the array of raycast hits 
+	/// </summary>
+	/// <param name="hits">the given RaycastHit2D array</param>
 	private void EmptyHitsArray (RaycastHit2D[] hits)
 	{
 		foreach (RaycastHit2D hit in hits)
@@ -238,7 +267,10 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 	}
-
+	/// <summary>
+	/// Shrinks the player after he dies.
+	/// </summary>
+	/// <returns>returns a WaitForSeconds</returns>
 	IEnumerator ShrinkPlayer ()
 	{
 		for (float y = 1; y > 0.3f; y -= 0.1f)
@@ -247,12 +279,16 @@ public class PlayerMovement : MonoBehaviour
 			yield return new WaitForSeconds(0.03f);
 		}
 	}
-
+	/// <summary>
+	/// Disables Kinematic in the rigidbody
+	/// </summary>
 	private void DisableKinematic ()
 	{
 		rigid.isKinematic = false;
 	}
-
+	/// <summary>
+	/// Enables Kinematic in the rigidbody
+	/// </summary>
 	private void EnableKinematic()
 	{
 		rigid.isKinematic = true;

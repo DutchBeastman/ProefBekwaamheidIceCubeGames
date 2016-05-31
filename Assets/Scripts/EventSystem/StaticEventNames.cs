@@ -3,6 +3,9 @@
 
 public class StaticEventNames
 {
+	/// <summary>
+	/// Contains all the static event names
+	/// </summary>
 	public const string ENABLEMAINMENU = "EnableMainMenu";
 	public const string ENABLEGAMECREATION = "EnableGameCreation";
 	public const string ENDGAME = "EndGame";

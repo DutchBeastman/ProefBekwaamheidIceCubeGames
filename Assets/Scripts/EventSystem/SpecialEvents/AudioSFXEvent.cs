@@ -6,6 +6,9 @@ using UnityEngine.Events;
 
 namespace Utils
 {
+	/// <summary>
+	/// Event for the SFX of all audio.
+	/// </summary>
 	public class AudioSFXEvent : UnityEvent<AudioClip>
 	{
 

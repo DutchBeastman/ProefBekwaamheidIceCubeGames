@@ -3,7 +3,9 @@
 
 using UnityEngine;
 using System.Collections;
-
+/// <summary>
+/// PickUpBlock 
+/// </summary>
 public class PickUpBlock : MonoBehaviour 
 {
 	

@@ -14,12 +14,16 @@ public class LogoTransition : MonoBehaviour
 	private Sprite currentLogo;
 	private new SpriteRenderer renderer;
 	private int nextTransition = 1;
-
+	/// <summary>
+	/// Get the renderer of the logotransition
+	/// </summary>
 	protected void Start()
 	{
 		renderer = GetComponent<SpriteRenderer>();
 	}
-
+	/// <summary>
+	/// Displayes logo, and transitions with a fade out.
+	/// </summary>
 	public void ShowLogo()
 	{
 		if (renderer)
@@ -36,7 +40,10 @@ public class LogoTransition : MonoBehaviour
 			Invoke("FadeOut", startFadingOutTime);
 		}
 	}
-
+	/// <summary>
+	/// FadeIn takes care of a smooth transition for the logo to fade in
+	/// </summary>
+	/// <returns>Returns a WaitForEndOfFrame</returns>
 	private IEnumerator FadingIn()
 	{
 		for (float f = 0f; f <= 1;)
@@ -48,12 +55,17 @@ public class LogoTransition : MonoBehaviour
 			yield return new WaitForEndOfFrame();
 		}
 	}
-
+	/// <summary>
+	/// Starts the fadeout Coroutine
+	/// </summary>
 	private void FadeOut()
 	{
 		StartCoroutine(FadingOut());
 	}
-
+	/// <summary>
+	/// FadingOut takes care of a smooth transition for the logo to fade out
+	/// </summary>
+	/// <returns>Returns a WaitForEndOfFrame</returns>
 	private IEnumerator FadingOut()
 	{
 		for (float f = 1f; f >= 0;)

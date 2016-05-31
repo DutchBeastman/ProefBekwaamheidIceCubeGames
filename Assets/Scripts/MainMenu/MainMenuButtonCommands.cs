@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class MainMenuButtonCommands : MonoBehaviour
 {
 	[SerializeField] private GameObject mainMenu;
+	[SerializeField] private GameObject howToPlay;
 	[SerializeField] private GameObject settings;
 	[SerializeField] private GameObject gameCreation;
 
@@ -26,6 +27,15 @@ public class MainMenuButtonCommands : MonoBehaviour
 	private void CreateLevel()
 	{
 		EventManager.TriggerEvent(StaticEventNames.ENABLEGAMECREATION);
+	}
+	/// <summary>
+	/// Regulates the fade in and opens the how to play screen.
+	/// </summary>
+	private void HowToButtonPushed ()
+	{
+		Overlay.FadeIn();
+		Invoke("SwitchFromMainToHowToPlay", 1);
+		EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
 	}
 	/// <summary>
 	/// Regulates the fade in and opens settings screen.
@@ -72,6 +82,24 @@ public class MainMenuButtonCommands : MonoBehaviour
 		Overlay.FadeOut ();
 	}
 	/// <summary>
+	/// Enables settings, disables main menu
+	/// </summary>
+	private void SwitchFromMainToHowToPlay ()
+	{
+		DisableMainMenu ();
+		EnableHowToPlay ();
+		Overlay.FadeOut ();
+	}
+	/// <summary>
+	/// Disables settings and enables main menu
+	/// </summary>
+	private void SwitchFromHowToPlayToMain ()
+	{
+		DisableHowToPlay ();
+		EnableMainMenu ();
+		Overlay.FadeOut ();
+	}
+	/// <summary>
 	/// sets main menu active
 	/// </summary>
 	private void EnableMainMenu ()
@@ -84,6 +112,20 @@ public class MainMenuButtonCommands : MonoBehaviour
 	private void DisableMainMenu ()
 	{
 		mainMenu.gameObject.SetActive (false);
+	}
+	/// <summary>
+	/// sets how to play active
+	/// </summary>
+	private void EnableHowToPlay ()
+	{
+		howToPlay.gameObject.SetActive (true);
+	}
+	/// <summary>
+	/// disables how to play
+	/// </summary>
+	private void DisableHowToPlay ()
+	{
+		howToPlay.gameObject.SetActive (false);
 	}
 	/// <summary>
 	/// enables settings

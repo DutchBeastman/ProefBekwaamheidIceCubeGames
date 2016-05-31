@@ -270,6 +270,9 @@ MonoBehaviour:
   walkingSound: {fileID: 8300000, guid: 9adb4dad5c6aa7344ad25a4ea7cbeb15, type: 3}
   LosingLifeSound: {fileID: 8300000, guid: d026267699bf7bf4ba1049ee381da0ea, type: 3}
   blockLandingSound: {fileID: 8300000, guid: 6eef347abf939ff459697e47ec674adc, type: 3}
+  gameMusicTracks:
+  - {fileID: 8300000, guid: 75ac2de4f421bac46bdcff406aad6cf9, type: 3}
+  - {fileID: 8300000, guid: 95276dfd95d95a146b8a8ccc914f75d7, type: 3}
 --- !u!114 &11405612
 MonoBehaviour:
   m_ObjectHideFlags: 1

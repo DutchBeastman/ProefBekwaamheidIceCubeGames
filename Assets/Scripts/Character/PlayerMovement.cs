@@ -2,6 +2,7 @@
 // Date: 15/04/2016
 
 using UnityEngine;
+
 using System.Collections;
 
 public enum DrillDirection
@@ -21,27 +22,32 @@ public class PlayerMovement : MonoBehaviour
 	private DrillDirection drillDir;
 	private Vector2 playerPosition;
 	private bool died = false;
+	private bool gameOver = false;
 	private bool canMove = true;
+	private Vector3 originScale;
 
 	protected void Awake()
 	{
 		playerPosition = new Vector2(0 , 15);
 		rigid = GetComponent<Rigidbody2D>();
 		canDig = true;
+		originScale = transform.localScale;
 	}
 
 	protected void OnEnable ()
 	{
 		EventManager.AddListener (StaticEventNames.NEXTSTAGE, NextStage);
-		EventManager.AddListener (StaticEventNames.RESTART, NextStage);
-		EventManager.AddListener (StaticEventNames.ENDGAME, DisableMovement);
+		EventManager.AddListener (StaticEventNames.RESTART, Restart);
+		EventManager.AddListener (StaticEventNames.ENDGAME, GameOver);
+		EventManager.AddListener (StaticEventNames.LOSTLIFE, LostLife);
 	}
 
 	protected void OnDisable ()
 	{
 		EventManager.RemoveListener (StaticEventNames.NEXTSTAGE, NextStage);
-		EventManager.RemoveListener (StaticEventNames.RESTART, NextStage);
-		EventManager.RemoveListener (StaticEventNames.ENDGAME, DisableMovement);
+		EventManager.RemoveListener (StaticEventNames.RESTART, Restart);
+		EventManager.RemoveListener (StaticEventNames.ENDGAME, GameOver);
+		EventManager.RemoveListener (StaticEventNames.LOSTLIFE, LostLife);
 	}
 
 	protected void FixedUpdate()
@@ -50,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
 		if (canClimb && !died)
 		{
 			RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + (Input.GetAxis("Horizontal") / 2), transform.position.y - 0.3f), new Vector2(Input.GetAxis("Horizontal") * 0.1f, 0), 0.1f);
-			Debug.DrawRay(new Vector2(transform.position.x + ( Input.GetAxis("Horizontal") / 2 ) , transform.position.y - 0.3f) , new Vector2(Input.GetAxis("Horizontal") * 0.1f , 0) , Color.red, 1f);
 			if (hit.collider != null && hit.collider.name != "Player")
 			{
 				if (Physics2D.Raycast(new Vector2(transform.position.x + (Input.GetAxis("Horizontal") / 2), transform.position.y + 1), new Vector2(Input.GetAxis("Horizontal"), 0), 0.1f).collider == null)
@@ -84,11 +89,11 @@ public class PlayerMovement : MonoBehaviour
 					hit = Physics2D.Raycast(new Vector2(transform.position.x + Vector2.left.x, transform.position.y), Vector2.left, 0.1f);
 					break;
 			}
-            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + Vector2.down.y), Vector2.down, Color.red);
             if (hit.collider != null && hit.collider.GetComponent<Block>() && canDig && !died)
             {
 				//Here we remove a block, and set the digging unavailiable and start the reset timer
 				hit.collider.GetComponent<Block>().GetKilled();
+				EventManager.TriggerAudioSFXEvent(AudioClips.digSound);
 				canDig = false;
 				Invoke("ResetDigTime" , 0.4f);
             }
@@ -127,12 +132,9 @@ public class PlayerMovement : MonoBehaviour
 				{
 					foreach (RaycastHit2D ray in hits)
 					{
-						if (ray.collider.name == "WallLeft" || ray.collider.name == "WallRight")
+						if (ray.collider.name != gameObject.name && ray.collider.name != "LifeTile(Clone)")
 						{
-							if (ray.collider.name != gameObject.name && ray.collider.name != "LifeTile(Clone)")
-							{
-								move = false;
-							}
+							move = false;
 						}
 					}
 				}
@@ -164,6 +166,13 @@ public class PlayerMovement : MonoBehaviour
 		canClimb = true;
 	}
 
+	private void Restart ()
+	{
+		gameOver = false;
+		EnableMovement();
+		NextStage();
+	}
+
 	private void NextStage ()
 	{
 		transform.position = new Vector3(transform.position.x, 10, 0);
@@ -172,15 +181,78 @@ public class PlayerMovement : MonoBehaviour
 		died = false;
 	}
 
+	private void GameOver ()
+	{
+		gameOver = true;
+		DisableMovement();
+	}
+
 	private void DisableMovement ()
 	{
 		died = true;
+	}
+	
+	private void EnableMovement ()
+	{
+		if (!gameOver)
+		{
+			died = false;
+			transform.GetComponent<CircleCollider2D>().isTrigger = false;
+			DisableKinematic ();
+			gameObject.transform.localScale = originScale;
+		}
+	}
+
+	private void LostLife ()
+	{
+		DisableMovement ();
+
+		EventManager.TriggerAudioSFXEvent(AudioClips.lostLifeSound);
+		StartCoroutine(ShrinkPlayer());
+
+		transform.GetComponent<CircleCollider2D> ().isTrigger = true;
+		Invoke("EnableKinematic", 0.2f);
+
+		KillAllBlocksAbove ();
+
+		Invoke ("EnableMovement", 4f);
+	}
+
+	private void KillAllBlocksAbove ()
+	{
+		RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + Vector3.up, transform.position + Vector3.up * 100);
+		EmptyHitsArray (hits);
+		hits = Physics2D.RaycastAll (transform.position + Vector3.left, transform.position + Vector3.up * 100);
+		EmptyHitsArray (hits);
+		hits = Physics2D.RaycastAll (transform.position + Vector3.right, transform.position + Vector3.up * 100);
+		EmptyHitsArray (hits);
+	}
+
+	private void EmptyHitsArray (RaycastHit2D[] hits)
+	{
+		foreach (RaycastHit2D hit in hits)
+		{
+			if (hit.collider.name != "LifeTile(Clone)")
+			{
+				Destroy (hit.collider.gameObject);
+			}
+		}
+	}
+
+	IEnumerator ShrinkPlayer ()
+	{
+		for (float y = 1; y > 0.3f; y -= 0.1f)
+		{
+			transform.localScale = new Vector3(originScale.x, y, 0);
+			yield return new WaitForSeconds(0.03f);
+		}
 	}
 
 	private void DisableKinematic ()
 	{
 		rigid.isKinematic = false;
 	}
+
 	private void EnableKinematic()
 	{
 		rigid.isKinematic = true;

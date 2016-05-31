@@ -35,7 +35,6 @@ namespace Utils
 			{
 				if (!channel.IsPlaying)
 				{
-					Debug.Log ("returning empty channel");
 					return channel;
 				}
 			}
@@ -70,6 +69,10 @@ namespace Utils
 
 			if (channel != null)
 			{
+				if (group == musicGroup)
+				{
+					channel.Loop = true;
+				}
 				channel.Play (clip, group);
 			}
 			else

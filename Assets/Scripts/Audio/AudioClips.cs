@@ -13,11 +13,13 @@ public class AudioClips : MonoBehaviour
 	[SerializeField] private AudioClip walkingSound;
 	[SerializeField] private AudioClip LosingLifeSound;
 	[SerializeField] private AudioClip blockLandingSound;
+	[SerializeField] private AudioClip[] gameMusicTracks;
 	public static AudioClip digSound;
 	public static AudioClip buttonSound;
 	public static AudioClip walkSound; 
 	public static AudioClip lostLifeSound;
 	public static AudioClip blockLandSound;
+	public static AudioClip gameMusicTrack;
 
 	/// <summary>
 	/// In the awake function the sounds are assigned.
@@ -29,5 +31,6 @@ public class AudioClips : MonoBehaviour
 		walkSound = walkingSound;
 		lostLifeSound = LosingLifeSound;
 		blockLandSound = blockLandingSound;
+		gameMusicTrack = gameMusicTracks[Random.Range(0, gameMusicTracks.Length)];
 	}
 }

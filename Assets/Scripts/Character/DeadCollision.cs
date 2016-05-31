@@ -3,12 +3,23 @@ using System.Collections;
 
 public class DeadCollision : MonoBehaviour {
 
+	private bool canLoseLife = true;
+
 	void OnTriggerEnter2D(Collider2D coll)
 	{
-		Block b = coll.GetComponent<Block>();
-		if (b != null && b.falling && !b.pickUp)
+		if (canLoseLife)
 		{
-			EventManager.TriggerEvent(StaticEventNames.LOSTLIFE);
+			Block b = coll.GetComponent<Block>();
+			if (b != null && b.falling && !b.pickUp)
+			{
+				canLoseLife = false;
+				EventManager.TriggerEvent(StaticEventNames.LOSTLIFE);
+				Invoke("EnableLosingLife", 4f);
+			}
 		}
+	}
+	private void EnableLosingLife ()
+	{
+		canLoseLife = true;
 	}
 }

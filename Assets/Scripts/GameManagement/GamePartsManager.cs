@@ -26,6 +26,7 @@ public class GamePartsManager : MonoBehaviour
 		mainMenu.SetActive(false);
 		levelCreation.SetActive(true);
 		Invoke("FadeOut", .5f);	
+		EventManager.TriggerAudioMusicEvent(AudioClips.gameMusicTrack);
 	}
 
 	private void FadeOut()

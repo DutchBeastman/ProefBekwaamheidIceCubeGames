@@ -20,18 +20,20 @@ public class HungerMeter : MonoBehaviour
 
 	protected void OnEnable ()
 	{
-		EventManager.AddListener(StaticEventNames.ENDGAME, StopWorking);
-		EventManager.AddListener(StaticEventNames.GOTPICKUP, GotPickUp);
+		EventManager.AddListener (StaticEventNames.ENDGAME, StopWorking);
+		EventManager.AddListener (StaticEventNames.GOTPICKUP, GotPickUp);
 		EventManager.AddListener (StaticEventNames.RESTART, Restart);
 		EventManager.AddListener (StaticEventNames.ENDGAME, StopUIUpdate);
+		EventManager.AddListener (StaticEventNames.LOSTLIFE, Restart);
 	}
 
 	protected void OnDisable ()
 	{
-		EventManager.RemoveListener(StaticEventNames.ENDGAME, StopWorking);
-		EventManager.RemoveListener(StaticEventNames.GOTPICKUP, GotPickUp);
+		EventManager.RemoveListener (StaticEventNames.ENDGAME, StopWorking);
+		EventManager.RemoveListener (StaticEventNames.GOTPICKUP, GotPickUp);
 		EventManager.RemoveListener (StaticEventNames.RESTART, Restart);
 		EventManager.RemoveListener (StaticEventNames.ENDGAME, StopUIUpdate);
+		EventManager.RemoveListener (StaticEventNames.LOSTLIFE, Restart);
 	}
 
 	private void Restart ()

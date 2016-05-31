@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300004, guid: fe487376132b3324daace209c54ae3ec, type: 3}
+  - {fileID: 21300018, guid: fe487376132b3324daace209c54ae3ec, type: 3}
 --- !u!114 &11491566
 MonoBehaviour:
   m_ObjectHideFlags: 1

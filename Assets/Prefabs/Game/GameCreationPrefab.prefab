@@ -1373,12 +1373,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fieldWidth: 7
   fieldHeight: 100
+  farmStageTiles:
+  - {fileID: 193986, guid: 42adc32027f65f7489e552fa5aa0cbce, type: 2}
+  - {fileID: 193986, guid: 715e13a8f4a6a7c428d4bfdcd1d6e9d1, type: 2}
+  - {fileID: 193986, guid: 81bc28500d64c05409b8e801becdbe7f, type: 2}
   forrestStageTiles:
   - {fileID: 193986, guid: 0ba160930e8dbf7488cf20c11506f09e, type: 2}
   - {fileID: 161592, guid: 9d0e608a646101f48aebc320043a7bae, type: 2}
   - {fileID: 193228, guid: 80b9454449886f04daf449c5f8c52308, type: 2}
   - {fileID: 193986, guid: d9277154956f2ee44879cb928c8543f9, type: 2}
-  specialBlocks:
+  farmSpecialBlocks:
+  - {fileID: 144810, guid: 0e64f96d35bfce042ae361df42e04b0c, type: 2}
+  - {fileID: 192758, guid: 4550985a8111a2640bdc5612b4ee123e, type: 2}
+  - {fileID: 124280, guid: 89d645f9510ee5b4d8d10e8b7fd559fb, type: 2}
+  forrestSpecialBlocks:
   - {fileID: 144810, guid: 8bcb2964795107c418ba66360d15cc7e, type: 2}
   - {fileID: 192758, guid: 5232cb36740065f40b82be3aee431ccd, type: 2}
   - {fileID: 124280, guid: ba0ab466b4daf1f409c45a4745527a72, type: 2}

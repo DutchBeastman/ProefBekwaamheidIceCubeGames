@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fe487376132b3324daace209c54ae3ec
-timeCreated: 1464254474
+timeCreated: 1464686668
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,12 @@ TextureImporter:
     21300002: Unbreakable
     21300004: PickUp
     21300006: Hard-To-Get-Through
+    21300008: FarmSpriteSheet_MaisYellow
+    21300010: FarmSpriteSheet_MaisRed
+    21300012: FarmSpriteSheet_Unbreakable
+    21300014: FarmSpriteSheet_MaisGreen
+    21300016: FarmSpriteSheet_HardToGetThrough
+    21300018: FarmSpriteSheet_Pickup
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,85 +60,123 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Mais
+    - name: FarmSpriteSheet_MaisYellow
       rect:
         serializedVersion: 2
         x: 0
-        y: 150.5
+        y: 300
         width: 150
-        height: 150.5
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -73, y: 76}
-        - {x: -75, y: 74}
+      - - {x: -73, y: 75}
+        - {x: -75, y: 73}
         - {x: -75, y: -72}
-        - {x: -73, y: -75}
-        - {x: 74, y: -75}
-        - {x: 75, y: -73}
+        - {x: -72, y: -75}
+        - {x: 72, y: -75}
+        - {x: 75, y: -72}
         - {x: 75, y: 74}
-        - {x: 73, y: 76}
-    - name: Unbreakable
+        - {x: 74, y: 75}
+    - name: FarmSpriteSheet_MaisRed
       rect:
         serializedVersion: 2
         x: 150
-        y: 150.5
+        y: 300
         width: 150
-        height: 150.5
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -73, y: 76}
-        - {x: -75, y: 74}
+      - - {x: -73, y: 75}
+        - {x: -75, y: 73}
         - {x: -75, y: -72}
-        - {x: -73, y: -75}
-        - {x: 74, y: -75}
-        - {x: 75, y: -73}
+        - {x: -72, y: -75}
+        - {x: 72, y: -75}
+        - {x: 75, y: -72}
         - {x: 75, y: 74}
-        - {x: 73, y: 76}
-    - name: PickUp
+        - {x: 74, y: 75}
+    - name: FarmSpriteSheet_Unbreakable
       rect:
         serializedVersion: 2
         x: 0
-        y: 0.5
+        y: 150
         width: 150
-        height: 150.5
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -63, y: 68}
-        - {x: -66, y: 66}
-        - {x: -66, y: -48}
-        - {x: -47, y: -68}
-        - {x: 38, y: -68}
-        - {x: 61, y: -62}
-        - {x: 61, y: 45}
-        - {x: 24, y: 68}
-      - - {x: 72, y: 29}
-        - {x: 74, y: 27}
-        - {x: 75, y: 27}
-        - {x: 75, y: 32}
-        - {x: 73, y: 32}
-    - name: Hard-To-Get-Through
+      - - {x: -73, y: 75}
+        - {x: -75, y: 73}
+        - {x: -75, y: -72}
+        - {x: -72, y: -75}
+        - {x: 72, y: -75}
+        - {x: 75, y: -72}
+        - {x: 75, y: 74}
+        - {x: 74, y: 75}
+    - name: FarmSpriteSheet_MaisGreen
       rect:
         serializedVersion: 2
         x: 150
-        y: 0.5
+        y: 150
         width: 150
-        height: 150.5
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -75, y: 76}
-        - {x: -75, y: -71}
-        - {x: -66, y: -75}
-        - {x: 66, y: -75}
-        - {x: 75, y: -69}
-        - {x: 75, y: 76}
+      - - {x: -73, y: 75}
+        - {x: -75, y: 73}
+        - {x: -75, y: -72}
+        - {x: -72, y: -75}
+        - {x: 72, y: -75}
+        - {x: 75, y: -72}
+        - {x: 75, y: 74}
+        - {x: 74, y: 75}
+    - name: FarmSpriteSheet_HardToGetThrough
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 150
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71, y: 75}
+        - {x: -75, y: 68}
+        - {x: -75, y: -61}
+        - {x: -71, y: -75}
+        - {x: 75, y: -75}
+        - {x: 75, y: 75}
+    - name: FarmSpriteSheet_Pickup
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 150
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24, y: 72}
+        - {x: -57, y: 72}
+        - {x: -62, y: 63}
+        - {x: -62, y: -59}
+        - {x: -39, y: -64}
+        - {x: 44, y: -64}
+        - {x: 65, y: -47}
+        - {x: 65, y: 35}
+        - {x: 63, y: 44}
+      - - {x: -72, y: 58}
+        - {x: -72, y: 61}
+        - {x: -75, y: 62}
+        - {x: -75, y: 57}
     outline: []
   spritePackingTag: 
   userData: 

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class AudioClips : MonoBehaviour 
 {
+	/// <summary>
+	/// Collection of all audio lists
+	/// </summary>
 	[SerializeField] private AudioClip[] digSounds;
 	[SerializeField] private AudioClip[] buttonPushSounds;
 	[SerializeField] private AudioClip walkingSound;
@@ -16,6 +19,9 @@ public class AudioClips : MonoBehaviour
 	public static AudioClip lostLifeSound;
 	public static AudioClip blockLandSound;
 
+	/// <summary>
+	/// In the awake function the sounds are assigned.
+	/// </summary>
 	protected void Awake ()
 	{
 		digSound = digSounds[Random.Range(0, digSounds.Length)];

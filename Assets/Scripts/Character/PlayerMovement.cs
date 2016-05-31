@@ -94,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
             {
 				//Here we remove a block, and set the digging unavailiable and start the reset timer
 				hit.collider.GetComponent<Block>().GetKilled();
+				EventManager.TriggerAudioSFXEvent(AudioClips.digSound);
 				canDig = false;
 				Invoke("ResetDigTime" , 0.4f);
             }
@@ -184,14 +185,18 @@ public class PlayerMovement : MonoBehaviour
 
 	private void EnableMovement ()
 	{
-		died = false;
-		transform.GetComponent<CircleCollider2D>().isTrigger = false;
-		DisableKinematic ();
-		gameObject.transform.localScale = originScale;
+		if (!died)
+		{
+			died = false;
+			transform.GetComponent<CircleCollider2D>().isTrigger = false;
+			DisableKinematic ();
+			gameObject.transform.localScale = originScale;
+		}
 	}
 
 	private void LostLife ()
 	{
+		EventManager.TriggerAudioSFXEvent(AudioClips.lostLifeSound);
 		DisableMovement ();
 		StartCoroutine(ShrinkPlayer());
 		transform.GetComponent<CircleCollider2D> ().isTrigger = true;

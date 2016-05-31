@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 	private DrillDirection drillDir;
 	private Vector2 playerPosition;
 	private bool died = false;
+	private bool gameOver = false;
 	private bool canMove = true;
 	private Vector3 originScale;
 
@@ -37,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		EventManager.AddListener (StaticEventNames.NEXTSTAGE, NextStage);
 		EventManager.AddListener (StaticEventNames.RESTART, NextStage);
-		EventManager.AddListener (StaticEventNames.ENDGAME, DisableMovement);
+		EventManager.AddListener (StaticEventNames.ENDGAME, GameOver);
 		EventManager.AddListener (StaticEventNames.LOSTLIFE, LostLife);
 	}
 
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		EventManager.RemoveListener (StaticEventNames.NEXTSTAGE, NextStage);
 		EventManager.RemoveListener (StaticEventNames.RESTART, NextStage);
-		EventManager.RemoveListener (StaticEventNames.ENDGAME, DisableMovement);
+		EventManager.RemoveListener (StaticEventNames.ENDGAME, GameOver);
 		EventManager.RemoveListener (StaticEventNames.LOSTLIFE, LostLife);
 	}
 
@@ -176,14 +177,20 @@ public class PlayerMovement : MonoBehaviour
 		died = false;
 	}
 
+	private void GameOver ()
+	{
+		gameOver = true;
+		DisableMovement();
+	}
+
 	private void DisableMovement ()
 	{
 		died = true;
 	}
-
+	
 	private void EnableMovement ()
 	{
-		if (!died)
+		if (!gameOver)
 		{
 			died = false;
 			transform.GetComponent<CircleCollider2D>().isTrigger = false;
@@ -194,8 +201,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private void LostLife ()
 	{
-		EventManager.TriggerAudioSFXEvent(AudioClips.lostLifeSound);
 		DisableMovement ();
+		EventManager.TriggerAudioSFXEvent(AudioClips.lostLifeSound);
 		StartCoroutine(ShrinkPlayer());
 		transform.GetComponent<CircleCollider2D> ().isTrigger = true;
 		Invoke("EnableKinematic", 0.2f);
@@ -223,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
 
 	IEnumerator ShrinkPlayer ()
 	{
-		for (float y = 1; y > 0.3f; y -= 0.05f)
+		for (float y = 1; y > 0.3f; y -= 0.1f)
 		{
 			transform.localScale = new Vector3(originScale.x, y, 0);
 			yield return new WaitForSeconds(0.03f);

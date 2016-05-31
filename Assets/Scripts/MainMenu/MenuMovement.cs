@@ -1,4 +1,5 @@
 ﻿//Created by: Fabian Verkuijlen
+//Created on: 10/05/2016
 using UnityEngine;
 using System.Collections;
 
@@ -11,7 +12,9 @@ public class MenuMovement : MonoBehaviour {
     [SerializeField][Range(0.001f, 0.03f)]private float moveSpeedX = 0.01f;
     [SerializeField][Range(0.001f, 0.03f)]private float moveSpeedY = 0.01f;
     [SerializeField]private Vector2 moveRange = new Vector2(50, 50);
-
+	/// <summary>
+	/// At Awake 
+	/// </summary>
     protected void Awake()
     {
         localRect = this.GetComponent<RectTransform>();

@@ -31,7 +31,7 @@ public class MainMenuButtonCommands : MonoBehaviour
 	/// <summary>
 	/// Regulates the fade in and opens the how to play screen.
 	/// </summary>
-	private void HowToButtonPushed ()
+	public void HowToButtonPushed ()
 	{
 		Overlay.FadeIn();
 		Invoke("SwitchFromMainToHowToPlay", 1);
@@ -57,10 +57,19 @@ public class MainMenuButtonCommands : MonoBehaviour
 	/// <summary>
 	/// Regulates the back-button function. starts fadeIn and switchesback to main menu
 	/// </summary>
-	public void BackToMainMenuButtonPushed()
+	public void FromSettingsBackToMainMenuButtonPushed()
 	{
 		Overlay.FadeIn ();
 		Invoke ("SwitchFromSettingsToMain", 1);
+		EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
+	}
+	/// <summary>
+	/// Regulates the back-button function. starts fadeIn and switchesback to main menu
+	/// </summary>
+	public void FromHowToPlayBackToMainMenuButtonPushed ()
+	{
+		Overlay.FadeIn ();
+		Invoke ("SwitchFromHowToPlayToMain", 1);
 		EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
 	}
 	/// <summary>

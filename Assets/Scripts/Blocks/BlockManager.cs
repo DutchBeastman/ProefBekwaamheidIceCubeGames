@@ -8,9 +8,11 @@ public class BlockManager : MonoBehaviour
 {
 	[SerializeField] private int fieldWidth;
 	[SerializeField] private int fieldHeight;
-	//[SerializeField] private GameObject[] farmStageTiles;
+	[SerializeField] private GameObject[] farmStageTiles;
 	[SerializeField] private GameObject[] forrestStageTiles;
-	[SerializeField]private GameObject[] specialBlocks;
+	[SerializeField] private GameObject[] farmSpecialBlocks;
+	[SerializeField] private GameObject[] forrestSpecialBlocks;
+	private GameObject[] specialBlocks;
 	private GameObject[] currentStageTiles;
 	private int stageID;
 	private List<List<Block>> blocks;
@@ -22,24 +24,30 @@ public class BlockManager : MonoBehaviour
 
 	protected void OnEnable ()
 	{
-		EventManager.AddListener(StaticEventNames.RESTART, StartGame);
+		EventManager.AddListener(StaticEventNames.RESTART, RestartGame);
 	}
 
 	protected void OnDisable ()
 	{
-		EventManager.RemoveListener(StaticEventNames.RESTART, StartGame);
+		EventManager.RemoveListener(StaticEventNames.RESTART, RestartGame);
 	}
 
 	protected void Awake()
 	{
-		currentStageTiles = forrestStageTiles;
-		Generation();
+		SetOriginTiles ();
+		Generation ();
 	}
 
-	private void StartGame ()
+	private void SetOriginTiles ()
 	{
-		currentStageTiles = forrestStageTiles;
-		Reset();
+		currentStageTiles = farmStageTiles;
+		specialBlocks = farmSpecialBlocks;
+	}
+	
+	private void RestartGame ()
+	{
+		SetOriginTiles ();
+		Reset (true);
 	}
 
 	/// <summary>
@@ -71,9 +79,9 @@ public class BlockManager : MonoBehaviour
 		}
 	}
 
-	public void Reset()
+	private void UpdateStageID ()
 	{
-		stageID ++;
+		stageID++;
 		if (stageID == 2)
 		{
 			stageID = 0;
@@ -81,11 +89,21 @@ public class BlockManager : MonoBehaviour
 		switch (stageID)
 		{
 			case 0:
-			currentStageTiles = forrestStageTiles;
-				break;
+				currentStageTiles = farmStageTiles;
+				specialBlocks = farmSpecialBlocks;
+			break;
 			case 1:
-			currentStageTiles = forrestStageTiles;
-				break;
+				currentStageTiles = forrestStageTiles;
+				specialBlocks = forrestSpecialBlocks;
+			break;
+		}
+	}
+
+	public void Reset (bool restart)
+	{
+		if (!restart)
+		{
+			UpdateStageID ();
 		}
 		Invoke("Generation", 1f);
 		RemoveBlocks();

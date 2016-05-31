@@ -215,12 +215,12 @@ public class Block : MonoBehaviour {
 
 	public void StartFalling()
 	{
-		CheckNeighboursFalling();
+		//CheckNeighboursFalling();
 		TellNeighboursToFall();
-		Invoke("fall" , 0.3f);
+		Invoke("Fall" , 1.5f);
 	}
 
-	private void fall()
+	private void Fall()
 	{
 		falling = true;
 	}
@@ -237,6 +237,10 @@ public class Block : MonoBehaviour {
 		if (falling)
 		{
 			rigid2D.isKinematic = false;
+		}
+		else
+		{
+			rigid2D.isKinematic = true;
 		}
 	}
 	private void OnCollisionEnter2D(Collision2D coll)

@@ -16,7 +16,7 @@ public class NextStageTrigger : MonoBehaviour
 		{
 			TriggerNextStageArt();
 			logo.ShowLogo();
-			manager.Reset();
+			manager.Reset(false);
 		}
 	}
 

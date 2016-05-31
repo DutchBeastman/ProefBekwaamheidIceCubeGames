@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 	protected void OnEnable ()
 	{
 		EventManager.AddListener (StaticEventNames.NEXTSTAGE, NextStage);
-		EventManager.AddListener (StaticEventNames.RESTART, NextStage);
+		EventManager.AddListener (StaticEventNames.RESTART, Restart);
 		EventManager.AddListener (StaticEventNames.ENDGAME, GameOver);
 		EventManager.AddListener (StaticEventNames.LOSTLIFE, LostLife);
 	}
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 	protected void OnDisable ()
 	{
 		EventManager.RemoveListener (StaticEventNames.NEXTSTAGE, NextStage);
-		EventManager.RemoveListener (StaticEventNames.RESTART, NextStage);
+		EventManager.RemoveListener (StaticEventNames.RESTART, Restart);
 		EventManager.RemoveListener (StaticEventNames.ENDGAME, GameOver);
 		EventManager.RemoveListener (StaticEventNames.LOSTLIFE, LostLife);
 	}
@@ -132,12 +132,9 @@ public class PlayerMovement : MonoBehaviour
 				{
 					foreach (RaycastHit2D ray in hits)
 					{
-						if (ray.collider.name == "WallLeft" || ray.collider.name == "WallRight")
+						if (ray.collider.name != gameObject.name && ray.collider.name != "LifeTile(Clone)")
 						{
-							if (ray.collider.name != gameObject.name && ray.collider.name != "LifeTile(Clone)")
-							{
-								move = false;
-							}
+							move = false;
 						}
 					}
 				}
@@ -167,6 +164,13 @@ public class PlayerMovement : MonoBehaviour
 	protected void ClimbTimer()
 	{
 		canClimb = true;
+	}
+
+	private void Restart ()
+	{
+		gameOver = false;
+		EnableMovement();
+		NextStage();
 	}
 
 	private void NextStage ()
@@ -202,11 +206,15 @@ public class PlayerMovement : MonoBehaviour
 	private void LostLife ()
 	{
 		DisableMovement ();
+
 		EventManager.TriggerAudioSFXEvent(AudioClips.lostLifeSound);
 		StartCoroutine(ShrinkPlayer());
+
 		transform.GetComponent<CircleCollider2D> ().isTrigger = true;
 		Invoke("EnableKinematic", 0.2f);
+
 		KillAllBlocksAbove ();
+
 		Invoke ("EnableMovement", 4f);
 	}
 
@@ -224,7 +232,10 @@ public class PlayerMovement : MonoBehaviour
 	{
 		foreach (RaycastHit2D hit in hits)
 		{
-			Destroy (hit.collider.gameObject);
+			if (hit.collider.name != "LifeTile(Clone)")
+			{
+				Destroy (hit.collider.gameObject);
+			}
 		}
 	}
 
@@ -241,6 +252,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		rigid.isKinematic = false;
 	}
+
 	private void EnableKinematic()
 	{
 		rigid.isKinematic = true;

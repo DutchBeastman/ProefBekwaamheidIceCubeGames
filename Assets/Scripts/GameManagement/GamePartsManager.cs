@@ -15,6 +15,7 @@ public class GamePartsManager : MonoBehaviour
 		EventManager.AddListener(StaticEventNames.ENABLEMAINMENU, ActivateMainMenu);
 		EventManager.AddListener(StaticEventNames.ENABLEGAMECREATION, ActivateGameCreation);
 		ActivateMainMenu();
+		EventManager.TriggerAudioMusicEvent(AudioClips.gameMusicTrack);
 	}
 	/// <summary>
 	/// here the mainmenu is set active and levelcreation is set false

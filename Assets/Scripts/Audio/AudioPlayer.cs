@@ -35,7 +35,6 @@ namespace Utils
 			{
 				if (!channel.IsPlaying)
 				{
-					Debug.Log ("returning empty channel");
 					return channel;
 				}
 			}

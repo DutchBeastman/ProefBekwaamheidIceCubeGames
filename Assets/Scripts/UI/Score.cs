@@ -20,10 +20,7 @@ public class Score : MonoBehaviour
 	/// </summary>
 	protected void OnEnable ()
 	{
-		EventManager.AddListener ("GetPoints10", Get10Points);
-		EventManager.AddListener ("GetPoints20", Get20Points);
-		EventManager.AddListener ("GetPoints30", Get30Points);
-		EventManager.AddListener ("GetPoints50", Get50Points);
+		EventManager.AddScoreListener (GainPoints);
 		EventManager.AddListener (StaticEventNames.RESTART, Restart);
 	}
 	/// <summary>
@@ -31,10 +28,7 @@ public class Score : MonoBehaviour
 	/// </summary>
 	protected void OnDisable ()
 	{
-		EventManager.RemoveListener ("GetPoints10", Get10Points);
-		EventManager.RemoveListener ("GetPoints20", Get20Points);
-		EventManager.RemoveListener ("GetPoints30", Get30Points);
-		EventManager.RemoveListener ("GetPoints50", Get50Points);
+		EventManager.RemoveScoreListener (GainPoints);
 		EventManager.RemoveListener (StaticEventNames.RESTART, Restart);
 	}
 	/// <summary>
@@ -46,41 +40,14 @@ public class Score : MonoBehaviour
 		UpdateUI();
 	}
 	/// <summary>
-	/// adds 10 points to score and updates the UI
+	/// Add the parameter "score" to the total score
 	/// </summary>
-	private void Get10Points ()
+	/// <param name="score"></param>
+	private void GainPoints (int score)
 	{
-		score += 10;
+		score += score;
 		UpdateUI ();
 	}
-
-	/// <summary>
-	/// adds 20 points to score and updates the UI
-	/// </summary>
-	private void Get20Points ()
-	{
-		score += 20;
-		UpdateUI ();
-	}
-
-	/// <summary>
-	/// adds 30 points to score and updates the UI
-	/// </summary>
-	private void Get30Points ()
-	{
-		score += 30;
-		UpdateUI ();
-	}
-
-	/// <summary>
-	/// adds 50 points to score and updates the UI
-	/// </summary>
-	private void Get50Points ()
-	{
-		score += 50;
-		UpdateUI();
-	}
-
 	/// <summary>
 	/// Function for the UI update, so the text will always remain relevant to the actual score.
 	/// </summary>

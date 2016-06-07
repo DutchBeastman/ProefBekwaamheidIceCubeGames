@@ -102,19 +102,19 @@ public class PlayerMovement : MonoBehaviour
 				Invoke("ResetDigTime" , 0.4f);
             }
         }
-		if (Input.GetKeyDown(KeyCode.W))
+		if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
 		{
 			drillDir = DrillDirection.up;
 		}
-		if (Input.GetKeyDown(KeyCode.S))
+		if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow))
 		{
 			drillDir = DrillDirection.down;
 		}
-		if (Input.GetKeyDown(KeyCode.A))
+		if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown (KeyCode.LeftArrow))
 		{
 			drillDir = DrillDirection.left;
 		}
-		if (Input.GetKeyDown(KeyCode.D))
+		if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown (KeyCode.RightArrow))
 		{
 			drillDir = DrillDirection.right;
 		}

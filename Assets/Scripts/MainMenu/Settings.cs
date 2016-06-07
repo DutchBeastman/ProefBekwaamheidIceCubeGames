@@ -82,8 +82,8 @@ public class Settings : MonoBehaviour
 	/// <param name="lastChangedAudioMixer"></param>
 	private void ChangeMixerVolume (float mixerVolume, string mixerName, LastChangedAudioMixer lastChangedAudioMixer)
 	{
-		mixer.SetFloat (mixerName, (mixerVolume * 60) - 60);
-
+		mixer.SetFloat (mixerName, (-40 + mixerVolume * 40));
+		Debug.Log(mixerVolume);
 		lastChangedMixer = lastChangedAudioMixer;
 		afterSoundPlayed = false;
 	}

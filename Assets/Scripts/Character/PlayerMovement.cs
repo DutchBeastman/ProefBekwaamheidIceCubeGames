@@ -105,24 +105,28 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
 		{
 			drillDir = DrillDirection.up;
-			transform.eulerAngles = new Vector3(0,0, 180);
+			RotatePlayer (180);
 		}
 		if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow))
 		{
 			drillDir = DrillDirection.down;
-			transform.eulerAngles = new Vector3 (0, 0, 0);
+			RotatePlayer (0);
 		}
 		if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown (KeyCode.LeftArrow))
 		{
 			drillDir = DrillDirection.left;
-			transform.eulerAngles = new Vector3 (0, 0, 270);
+			RotatePlayer (270);
 		}
 		if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown (KeyCode.RightArrow))
 		{
 			drillDir = DrillDirection.right;
-			transform.eulerAngles = new Vector3 (0, 0, 90);
+			RotatePlayer(90);
 		}
     }
+	private void RotatePlayer (int rotation)
+	{
+		transform.eulerAngles = new Vector3(0, 0, rotation);
+	}
 	/// <summary>
 	/// Move contains the snapping movement of the player and checks if you can move to that position
 	/// </summary>

@@ -13,8 +13,7 @@ namespace Utils
 		private HashSet<AudioChannel> channels;
 		[SerializeField] private AudioMixerGroup SFXGroup;
 		[SerializeField] private AudioMixerGroup musicGroup;
-
-		private const string AUDIOEVENT = "audioEvent";
+		
 		/// <summary>
 		/// Creates al audio channels
 		/// </summary>

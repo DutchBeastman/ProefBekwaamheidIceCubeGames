@@ -13,9 +13,11 @@ public class EventManager : MonoBehaviour
 	private Dictionary<string, UnityEvent> eventDictionary;
 	private Dictionary<string, AudioSFXEvent> audioSFXEventDictionary;
 	private Dictionary<string, AudioMusicEvent> audioMusicEventDictionary;
+	private Dictionary<string, ScoreEvent> scoreEventDictionary;
 
 	private static EventManager eventManager;
 	private const string AUDIOEVENT = "audioEvent";
+	private const string SCOREEVENT = "scoreEvent";
 	/// <summary>
 	/// Sets the event manager
 	/// </summary>
@@ -57,6 +59,10 @@ public class EventManager : MonoBehaviour
 		{
 			audioMusicEventDictionary = new Dictionary<string, AudioMusicEvent> ();
 		}
+		if (scoreEventDictionary == null)
+		{
+			scoreEventDictionary= new Dictionary<string, ScoreEvent> ();
+		}
 	}
 	/// <summary>
 	/// This function makes sure that Listeners could be added
@@ -75,6 +81,25 @@ public class EventManager : MonoBehaviour
 			thisEvent = new UnityEvent ();
 			thisEvent.AddListener (listener);
 			instance.eventDictionary.Add (eventName, thisEvent);
+		}
+	}
+	/// <summary>
+	/// This function makes sure that Listeners could be added
+	/// </summary>
+	/// <param name="eventName">The name of the event you want to add</param>
+	/// <param name="listener">The name of the listener which you want to add</param>
+	public static void AddScoreListener (UnityAction<int> listener)
+	{
+		ScoreEvent thisEvent = null;
+		if (instance.scoreEventDictionary.TryGetValue (SCOREEVENT, out thisEvent))
+		{
+			thisEvent.AddListener (listener);
+		}
+		else
+		{
+			thisEvent = new ScoreEvent ();
+			thisEvent.AddListener (listener);
+			instance.scoreEventDictionary.Add (SCOREEVENT, thisEvent);
 		}
 	}
 	/// <summary>
@@ -134,6 +159,22 @@ public class EventManager : MonoBehaviour
 	/// This function makes it so you can remove and AudioSFX listener
 	/// </summary>
 	/// <param name="listener">the listener you want to remove</param>
+	public static void RemoveScoreListener (UnityAction<int> listener)
+	{
+		if (eventManager == null)
+		{
+			return;
+		}
+		ScoreEvent thisEvent = null;
+		if (instance.scoreEventDictionary.TryGetValue (SCOREEVENT, out thisEvent))
+		{
+			thisEvent.RemoveListener (listener);
+		}
+	}
+	/// <summary>
+	/// This function makes it so you can remove and AudioSFX listener
+	/// </summary>
+	/// <param name="listener">the listener you want to remove</param>
 	public static void RemoveAudioSFXListener (UnityAction<AudioClip> listener)
 	{
 		if (eventManager == null)
@@ -172,6 +213,18 @@ public class EventManager : MonoBehaviour
 		if (instance.eventDictionary.TryGetValue (eventName, out thisEvent))
 		{
 			thisEvent.Invoke ();
+		}
+	}
+	/// <summary>
+	/// Triggers Score event
+	/// </summary>
+	/// <param name="score">Specific score you want to add</param>
+	public static void TriggerScoreEvent (int score)
+	{
+		ScoreEvent thisEvent = null;
+		if (instance.scoreEventDictionary.TryGetValue (SCOREEVENT, out thisEvent))
+		{
+			thisEvent.Invoke (score);
 		}
 	}
 	/// <summary>

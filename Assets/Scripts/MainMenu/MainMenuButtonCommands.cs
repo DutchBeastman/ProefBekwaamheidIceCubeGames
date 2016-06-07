@@ -11,15 +11,28 @@ public class MainMenuButtonCommands : MonoBehaviour
 	[SerializeField] private GameObject settings;
 	[SerializeField] private GameObject gameCreation;
 
+	private bool buttonPushed;
 	private bool fullAlpha;
 	/// <summary>
 	/// Regulates the fade in and starts the game.
 	/// </summary>
 	public void PlayButtonPushed ()
 	{
-		Overlay.FadeIn ();
-		Invoke("CreateLevel", 2);
-		EventManager.TriggerAudioSFXEvent(AudioClips.buttonSound);
+		if (!buttonPushed)
+		{
+			buttonPushed = true;
+			Invoke ("EnableButtonPush", 2f);
+			Overlay.FadeIn ();
+			Invoke("CreateLevel", 2);
+			EventManager.TriggerAudioSFXEvent(AudioClips.buttonSound);
+		}
+	}
+	/// <summary>
+	/// Makes sure the player can press another button can be pushed.
+	/// </summary>
+	private void EnableButtonPush ()
+	{
+		buttonPushed = false;
 	}
 	/// <summary>
 	/// Regulates the call for the event to create the level.
@@ -33,44 +46,69 @@ public class MainMenuButtonCommands : MonoBehaviour
 	/// </summary>
 	public void HowToButtonPushed ()
 	{
-		Overlay.FadeIn();
-		Invoke("SwitchFromMainToHowToPlay", 1);
-		EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
+		if (!buttonPushed)
+		{
+			buttonPushed = true;
+			Invoke ("EnableButtonPush", 2f);
+			Overlay.FadeIn ();
+			Invoke ("SwitchFromMainToHowToPlay", 1);
+			EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
+		}
 	}
 	/// <summary>
 	/// Regulates the fade in and opens settings screen.
 	/// </summary>
 	public void SettingsButtonPushed ()
 	{
-		Overlay.FadeIn ();
-		Invoke ("SwitchFromMainToSettings", 1);
-		EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
+		if (!buttonPushed)
+		{
+			buttonPushed = true;
+			Invoke ("EnableButtonPush", 2f);
+			Overlay.FadeIn ();
+			Invoke ("SwitchFromMainToSettings", 1);
+			EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
+		}
 	}
 	/// <summary>
 	/// When called quits the application.
 	/// </summary>
 	public void ExitButtonPushed ()
 	{
-		Application.Quit ();
-		EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
+		if (!buttonPushed)
+		{
+			buttonPushed = true;
+			Invoke ("EnableButtonPush", 2f);
+			Application.Quit ();
+			EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
+		}
 	}
 	/// <summary>
 	/// Regulates the back-button function. starts fadeIn and switchesback to main menu
 	/// </summary>
 	public void FromSettingsBackToMainMenuButtonPushed()
 	{
-		Overlay.FadeIn ();
-		Invoke ("SwitchFromSettingsToMain", 1);
-		EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
+		if (!buttonPushed)
+		{
+			buttonPushed = true;
+			Invoke ("EnableButtonPush", 2f);
+			Overlay.FadeIn ();
+			Invoke ("SwitchFromSettingsToMain", 1);
+			EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
+		}
 	}
 	/// <summary>
 	/// Regulates the back-button function. starts fadeIn and switchesback to main menu
 	/// </summary>
 	public void FromHowToPlayBackToMainMenuButtonPushed ()
 	{
-		Overlay.FadeIn ();
-		Invoke ("SwitchFromHowToPlayToMain", 1);
-		EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
+		if (!buttonPushed)
+		{
+			buttonPushed = true;
+			Invoke("EnableButtonPush", 2f);
+			Overlay.FadeIn ();
+			Invoke ("SwitchFromHowToPlayToMain", 1);
+			EventManager.TriggerAudioSFXEvent (AudioClips.buttonSound);
+		}
 	}
 	/// <summary>
 	/// Enables settings, disables main menu
@@ -89,6 +127,7 @@ public class MainMenuButtonCommands : MonoBehaviour
 		DisableSettings ();
 		EnableMainMenu ();
 		Overlay.FadeOut ();
+		
 	}
 	/// <summary>
 	/// Enables settings, disables main menu
@@ -106,7 +145,14 @@ public class MainMenuButtonCommands : MonoBehaviour
 	{
 		DisableHowToPlay ();
 		EnableMainMenu ();
-		Overlay.FadeOut ();
+		Invoke ("FadeOut", 1);
+	}
+	/// <summary>
+	/// Fades out the overlay.
+	/// </summary>
+	private void FadeOut ()
+	{
+		Overlay.FadeOut();
 	}
 	/// <summary>
 	/// sets main menu active

@@ -1,0 +1,303 @@
+fileFormatVersion: 2
+guid: e3d5442052e5e384cb337b844e8d71bc
+timeCreated: 1465462937
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Corn2 Sheet_0
+    21300002: Corn2 Sheet_1
+    21300004: Corn2 Sheet_2
+    21300006: Corn2 Sheet_3
+    21300008: Corn2 Sheet_4
+    21300010: Corn2 Sheet_5
+    21300012: Corn2 Sheet_6
+    21300014: Corn2 Sheet_7
+    21300016: Corn2 Sheet_8
+    21300018: Corn2 Sheet_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 2
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 170
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Corn2 Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 385.3333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -51, y: -45.166687}
+        - {x: -45, y: -62.166687}
+        - {x: -1, y: -72.16669}
+        - {x: 60, y: -72.16669}
+        - {x: 60, y: -11.166687}
+        - {x: 52, y: 41.833313}
+        - {x: 19, y: 82.83331}
+        - {x: -32, y: 82.83331}
+        - {x: -51, y: 66.83331}
+    - name: Corn2 Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 385.3333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39, y: 89.83331}
+        - {x: -56, y: 35.833313}
+        - {x: -56, y: -48.166687}
+        - {x: -17, y: -75.16669}
+        - {x: 52, y: -75.16669}
+        - {x: 56, y: -72.16669}
+        - {x: 56, y: 24.833313}
+        - {x: 55, y: 41.833313}
+        - {x: 17, y: 89.83331}
+    - name: Corn2 Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 385.3333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -46, y: 95.83331}
+        - {x: -58, y: 87.83331}
+        - {x: -58, y: -48.166687}
+        - {x: -44, y: -62.166687}
+        - {x: -2, y: -76.16669}
+        - {x: 50, y: -76.16669}
+        - {x: 59, y: -64.16669}
+        - {x: 59, y: 65.83331}
+        - {x: 37, y: 95.83331}
+    - name: Corn2 Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 385.3333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 96.83331}
+        - {x: -62, y: 83.83331}
+        - {x: -62, y: 36.833313}
+        - {x: -61, y: 27.833313}
+        - {x: -62, y: 16.833313}
+        - {x: -62, y: -44.166687}
+        - {x: -57, y: -69.16669}
+        - {x: -35, y: -74.16669}
+        - {x: 24, y: -74.16669}
+        - {x: 63, y: -36.166687}
+        - {x: 66, y: -19.166687}
+        - {x: 66, y: 51.833313}
+        - {x: 42, y: 96.83331}
+    - name: Corn2 Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 193.33333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 45, y: 96.83333}
+        - {x: -61, y: 93.83333}
+        - {x: -75, y: 74.83333}
+        - {x: -75, y: -56.16667}
+        - {x: -73, y: -67.16667}
+        - {x: -62, y: -68.16667}
+        - {x: 31, y: -68.16667}
+        - {x: 77, y: -49.16667}
+        - {x: 77, y: 96.83333}
+    - name: Corn2 Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 193.33333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -86, y: 94.83333}
+        - {x: -86, y: -62.16667}
+        - {x: -70, y: -75.16667}
+        - {x: -6, y: -75.16667}
+        - {x: 51, y: -63.16667}
+        - {x: 92, y: -15.166672}
+        - {x: 92, y: 36.83333}
+        - {x: 76, y: 94.83333}
+    - name: Corn2 Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 193.33333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -48, y: -8.166672}
+        - {x: -58, y: -30.166672}
+        - {x: -58, y: -70.16667}
+        - {x: -49, y: -81.16667}
+        - {x: -30, y: -81.16667}
+        - {x: -18, y: -75.16667}
+        - {x: -18, y: -37.16667}
+        - {x: -19, y: -18.166672}
+        - {x: -32, y: -8.166672}
+      - - {x: -94, y: 89.83333}
+        - {x: -94, y: 24.833328}
+        - {x: -43, y: -53.16667}
+        - {x: 90, y: -53.16667}
+        - {x: 104, y: -21.166672}
+        - {x: 104, y: 13.833328}
+        - {x: 83, y: 89.83333}
+    - name: Corn2 Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 193.33333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -55, y: -14.166672}
+        - {x: -60, y: -16.166672}
+        - {x: -60, y: -52.16667}
+        - {x: -58, y: -64.16667}
+        - {x: -55, y: -74.16667}
+        - {x: -49, y: -84.16667}
+        - {x: -26, y: -84.16667}
+        - {x: -16, y: -82.16667}
+        - {x: -16, y: -45.16667}
+        - {x: -32, y: -14.166672}
+      - - {x: 78, y: 81.83333}
+        - {x: 5, y: 67.83333}
+        - {x: -3, y: 55.83333}
+        - {x: -32, y: 81.83333}
+        - {x: -69, y: 81.83333}
+        - {x: -102, y: 69.83333}
+        - {x: -102, y: 23.833328}
+        - {x: -46, y: -17.166672}
+        - {x: 17, y: -56.16667}
+        - {x: 78, y: -56.16667}
+        - {x: 109, y: -43.16667}
+        - {x: 109, y: 69.83333}
+        - {x: 98, y: 81.83333}
+    - name: Corn2 Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.3333282
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -67, y: -20.166672}
+        - {x: -67, y: -59.16667}
+        - {x: -60, y: -87.16667}
+        - {x: -27, y: -87.16667}
+        - {x: -17, y: -83.16667}
+        - {x: -15, y: -73.16667}
+        - {x: -15, y: -58.16667}
+        - {x: -38, y: -20.166672}
+      - - {x: -96, y: 81.83333}
+        - {x: -110, y: 64.83333}
+        - {x: -110, y: -28.166672}
+        - {x: -12, y: -64.16667}
+        - {x: 108, y: -64.16667}
+        - {x: 108, y: 81.83333}
+    - name: Corn2 Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 1.3333282
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -69, y: -27.166672}
+        - {x: -74, y: -29.166672}
+        - {x: -74, y: -52.16667}
+        - {x: -51, y: -86.16667}
+        - {x: -40, y: -87.16667}
+        - {x: -21, y: -87.16667}
+        - {x: -14, y: -78.16667}
+        - {x: -14, y: -53.16667}
+        - {x: -43, y: -27.166672}
+      - - {x: -106, y: 81.83333}
+        - {x: -115, y: 77.83333}
+        - {x: -115, y: -6.1666718}
+        - {x: -35, y: -77.16667}
+        - {x: 110, y: -77.16667}
+        - {x: 114, y: -47.16667}
+        - {x: 114, y: 81.83333}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

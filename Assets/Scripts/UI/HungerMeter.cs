@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public class HungerMeter : MonoBehaviour 
 {
 	[SerializeField] private Image hungerBar;
+	[SerializeField] private float percentDecreaseTime = 0.4f;
 	private float hungerPercent = 100;
 	private bool refill = true;
 	private bool death = false;
@@ -59,7 +60,7 @@ public class HungerMeter : MonoBehaviour
 		UpdateUIArt();
 		if (hungerPercent >= 0  && !death)
 		{
-			Invoke ("DecreaseHunger", .7f);
+			Invoke ("DecreaseHunger", percentDecreaseTime);
 		}
 		else
 		{

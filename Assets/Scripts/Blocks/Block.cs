@@ -26,7 +26,6 @@ public class Block : MonoBehaviour {
 	
 	[SerializeField] private int lives;
 	[SerializeField] public int points;
-	[SerializeField] public int damage;
 	[SerializeField] private bool killNeighbours;
 	[SerializeField] private bool unbreakable;
 	
@@ -59,6 +58,7 @@ public class Block : MonoBehaviour {
 	private void Awake()
 	{
 		rigid2D = gameObject.GetComponent<Rigidbody2D>();
+		StartCoroutine (FallingCheck ());
 	}
 	/// <summary>
 	/// Gets the neighbours of the block
@@ -140,7 +140,6 @@ public class Block : MonoBehaviour {
 	{
 		killed = true;
 		TellNeighboursToFall();
-		EventManager.TriggerScoreEvent(points);
 		KillGroup();
 	}
 	/// <summary>
@@ -208,6 +207,7 @@ public class Block : MonoBehaviour {
 
 		if(lives == 0 && !unbreakable)
 		{
+			EventManager.TriggerScoreEvent (points);
 			Destroy (gameObject);
 		}
 	}
@@ -261,7 +261,7 @@ public class Block : MonoBehaviour {
 	/// <summary>
 	/// A check if the object should be falling 
 	/// </summary>
-	private void Update()
+	private IEnumerator FallingCheck ()
 	{
 		if (falling)
 		{
@@ -271,6 +271,8 @@ public class Block : MonoBehaviour {
 		{
 			rigid2D.isKinematic = true;
 		}
+		yield return new WaitForSeconds(0.2f);
+		StartCoroutine(FallingCheck());
 	}
 	/// <summary>
 	/// Execute collision checks 
@@ -280,11 +282,15 @@ public class Block : MonoBehaviour {
 	{
 		if (coll.collider.name != "Player")
 		{
-			if (coll.collider.GetComponent<Block> ().falling == false)
+			if (coll.collider.GetComponent<Block> ())
 			{
-				if (rigid2D.velocity.y < -0.2f)
+				if (coll.collider.GetComponent<Block> ().falling == false)
 				{
-					Invoke ("StopFalling", 0.1f);
+					if (rigid2D.velocity.y < -0.2f)
+					{
+						StopFalling();
+						//Invoke ("StopFalling", 0.1f);
+					}
 				}
 			}
 		}

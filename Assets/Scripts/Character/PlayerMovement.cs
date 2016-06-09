@@ -2,7 +2,6 @@
 // Date: 15/04/2016
 
 using UnityEngine;
-
 using System.Collections;
 
 public enum DrillDirection
@@ -12,8 +11,8 @@ public enum DrillDirection
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]private BlockManager manager;
-	[SerializeField]private float resetDigTime;
+	[SerializeField] private BlockManager manager;
+	[SerializeField] private float resetDigTime;
 
 	private bool canDig;
 	private bool canClimb = true;
@@ -30,10 +29,10 @@ public class PlayerMovement : MonoBehaviour
 	/// <summary>
 	/// The awake sets the playerposition, gets the rigidbody and sets the scale.
 	/// </summary>
-	protected void Awake()
+	protected void Awake ()
 	{
-		playerPosition = new Vector2(0 , 15);
-		rigid = GetComponent<Rigidbody2D>();
+		playerPosition = new Vector2 (0, 15);
+		rigid = GetComponent<Rigidbody2D> ();
 		canDig = true;
 		originScale = transform.localScale;
 	}
@@ -60,78 +59,81 @@ public class PlayerMovement : MonoBehaviour
 	/// <summary>
 	/// Regulates all movement and checks for the movement.
 	/// </summary>
-    protected void Update()
-    {
-		Move();
-		
+	protected void Update ()
+	{
+		Move ();
+
 		//Getting the axis for spacebar, which in unity is called jump
-		if (Input.GetButtonDown("Jump"))
-        {
+		if (Input.GetButtonDown ("Jump"))
+		{
 			if (!inGameTutorialMove && inGameTutorialDig)
 			{
 				inGameTutorialDig = false;
-				EventManager.TriggerEvent(StaticEventNames.TUTORIALDIGSTEP);
+				EventManager.TriggerEvent (StaticEventNames.TUTORIALDIGSTEP);
 			}
 			//Raycasting to see if we hit an other Block collider
-			RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + Vector2.down.y), Vector2.down, 0.1f);
+			RaycastHit2D hit = Physics2D.Raycast (new Vector2 (transform.position.x, transform.position.y + Vector2.down.y), Vector2.down, 0.1f);
 			switch (drillDir)
 			{
 				case DrillDirection.up:
-					hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + Vector2.up.y), Vector2.up, 0.1f);
-					break;
+				hit = Physics2D.Raycast (new Vector2 (transform.position.x, transform.position.y + Vector2.up.y), Vector2.up, 0.1f);
+				break;
 				case DrillDirection.right:
-					hit = Physics2D.Raycast(new Vector2(transform.position.x + Vector2.right.x, transform.position.y), Vector2.right, 0.1f);
-					break;
+				hit = Physics2D.Raycast (new Vector2 (transform.position.x + Vector2.right.x, transform.position.y), Vector2.right, 0.1f);
+				break;
 				case DrillDirection.left:
-					hit = Physics2D.Raycast(new Vector2(transform.position.x + Vector2.left.x, transform.position.y), Vector2.left, 0.1f);
-					break;
+				hit = Physics2D.Raycast (new Vector2 (transform.position.x + Vector2.left.x, transform.position.y), Vector2.left, 0.1f);
+				break;
 			}
-            if (hit.collider != null && hit.collider.GetComponent<Block>() && canDig && !died)
-            {
+			if (hit.collider != null && hit.collider.GetComponent<Block> () && canDig && !died)
+			{
 				//Here we remove a block, and set the digging unavailiable and start the reset timer
-				hit.collider.GetComponent<Block>().GetKilled();
-				EventManager.TriggerAudioSFXEvent(AudioClips.digSound);
+				hit.collider.GetComponent<Block> ().GetKilled ();
+				EventManager.TriggerAudioSFXEvent (AudioClips.digSound);
 				canDig = false;
-				Invoke("ResetDigTime" , 0.4f);
-            }
-        }
-		if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-		{
-			drillDir = DrillDirection.up;
-			RotatePlayer (180);
+				Invoke ("ResetDigTime", 0.4f);
+			}
 		}
-		if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow))
+		if (!died)
 		{
-			drillDir = DrillDirection.down;
-			RotatePlayer (0);
+			if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow))
+			{
+				drillDir = DrillDirection.up;
+				RotatePlayer (180);
+			}
+			if (Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow))
+			{
+				drillDir = DrillDirection.down;
+				RotatePlayer (0);
+			}
+			if (Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown (KeyCode.LeftArrow))
+			{
+				drillDir = DrillDirection.left;
+				RotatePlayer (270);
+			}
+			if (Input.GetKeyDown (KeyCode.D) || Input.GetKeyDown (KeyCode.RightArrow))
+			{
+				drillDir = DrillDirection.right;
+				RotatePlayer (90);
+			}
 		}
-		if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown (KeyCode.LeftArrow))
-		{
-			drillDir = DrillDirection.left;
-			RotatePlayer (270);
-		}
-		if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown (KeyCode.RightArrow))
-		{
-			drillDir = DrillDirection.right;
-			RotatePlayer(90);
-		}
-    }
+	}
 	/// <summary>
 	/// Rotate the player at given rotation.
 	/// </summary>
 	/// <param name="rotation">given rotation in degrees</param>
 	private void RotatePlayer (int rotation)
 	{
-		transform.eulerAngles = new Vector3(0, 0, rotation);
+		transform.eulerAngles = new Vector3 (0, 0, rotation);
 	}
 	/// <summary>
 	/// Move contains the snapping movement of the player and checks if you can move to that position
 	/// </summary>
-	private void Move()
+	private void Move ()
 	{
 		if (canMove && !died)
 		{
-			if (Mathf.RoundToInt(Input.GetAxis("Horizontal")) != 0)
+			if (Mathf.RoundToInt (Input.GetAxis ("Horizontal")) != 0)
 			{
 				if (inGameTutorialMove)
 				{
@@ -139,20 +141,17 @@ public class PlayerMovement : MonoBehaviour
 					EventManager.TriggerEvent (StaticEventNames.TUTORIALMOVEMENTSTEP);
 				}
 
-				Vector3 movement = new Vector3(Mathf.RoundToInt(Input.GetAxis ("Horizontal")), 0, 0);
-				RaycastHit2D[] hits = Physics2D.RaycastAll (transform.position + movement, movement,0.1f);
-
+				Vector3 movement = new Vector3 (Mathf.RoundToInt (Input.GetAxis ("Horizontal")), 0, 0);
+				RaycastHit2D[] hits1 = Physics2D.RaycastAll (transform.position + movement, movement, 0.1f);
+				RaycastHit2D[] hits2 = Physics2D.RaycastAll (transform.position + movement + (Vector3.up / 2), movement, 0.1f);
 				bool move = true;
 
-				if (hits != null)
+				if (hits1 != null || hits2 != null)
 				{
-					foreach (RaycastHit2D ray in hits)
+					move = CheckRaycastsOnFreeSpace (hits1);
+					if (move)
 					{
-						if (ray.collider.name != gameObject.name && ray.collider.name != "LifeTile(Clone)")
-						{
-							move = false;
-							Invoke("CheckForClimbing", 0.3f);
-						}
+						move = CheckRaycastsOnFreeSpace (hits2);
 					}
 				}
 
@@ -163,8 +162,28 @@ public class PlayerMovement : MonoBehaviour
 					canMove = false;
 					Invoke ("ResetMovementTimer", 0.25f);
 				}
+				else
+				{
+					Invoke ("CheckForClimbing", 0.3f);
+				}
 			}
 		}
+	}
+	/// <summary>
+	/// Check all given RaycastHits for empty space.
+	/// </summary>
+	/// <param name="hits">Given RaycastHits array.</param>
+	/// <returns>Return true if there is an emtpy space, otherwise returns false</returns>
+	private bool CheckRaycastsOnFreeSpace (RaycastHit2D[] hits)
+	{
+		foreach (RaycastHit2D hit in hits)
+		{
+			if (hit.collider.name != gameObject.name && hit.collider.name != "LifeTile(Clone)")
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 	/// <summary>
 	/// Check for climbing up a tile.
@@ -191,21 +210,21 @@ public class PlayerMovement : MonoBehaviour
 	/// <summary>
 	/// Resets the dig boolean, this function gets invoked somewhere to create an delay
 	/// </summary>
-	private void ResetDigTime()
+	private void ResetDigTime ()
 	{
 		canDig = true;
 	}
 	/// <summary>
 	/// Resets the movement boolean, this function gets invoked somewhere to create an delay
 	/// </summary>
-	private void ResetMovementTimer()
+	private void ResetMovementTimer ()
 	{
 		canMove = true;
 	}
 	/// <summary>
 	/// Resets the climb boolean, this function gets invoked somewhere to create an delay
 	/// </summary>
-	protected void ClimbTimer()
+	protected void ClimbTimer ()
 	{
 		canClimb = true;
 	}
@@ -215,17 +234,17 @@ public class PlayerMovement : MonoBehaviour
 	private void Restart ()
 	{
 		gameOver = false;
-		EnableMovement();
-		NextStage();
+		EnableMovement ();
+		NextStage ();
 	}
 	/// <summary>
 	/// Sets the player position and locks him there for 2 seconds
 	/// </summary>
 	private void NextStage ()
 	{
-		transform.position = new Vector3(transform.position.x, 10, 0);
+		transform.position = new Vector3 (transform.position.x, 10, 0);
 		rigid.isKinematic = true;
-		Invoke("DisableKinematic", 2);
+		Invoke ("DisableKinematic", 2);
 		died = false;
 	}
 	/// <summary>
@@ -234,7 +253,7 @@ public class PlayerMovement : MonoBehaviour
 	private void GameOver ()
 	{
 		gameOver = true;
-		DisableMovement();
+		DisableMovement ();
 	}
 	/// <summary>
 	/// Disables the movement of the player
@@ -251,7 +270,7 @@ public class PlayerMovement : MonoBehaviour
 		if (!gameOver)
 		{
 			died = false;
-			transform.GetComponent<CircleCollider2D>().isTrigger = false;
+			transform.GetComponent<CircleCollider2D> ().isTrigger = false;
 			DisableKinematic ();
 			gameObject.transform.localScale = originScale;
 		}
@@ -263,11 +282,14 @@ public class PlayerMovement : MonoBehaviour
 	{
 		DisableMovement ();
 
-		EventManager.TriggerAudioSFXEvent(AudioClips.lostLifeSound);
-		StartCoroutine(ShrinkPlayer());
+		drillDir = DrillDirection.down;
+		RotatePlayer(0);
+
+		EventManager.TriggerAudioSFXEvent (AudioClips.lostLifeSound);
+		StartCoroutine (ShrinkPlayer ());
 
 		transform.GetComponent<CircleCollider2D> ().isTrigger = true;
-		Invoke("EnableKinematic", 0.2f);
+		Invoke ("EnableKinematic", 0.2f);
 
 		KillAllBlocksAbove ();
 
@@ -278,7 +300,7 @@ public class PlayerMovement : MonoBehaviour
 	/// </summary>
 	private void KillAllBlocksAbove ()
 	{
-		RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + Vector3.up, transform.position + Vector3.up * 100);
+		RaycastHit2D[] hits = Physics2D.RaycastAll (transform.position + Vector3.up, transform.position + Vector3.up * 100);
 		EmptyHitsArray (hits);
 		hits = Physics2D.RaycastAll (transform.position + Vector3.left, transform.position + Vector3.up * 100);
 		EmptyHitsArray (hits);
@@ -307,8 +329,8 @@ public class PlayerMovement : MonoBehaviour
 	{
 		for (float y = 1; y > 0.3f; y -= 0.1f)
 		{
-			transform.localScale = new Vector3(originScale.x, y, 0);
-			yield return new WaitForSeconds(0.03f);
+			transform.localScale = new Vector3 (originScale.x, y, 0);
+			yield return new WaitForSeconds (0.03f);
 		}
 	}
 	/// <summary>
@@ -321,7 +343,7 @@ public class PlayerMovement : MonoBehaviour
 	/// <summary>
 	/// Enables Kinematic in the rigidbody
 	/// </summary>
-	private void EnableKinematic()
+	private void EnableKinematic ()
 	{
 		rigid.isKinematic = true;
 	}

@@ -43,9 +43,9 @@ public class Score : MonoBehaviour
 	/// Add the parameter "score" to the total score
 	/// </summary>
 	/// <param name="score"></param>
-	private void GainPoints (int score)
+	private void GainPoints (int addedScore)
 	{
-		score += score;
+		score += addedScore;
 		UpdateUI ();
 	}
 	/// <summary>

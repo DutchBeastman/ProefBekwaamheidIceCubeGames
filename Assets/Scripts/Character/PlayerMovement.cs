@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
 	private bool gameOver = false;
 	private bool canMove = true;
 	private Vector3 originScale;
+	private bool inGameTutorialMove = true;
+	private bool inGameTutorialDig = true;
 	/// <summary>
 	/// The awake sets the playerposition, gets the rigidbody and sets the scale.
 	/// </summary>
@@ -61,24 +63,15 @@ public class PlayerMovement : MonoBehaviour
     protected void Update()
     {
 		Move();
-		if (canClimb && !died)
-		{
-			RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + ( Input.GetAxis("Horizontal") / 2 ) , transform.position.y - 0.3f) , new Vector2(Input.GetAxis("Horizontal") * 0.1f , 0) , 0.1f);
-			if (hit.collider != null && hit.collider.name != "Player")
-			{
-				if (Physics2D.Raycast(new Vector2(transform.position.x + ( Input.GetAxis("Horizontal") / 2 ) , transform.position.y + 1) , new Vector2(Input.GetAxis("Horizontal") , 0) , 0.1f).collider == null)
-				{
-					EnableKinematic();
-					transform.localPosition += new Vector3(0 , transform.localScale.y * 1.1f , 0);
-					DisableKinematic();
-					canClimb = false;
-					Invoke("ClimbTimer" , 1.5f);
-				}
-			}
-		}
+		
 		//Getting the axis for spacebar, which in unity is called jump
 		if (Input.GetButtonDown("Jump"))
         {
+			if (!inGameTutorialMove && inGameTutorialDig)
+			{
+				inGameTutorialDig = false;
+				EventManager.TriggerEvent(StaticEventNames.TUTORIALDIGSTEP);
+			}
 			//Raycasting to see if we hit an other Block collider
 			RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + Vector2.down.y), Vector2.down, 0.1f);
 			switch (drillDir)
@@ -123,6 +116,10 @@ public class PlayerMovement : MonoBehaviour
 			RotatePlayer(90);
 		}
     }
+	/// <summary>
+	/// Rotate the player at given rotation.
+	/// </summary>
+	/// <param name="rotation">given rotation in degrees</param>
 	private void RotatePlayer (int rotation)
 	{
 		transform.eulerAngles = new Vector3(0, 0, rotation);
@@ -136,6 +133,11 @@ public class PlayerMovement : MonoBehaviour
 		{
 			if (Mathf.RoundToInt(Input.GetAxis("Horizontal")) != 0)
 			{
+				if (inGameTutorialMove)
+				{
+					inGameTutorialMove = false;
+					EventManager.TriggerEvent (StaticEventNames.TUTORIALMOVEMENTSTEP);
+				}
 
 				Vector3 movement = new Vector3(Mathf.RoundToInt(Input.GetAxis ("Horizontal")), 0, 0);
 				RaycastHit2D[] hits = Physics2D.RaycastAll (transform.position + movement, movement,0.1f);
@@ -149,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
 						if (ray.collider.name != gameObject.name && ray.collider.name != "LifeTile(Clone)")
 						{
 							move = false;
+							Invoke("CheckForClimbing", 0.3f);
 						}
 					}
 				}
@@ -159,6 +162,26 @@ public class PlayerMovement : MonoBehaviour
 					transform.position = playerPosition;
 					canMove = false;
 					Invoke ("ResetMovementTimer", 0.25f);
+				}
+			}
+		}
+	}
+
+	private void CheckForClimbing ()
+	{
+		if (canClimb && !died)
+		{
+			RaycastHit2D hit = Physics2D.Raycast (new Vector2 (transform.position.x + (Input.GetAxis ("Horizontal") / 2), transform.position.y - 0.3f), new Vector2 (Input.GetAxis ("Horizontal") * 0.1f, 0), 0.1f);
+			if (hit.collider != null && hit.collider.name != "Player")
+			{
+				RaycastHit2D hit2 = Physics2D.Raycast (new Vector2 (transform.position.x + (Input.GetAxis ("Horizontal") / 2), transform.position.y + 1), new Vector2 (Input.GetAxis ("Horizontal"), 0), 0.1f);
+				if (hit2.collider == null || hit2.collider.name != "LifeTile(Clone)")
+				{
+					EnableKinematic ();
+					transform.localPosition += new Vector3 (0, transform.localScale.y * 1.1f, 0);
+					DisableKinematic ();
+					canClimb = false;
+					Invoke ("ClimbTimer", 1.5f);
 				}
 			}
 		}

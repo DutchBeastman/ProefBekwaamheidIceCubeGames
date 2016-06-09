@@ -13,4 +13,6 @@ public class StaticEventNames
 	public const string LOSTLIFE = "LostLife";
 	public const string NEXTSTAGE = "NextStage";
 	public const string GOTPICKUP = "GotPickUp";
+	public const string TUTORIALMOVEMENTSTEP = "TutorialMovementStep";
+	public const string TUTORIALDIGSTEP= "TutorialDigStep";
 }

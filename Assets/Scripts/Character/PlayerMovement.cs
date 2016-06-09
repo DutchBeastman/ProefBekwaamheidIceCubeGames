@@ -166,7 +166,9 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 	}
-
+	/// <summary>
+	/// Check for climbing up a tile.
+	/// </summary>
 	private void CheckForClimbing ()
 	{
 		if (canClimb && !died)
@@ -175,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
 			if (hit.collider != null && hit.collider.name != "Player")
 			{
 				RaycastHit2D hit2 = Physics2D.Raycast (new Vector2 (transform.position.x + (Input.GetAxis ("Horizontal") / 2), transform.position.y + 1), new Vector2 (Input.GetAxis ("Horizontal"), 0), 0.1f);
-				if (hit2.collider == null || hit2.collider.name != "LifeTile(Clone)")
+				if (hit2.collider == null || hit2.collider.name == "LifeTile(Clone)")
 				{
 					EnableKinematic ();
 					transform.localPosition += new Vector3 (0, transform.localScale.y * 1.1f, 0);
@@ -186,7 +188,6 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 	}
-
 	/// <summary>
 	/// Resets the dig boolean, this function gets invoked somewhere to create an delay
 	/// </summary>

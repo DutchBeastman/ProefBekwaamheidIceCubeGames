@@ -51,7 +51,6 @@ public class InGameTutorial : MonoBehaviour
 	/// <param name="moving">Decides which part is understood</param>
 	private void ContinueTutorial (bool moving)
 	{
-		Debug.Log("Continue tutorial");
 		if (moving)
 		{
 			moveTutorial.SetActive (false);

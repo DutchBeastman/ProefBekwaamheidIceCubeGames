@@ -89,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
 			{
 				//Here we remove a block, and set the digging unavailiable and start the reset timer
 				hit.collider.GetComponent<Block> ().GetKilled ();
+				EventManager.TriggerEvent(StaticEventNames.MUNCHPARTICLE);
 				EventManager.TriggerAudioSFXEvent (AudioClips.digSound);
 				canDig = false;
 				Invoke ("ResetDigTime", 0.4f);

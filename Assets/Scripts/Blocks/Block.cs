@@ -323,6 +323,8 @@ public class Block : MonoBehaviour {
 			yield return new WaitForSeconds(0.01f);
 			if (i == destroyAnimation.Length-1)
 			{
+				EventManager.TriggerEvent (StaticEventNames.MUNCHPARTICLE);
+				EventManager.TriggerAudioSFXEvent (AudioClips.digSound);
 				Destroy (gameObject);
 			}
 		}

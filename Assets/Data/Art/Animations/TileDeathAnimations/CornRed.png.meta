@@ -1,0 +1,321 @@
+fileFormatVersion: 2
+guid: c2fe9b8d9faa018488a4d3a7e6844c4e
+timeCreated: 1465548585
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: CornRed_0
+    21300002: CornRed_1
+    21300004: CornRed_2
+    21300006: CornRed_3
+    21300008: CornRed_4
+    21300010: CornRed_5
+    21300012: CornRed_6
+    21300014: CornRed_7
+    21300016: CornRed_8
+    21300018: CornRed_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 2
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 170
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: CornRed_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 385.3333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29, y: 83.83331}
+        - {x: -82, y: 3.833313}
+        - {x: -82, y: -31.166687}
+        - {x: -75, y: -42.166687}
+        - {x: -26, y: -57.166687}
+        - {x: 52, y: -57.166687}
+        - {x: 56, y: -55.166687}
+        - {x: 56, y: 3.833313}
+        - {x: 39, y: 57.833313}
+        - {x: -5, y: 83.83331}
+    - name: CornRed_1
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 385.3333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 42, y: 41.833313}
+        - {x: 39, y: 66.83331}
+        - {x: 4, y: 90.83331}
+        - {x: -26, y: 90.83331}
+        - {x: -84, y: 39.833313}
+        - {x: -84, y: -57.166687}
+        - {x: -78, y: -61.166687}
+        - {x: 50, y: -61.166687}
+        - {x: 51, y: -51.166687}
+        - {x: 51, y: 3.833313}
+        - {x: 50, y: 10.833313}
+    - name: CornRed_2
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 385.3333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 95.83331}
+        - {x: -57, y: 77.83331}
+        - {x: -85, y: 31.833313}
+        - {x: -85, y: -45.166687}
+        - {x: -79, y: -63.166687}
+        - {x: 43, y: -63.166687}
+        - {x: 54, y: -41.166687}
+        - {x: 54, y: 60.833313}
+        - {x: 28, y: 95.83331}
+    - name: CornRed_3
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 385.3333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -90, y: 96.83331}
+        - {x: -90, y: -68.16669}
+        - {x: -88, y: -71.16669}
+        - {x: 13, y: -71.16669}
+        - {x: 62, y: -42.166687}
+        - {x: 62, y: 96.83331}
+    - name: CornRed_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 193.33333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71, y: 96.83333}
+        - {x: -92, y: 40.83333}
+        - {x: -92, y: -77.16667}
+        - {x: 6, y: -77.16667}
+        - {x: 42, y: -69.16667}
+        - {x: 74, y: -0.16667175}
+        - {x: 74, y: 38.83333}
+        - {x: 54, y: 96.83333}
+    - name: CornRed_5
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 193.33333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 69, y: 94.83333}
+        - {x: -63, y: 94.83333}
+        - {x: -77, y: 93.83333}
+        - {x: -89, y: 36.83333}
+        - {x: -89, y: -69.16667}
+        - {x: -63, y: -81.16667}
+        - {x: -9, y: -81.16667}
+        - {x: 63, y: -32.16667}
+        - {x: 90, y: 6.8333282}
+        - {x: 90, y: 35.83333}
+    - name: CornRed_6
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 193.33333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 89.83333}
+        - {x: -86, y: 63.83333}
+        - {x: -86, y: -62.16667}
+        - {x: -76, y: -82.16667}
+        - {x: -13, y: -82.16667}
+        - {x: 102, y: -27.166672}
+        - {x: 102, y: 68.83333}
+        - {x: 91, y: 89.83333}
+      - - {x: -79, y: 67.83333}
+        - {x: -79, y: 21.833328}
+        - {x: -52, y: 7.8333282}
+        - {x: -24, y: 7.8333282}
+        - {x: -24, y: 39.83333}
+        - {x: -34, y: 67.83333}
+    - name: CornRed_7
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 193.33333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -102, y: -1.1666718}
+        - {x: -102, y: -25.166672}
+        - {x: -72, y: -88.16667}
+        - {x: -2, y: -88.16667}
+        - {x: -2, y: -49.16667}
+        - {x: -36, y: -1.1666718}
+      - - {x: 94, y: -19.166672}
+        - {x: 101, y: 77.83333}
+        - {x: 81, y: 77.83333}
+        - {x: 39, y: 72.83333}
+        - {x: -17, y: 64.83333}
+        - {x: -21, y: 23.833328}
+        - {x: -21, y: -26.166672}
+        - {x: 6, y: -40.16667}
+        - {x: 24, y: -47.16667}
+        - {x: 70, y: -47.16667}
+        - {x: 90, y: -44.16667}
+        - {x: 109, y: -25.166672}
+        - {x: 109, y: -23.166672}
+        - {x: 108, y: -21.166672}
+      - - {x: -87, y: 61.83333}
+        - {x: -87, y: 36.83333}
+        - {x: -85, y: 30.833328}
+        - {x: -55, y: 5.8333282}
+        - {x: -26, y: 5.8333282}
+        - {x: -26, y: 33.83333}
+        - {x: -35, y: 58.83333}
+        - {x: -50, y: 61.83333}
+    - name: CornRed_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.3333282
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -111, y: -7.1666718}
+        - {x: -114, y: -9.166672}
+        - {x: -114, y: -18.166672}
+        - {x: -74, y: -85.16667}
+        - {x: -8, y: -85.16667}
+        - {x: 3, y: -72.16667}
+        - {x: 3, y: -40.16667}
+        - {x: -40, y: -7.1666718}
+      - - {x: -10, y: 76.83333}
+        - {x: -16, y: 59.83333}
+        - {x: -16, y: -30.166672}
+        - {x: 21, y: -49.16667}
+        - {x: 107, y: -49.16667}
+        - {x: 107, y: 76.83333}
+      - - {x: -65, y: 64.83333}
+        - {x: -95, y: 64.83333}
+        - {x: -95, y: 29.833328}
+        - {x: -87, y: 13.833328}
+        - {x: -28, y: 13.833328}
+        - {x: -28, y: 39.83333}
+        - {x: -54, y: 63.83333}
+    - name: CornRed_9
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 1.3333282
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33, y: -15.166672}
+        - {x: -99, y: -15.166672}
+        - {x: -119, y: -23.166672}
+        - {x: -120, y: -26.166672}
+        - {x: -120, y: -38.16667}
+        - {x: -54, y: -88.16667}
+        - {x: -21, y: -88.16667}
+        - {x: 6, y: -69.16667}
+        - {x: 7, y: -68.16667}
+        - {x: 7, y: -37.16667}
+      - - {x: 73, y: 82.83333}
+        - {x: -1, y: 82.83333}
+        - {x: -13, y: 66.83333}
+        - {x: -13, y: -33.16667}
+        - {x: -5, y: -46.16667}
+        - {x: 47, y: -61.16667}
+        - {x: 113, y: -61.16667}
+        - {x: 114, y: -35.16667}
+        - {x: 114, y: 65.83333}
+      - - {x: -101, y: 63.83333}
+        - {x: -102, y: 60.83333}
+        - {x: -102, y: 25.833328}
+        - {x: -64, y: 15.833328}
+        - {x: -34, y: 15.833328}
+        - {x: -31, y: 17.833328}
+        - {x: -31, y: 42.83333}
+        - {x: -57, y: 63.83333}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,281 @@
+fileFormatVersion: 2
+guid: c0cc8a6a931a52f4bb248b3069bc9b8d
+timeCreated: 1465548591
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Hay Sheet_0
+    21300002: Hay Sheet_1
+    21300004: Hay Sheet_2
+    21300006: Hay Sheet_3
+    21300008: Hay Sheet_4
+    21300010: Hay Sheet_5
+    21300012: Hay Sheet_6
+    21300014: Hay Sheet_7
+    21300016: Hay Sheet_8
+    21300018: Hay Sheet_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 2
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 170
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Hay Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 385.3333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19, y: 76.83331}
+        - {x: -73, y: 54.833313}
+        - {x: -73, y: -38.166687}
+        - {x: -71, y: -42.166687}
+        - {x: -32, y: -51.166687}
+        - {x: 38, y: -51.166687}
+        - {x: 77, y: -19.166687}
+        - {x: 77, y: 61.833313}
+        - {x: 57, y: 76.83331}
+    - name: Hay Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 385.3333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -53, y: 75.83331}
+        - {x: -75, y: 70.83331}
+        - {x: -75, y: -16.166687}
+        - {x: -40, y: -51.166687}
+        - {x: -25, y: -53.166687}
+        - {x: 2, y: -53.166687}
+        - {x: 73, y: -43.166687}
+        - {x: 85, y: -6.166687}
+        - {x: 85, y: 75.83331}
+    - name: Hay Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 385.3333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -76, y: 76.83331}
+        - {x: -76, y: -40.166687}
+        - {x: -40, y: -54.166687}
+        - {x: 81, y: -54.166687}
+        - {x: 91, y: -25.166687}
+        - {x: 91, y: 76.83331}
+    - name: Hay Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 385.3333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35, y: 79.83331}
+        - {x: -85, y: 61.833313}
+        - {x: -85, y: -55.166687}
+        - {x: 67, y: -55.166687}
+        - {x: 83, y: -53.166687}
+        - {x: 94, y: -28.166687}
+        - {x: 94, y: 62.833313}
+        - {x: 75, y: 79.83331}
+    - name: Hay Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 193.33333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 47, y: 80.83333}
+        - {x: -54, y: 80.83333}
+        - {x: -65, y: 63.83333}
+        - {x: -84, y: 34.83333}
+        - {x: -91, y: -0.16667175}
+        - {x: -91, y: -44.16667}
+        - {x: -87, y: -58.16667}
+        - {x: 57, y: -58.16667}
+        - {x: 91, y: -38.16667}
+        - {x: 96, y: -15.166672}
+        - {x: 96, y: 69.83333}
+    - name: Hay Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 193.33333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62, y: 80.83333}
+        - {x: -91, y: 34.83333}
+        - {x: -91, y: -46.16667}
+        - {x: -68, y: -67.16667}
+        - {x: 90, y: -67.16667}
+        - {x: 95, y: -39.16667}
+        - {x: 95, y: 78.83333}
+        - {x: 80, y: 80.83333}
+    - name: Hay Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 193.33333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 44, y: 81.83333}
+        - {x: -61, y: 81.83333}
+        - {x: -85, y: 53.83333}
+        - {x: -86, y: 50.83333}
+        - {x: -86, y: -74.16667}
+        - {x: 79, y: -74.16667}
+        - {x: 97, y: -32.16667}
+        - {x: 98, y: -24.166672}
+        - {x: 98, y: 57.83333}
+    - name: Hay Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 193.33333
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 71, y: 84.83333}
+        - {x: -71, y: 84.83333}
+        - {x: -89, y: 71.83333}
+        - {x: -89, y: -69.16667}
+        - {x: -64, y: -78.16667}
+        - {x: 49, y: -78.16667}
+        - {x: 94, y: -73.16667}
+        - {x: 101, y: -22.166672}
+        - {x: 101, y: 46.83333}
+        - {x: 88, y: 79.83333}
+    - name: Hay Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.3333282
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 90, y: 86.83333}
+        - {x: -94, y: 86.83333}
+        - {x: -94, y: -38.16667}
+        - {x: -71, y: -81.16667}
+        - {x: 49, y: -81.16667}
+        - {x: 88, y: -77.16667}
+        - {x: 102, y: -34.16667}
+        - {x: 102, y: 67.83333}
+    - name: Hay Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 1.3333282
+        width: 239.5
+        height: 192.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 102, y: -7.1666718}
+        - {x: 102, y: 39.83333}
+        - {x: 76, y: 86.83333}
+        - {x: 26, y: 86.83333}
+        - {x: 2, y: 63.83333}
+        - {x: -7, y: 38.83333}
+        - {x: 16, y: 8.833328}
+        - {x: 19, y: 9.833328}
+        - {x: 21, y: 11.833328}
+        - {x: 19, y: 8.833328}
+        - {x: 11, y: 5.8333282}
+        - {x: 1, y: 26.833328}
+        - {x: -9, y: 33.83333}
+        - {x: -10, y: 50.83333}
+        - {x: -42, y: 83.83333}
+        - {x: -54, y: 86.83333}
+        - {x: -72, y: 86.83333}
+        - {x: -100, y: 65.83333}
+        - {x: -100, y: 12.833328}
+        - {x: -98, y: -9.166672}
+        - {x: -91, y: -52.16667}
+        - {x: -60, y: -87.16667}
+        - {x: -24, y: -87.16667}
+        - {x: -6, y: -78.16667}
+        - {x: 56, y: -75.16667}
+        - {x: 82, y: -62.16667}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

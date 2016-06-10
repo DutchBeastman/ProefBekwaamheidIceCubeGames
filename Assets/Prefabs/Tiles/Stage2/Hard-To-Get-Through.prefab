@@ -95,16 +95,16 @@ MonoBehaviour:
   killed: 0
   falling: 0
   destroyAnimation:
-  - {fileID: 21300000, guid: e3d5442052e5e384cb337b844e8d71bc, type: 3}
-  - {fileID: 21300002, guid: e3d5442052e5e384cb337b844e8d71bc, type: 3}
-  - {fileID: 21300004, guid: e3d5442052e5e384cb337b844e8d71bc, type: 3}
-  - {fileID: 21300006, guid: e3d5442052e5e384cb337b844e8d71bc, type: 3}
-  - {fileID: 21300008, guid: e3d5442052e5e384cb337b844e8d71bc, type: 3}
-  - {fileID: 21300010, guid: e3d5442052e5e384cb337b844e8d71bc, type: 3}
-  - {fileID: 21300012, guid: e3d5442052e5e384cb337b844e8d71bc, type: 3}
-  - {fileID: 21300014, guid: e3d5442052e5e384cb337b844e8d71bc, type: 3}
-  - {fileID: 21300016, guid: e3d5442052e5e384cb337b844e8d71bc, type: 3}
-  - {fileID: 21300018, guid: e3d5442052e5e384cb337b844e8d71bc, type: 3}
+  - {fileID: 21300000, guid: c0cc8a6a931a52f4bb248b3069bc9b8d, type: 3}
+  - {fileID: 21300002, guid: c0cc8a6a931a52f4bb248b3069bc9b8d, type: 3}
+  - {fileID: 21300004, guid: c0cc8a6a931a52f4bb248b3069bc9b8d, type: 3}
+  - {fileID: 21300006, guid: c0cc8a6a931a52f4bb248b3069bc9b8d, type: 3}
+  - {fileID: 21300008, guid: c0cc8a6a931a52f4bb248b3069bc9b8d, type: 3}
+  - {fileID: 21300010, guid: c0cc8a6a931a52f4bb248b3069bc9b8d, type: 3}
+  - {fileID: 21300012, guid: c0cc8a6a931a52f4bb248b3069bc9b8d, type: 3}
+  - {fileID: 21300014, guid: c0cc8a6a931a52f4bb248b3069bc9b8d, type: 3}
+  - {fileID: 21300016, guid: c0cc8a6a931a52f4bb248b3069bc9b8d, type: 3}
+  - {fileID: 21300018, guid: c0cc8a6a931a52f4bb248b3069bc9b8d, type: 3}
   pickUp: 0
   type: 4
 --- !u!212 &21232918

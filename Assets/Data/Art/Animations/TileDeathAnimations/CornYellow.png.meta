@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e3d5442052e5e384cb337b844e8d71bc
-timeCreated: 1465462937
+timeCreated: 1465548683
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,16 @@ TextureImporter:
     21300014: Corn2 Sheet_7
     21300016: Corn2 Sheet_8
     21300018: Corn2 Sheet_9
+    21300020: CornYellow_0
+    21300022: CornYellow_1
+    21300024: CornYellow_2
+    21300026: CornYellow_3
+    21300028: CornYellow_4
+    21300030: CornYellow_5
+    21300032: CornYellow_6
+    21300034: CornYellow_7
+    21300036: CornYellow_8
+    21300038: CornYellow_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -60,7 +70,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Corn2 Sheet_0
+    - name: CornYellow_0
       rect:
         serializedVersion: 2
         x: 0
@@ -80,7 +90,7 @@ TextureImporter:
         - {x: 19, y: 82.83331}
         - {x: -32, y: 82.83331}
         - {x: -51, y: 66.83331}
-    - name: Corn2 Sheet_1
+    - name: CornYellow_1
       rect:
         serializedVersion: 2
         x: 239
@@ -100,7 +110,7 @@ TextureImporter:
         - {x: 56, y: 24.833313}
         - {x: 55, y: 41.833313}
         - {x: 17, y: 89.83331}
-    - name: Corn2 Sheet_2
+    - name: CornYellow_2
       rect:
         serializedVersion: 2
         x: 478
@@ -120,7 +130,7 @@ TextureImporter:
         - {x: 59, y: -64.16669}
         - {x: 59, y: 65.83331}
         - {x: 37, y: 95.83331}
-    - name: Corn2 Sheet_3
+    - name: CornYellow_3
       rect:
         serializedVersion: 2
         x: 717
@@ -144,7 +154,7 @@ TextureImporter:
         - {x: 66, y: -19.166687}
         - {x: 66, y: 51.833313}
         - {x: 42, y: 96.83331}
-    - name: Corn2 Sheet_4
+    - name: CornYellow_4
       rect:
         serializedVersion: 2
         x: 0
@@ -164,7 +174,7 @@ TextureImporter:
         - {x: 31, y: -68.16667}
         - {x: 77, y: -49.16667}
         - {x: 77, y: 96.83333}
-    - name: Corn2 Sheet_5
+    - name: CornYellow_5
       rect:
         serializedVersion: 2
         x: 239
@@ -183,7 +193,7 @@ TextureImporter:
         - {x: 92, y: -15.166672}
         - {x: 92, y: 36.83333}
         - {x: 76, y: 94.83333}
-    - name: Corn2 Sheet_6
+    - name: CornYellow_6
       rect:
         serializedVersion: 2
         x: 478
@@ -210,7 +220,7 @@ TextureImporter:
         - {x: 104, y: -21.166672}
         - {x: 104, y: 13.833328}
         - {x: 83, y: 89.83333}
-    - name: Corn2 Sheet_7
+    - name: CornYellow_7
       rect:
         serializedVersion: 2
         x: 717
@@ -244,7 +254,7 @@ TextureImporter:
         - {x: 109, y: -43.16667}
         - {x: 109, y: 69.83333}
         - {x: 98, y: 81.83333}
-    - name: Corn2 Sheet_8
+    - name: CornYellow_8
       rect:
         serializedVersion: 2
         x: 0
@@ -269,7 +279,7 @@ TextureImporter:
         - {x: -12, y: -64.16667}
         - {x: 108, y: -64.16667}
         - {x: 108, y: 81.83333}
-    - name: Corn2 Sheet_9
+    - name: CornYellow_9
       rect:
         serializedVersion: 2
         x: 239

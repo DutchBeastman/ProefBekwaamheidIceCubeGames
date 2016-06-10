@@ -316,7 +316,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		foreach (RaycastHit2D hit in hits)
 		{
-			if (hit.collider.name != "LifeTile(Clone)")
+			if (hit.collider.name != "LifeTile(Clone)" && hit.collider.name != "WallLeft" && hit.collider.name != "WallRight")
 			{
 				Destroy (hit.collider.gameObject);
 			}

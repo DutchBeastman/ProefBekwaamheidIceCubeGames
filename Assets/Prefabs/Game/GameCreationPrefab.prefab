@@ -267,6 +267,7 @@ GameObject:
   - 212: {fileID: 21274332}
   - 50: {fileID: 5049652}
   - 58: {fileID: 5854690}
+  - 114: {fileID: 11481088}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -899,7 +900,7 @@ Camera:
   far clip plane: 1
   field of view: 60
   orthographic: 1
-  orthographic size: 3.7
+  orthographic size: 3.1
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1870,6 +1871,35 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11481088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6737294f22e9ba6408ce79fd1692f3a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalImage: {fileID: 21300000, guid: f0752f520c8ba2b4fa368161411165b1, type: 3}
+  eatAnimation:
+  - {fileID: 21300000, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300002, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300004, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300006, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300008, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300010, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300012, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300014, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300016, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300018, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300020, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300022, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300024, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300026, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300028, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
+  - {fileID: 21300030, guid: e4a60782296227545a2376ca0e91dcc1, type: 3}
 --- !u!114 &11482140
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,0 +1,409 @@
+fileFormatVersion: 2
+guid: e4a60782296227545a2376ca0e91dcc1
+timeCreated: 1465554425
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Big Spritesheet_0
+    21300002: Big Spritesheet_1
+    21300004: Big Spritesheet_2
+    21300006: Big Spritesheet_3
+    21300008: Big Spritesheet_4
+    21300010: Big Spritesheet_5
+    21300012: Big Spritesheet_6
+    21300014: Big Spritesheet_7
+    21300016: Big Spritesheet_8
+    21300018: Big Spritesheet_9
+    21300020: Big Spritesheet_10
+    21300022: Big Spritesheet_11
+    21300024: Big Spritesheet_12
+    21300026: Big Spritesheet_13
+    21300028: Big Spritesheet_14
+    21300030: Big Spritesheet_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 2
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 150
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Big Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 578.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 51, y: 82.75}
+        - {x: 29, y: 91.75}
+        - {x: 19, y: 96.75}
+        - {x: -52, y: 96.75}
+        - {x: -74, y: 64.75}
+        - {x: -74, y: -35.25}
+        - {x: -36, y: -83.25}
+        - {x: 37, y: -83.25}
+        - {x: 67, y: -64.25}
+        - {x: 78, y: -8.25}
+        - {x: 78, y: 67.75}
+    - name: Big Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 578.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 37, y: 96.75}
+        - {x: -68, y: 96.75}
+        - {x: -77, y: 73.75}
+        - {x: -77, y: -19.25}
+        - {x: -65, y: -21.25}
+        - {x: -36, y: -83.25}
+        - {x: 47, y: -83.25}
+        - {x: 78, y: -29.25}
+        - {x: 78, y: 52.75}
+        - {x: 67, y: 80.75}
+    - name: Big Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 578.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -55, y: 96.75}
+        - {x: -59, y: 95.75}
+        - {x: -79, y: 76.75}
+        - {x: -79, y: -11.25}
+        - {x: -57, y: -83.25}
+        - {x: 39, y: -83.25}
+        - {x: 78, y: -38.25}
+        - {x: 78, y: 59.75}
+        - {x: 51, y: 96.75}
+    - name: Big Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 578.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 70, y: 96.75}
+        - {x: -50, y: 96.75}
+        - {x: -79, y: 76.75}
+        - {x: -79, y: -27.25}
+        - {x: -64, y: -83.25}
+        - {x: 40, y: -83.25}
+        - {x: 80, y: -64.25}
+        - {x: 82, y: -62.25}
+        - {x: 82, y: 53.75}
+    - name: Big Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 578.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 61, y: 96.75}
+        - {x: -22, y: 96.75}
+        - {x: -66, y: 75.75}
+        - {x: -78, y: 40.75}
+        - {x: -78, y: 3.75}
+        - {x: -49, y: -83.25}
+        - {x: 70, y: -83.25}
+        - {x: 79, y: -77.25}
+        - {x: 79, y: 91.75}
+    - name: Big Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 386.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -74, y: 96.75}
+        - {x: -74, y: -64.25}
+        - {x: -61, y: -65.25}
+        - {x: -40, y: -86.25}
+        - {x: 32, y: -86.25}
+        - {x: 65, y: -70.25}
+        - {x: 86, y: -31.25}
+        - {x: 86, y: 56.75}
+        - {x: 46, y: 96.75}
+    - name: Big Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 386.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 49, y: 96.75}
+        - {x: -36, y: 96.75}
+        - {x: -55, y: 92.75}
+        - {x: -75, y: 50.75}
+        - {x: -80, y: 28.75}
+        - {x: -80, y: -46.25}
+        - {x: -54, y: -83.25}
+        - {x: 38, y: -83.25}
+        - {x: 86, y: -20.25}
+        - {x: 86, y: 32.75}
+        - {x: 77, y: 64.75}
+    - name: Big Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 386.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41, y: 96.75}
+        - {x: -58, y: 96.75}
+        - {x: -70, y: 77.75}
+        - {x: -79, y: 30.75}
+        - {x: -79, y: -59.25}
+        - {x: -72, y: -74.25}
+        - {x: -42, y: -85.25}
+        - {x: 34, y: -85.25}
+        - {x: 88, y: -24.25}
+        - {x: 88, y: 77.75}
+    - name: Big Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 386.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 64, y: 77.75}
+        - {x: 33, y: 96.75}
+        - {x: -34, y: 96.75}
+        - {x: -74, y: 81.75}
+        - {x: -78, y: 46.75}
+        - {x: -78, y: -60.25}
+        - {x: -62, y: -87.25}
+        - {x: 47, y: -87.25}
+        - {x: 89, y: -13.25}
+        - {x: 89, y: 7.75}
+        - {x: 76, y: 53.75}
+    - name: Big Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 386.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 59, y: 92.75}
+        - {x: 32, y: 96.75}
+        - {x: -45, y: 96.75}
+        - {x: -71, y: 78.75}
+        - {x: -75, y: 49.75}
+        - {x: -75, y: -70.25}
+        - {x: -59, y: -90.25}
+        - {x: 53, y: -90.25}
+        - {x: 91, y: -18.25}
+        - {x: 91, y: 12.75}
+        - {x: 78, y: 53.75}
+    - name: Big Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 194.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 54, y: 86.75}
+        - {x: 19, y: 96.75}
+        - {x: -31, y: 96.75}
+        - {x: -73, y: 85.75}
+        - {x: -74, y: 77.75}
+        - {x: -74, y: -61.25}
+        - {x: -36, y: -83.25}
+        - {x: 57, y: -83.25}
+        - {x: 89, y: 2.75}
+        - {x: 89, y: 50.75}
+    - name: Big Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 194.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 87, y: 8.75}
+        - {x: 87, y: 58.75}
+        - {x: 30, y: 96.75}
+        - {x: -33, y: 96.75}
+        - {x: -74, y: 82.75}
+        - {x: -74, y: -29.25}
+        - {x: -40, y: -81.25}
+        - {x: -32, y: -83.25}
+        - {x: -14, y: -83.25}
+        - {x: -12, y: -76.25}
+        - {x: 6, y: -83.25}
+        - {x: 50, y: -83.25}
+    - name: Big Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 194.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: 96.75}
+        - {x: -23, y: 96.75}
+        - {x: -73, y: 72.75}
+        - {x: -74, y: 69.75}
+        - {x: -74, y: -15.25}
+        - {x: -45, y: -83.25}
+        - {x: 44, y: -83.25}
+        - {x: 85, y: 13.75}
+        - {x: 85, y: 51.75}
+        - {x: 54, y: 86.75}
+    - name: Big Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 194.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 31, y: 96.75}
+        - {x: -64, y: 96.75}
+        - {x: -74, y: 62.75}
+        - {x: -74, y: -38.25}
+        - {x: -48, y: -83.25}
+        - {x: 47, y: -83.25}
+        - {x: 83, y: 18.75}
+        - {x: 83, y: 42.75}
+        - {x: 66, y: 79.75}
+    - name: Big Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 194.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34, y: 96.75}
+        - {x: -67, y: 74.75}
+        - {x: -73, y: 49.75}
+        - {x: -73, y: -9.25}
+        - {x: -47, y: -83.25}
+        - {x: 54, y: -83.25}
+        - {x: 81, y: -15.25}
+        - {x: 81, y: 65.75}
+        - {x: 44, y: 96.75}
+    - name: Big Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2.25
+        width: 185.4
+        height: 192.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 29, y: 90.75}
+        - {x: 17, y: 96.75}
+        - {x: -52, y: 96.75}
+        - {x: -74, y: 63.75}
+        - {x: -74, y: -49.25}
+        - {x: -52, y: -84.25}
+        - {x: 41, y: -84.25}
+        - {x: 78, y: -74.25}
+        - {x: 78, y: 66.75}
+        - {x: 51, y: 81.75}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

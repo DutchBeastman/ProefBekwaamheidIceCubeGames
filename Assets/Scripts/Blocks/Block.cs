@@ -32,7 +32,11 @@ public class Block : MonoBehaviour {
 	[HideInInspector] public bool killed;
 	[HideInInspector] public bool falling = false;
 
+	[SerializeField] private Sprite[] destroyAnimation;
+
 	private Rigidbody2D rigid2D;
+	private SpriteRenderer render;
+	private new BoxCollider2D collider;
 	public bool pickUp;
 	public Type type;
 
@@ -57,7 +61,9 @@ public class Block : MonoBehaviour {
 	/// </summary>
 	private void Awake()
 	{
-		rigid2D = gameObject.GetComponent<Rigidbody2D>();
+		render = GetComponent<SpriteRenderer>();
+		collider = GetComponent<BoxCollider2D>();
+		rigid2D = GetComponent<Rigidbody2D>();
 		StartCoroutine (FallingCheck ());
 	}
 	/// <summary>
@@ -208,7 +214,7 @@ public class Block : MonoBehaviour {
 		if(lives == 0 && !unbreakable)
 		{
 			EventManager.TriggerScoreEvent (points);
-			Destroy (gameObject);
+			StartCoroutine(DestroyTile());
 		}
 	}
 	/// <summary>
@@ -278,7 +284,7 @@ public class Block : MonoBehaviour {
 	/// Execute collision checks 
 	/// </summary>
 	/// <param name="coll">coll is the collider against which the block collides</param>
-	private void OnCollisionEnter2D(Collision2D coll)
+	private void OnCollisionEnter2D (Collision2D coll)
 	{
 		if (coll.collider.name != "Player")
 		{
@@ -288,7 +294,7 @@ public class Block : MonoBehaviour {
 				{
 					if (rigid2D.velocity.y < -0.2f)
 					{
-						StopFalling();
+						StopFalling ();
 						//Invoke ("StopFalling", 0.1f);
 					}
 				}
@@ -298,9 +304,26 @@ public class Block : MonoBehaviour {
 		{
 			if (pickUp)
 			{
-				Destroy (gameObject);
-				TellNeighboursToFall();
+				Destroy(gameObject);
+				TellNeighboursToFall ();
 				EventManager.TriggerEvent (StaticEventNames.GOTPICKUP);
+			}
+		}
+	}
+	/// <summary>
+	/// Play destroy animation and after that destroying the tile
+	/// </summary>
+	/// <returns></returns>
+	private IEnumerator DestroyTile ()
+	{
+		collider.enabled = false;
+		for (int i = 0; i < destroyAnimation.Length; i++)
+		{
+			render.sprite = destroyAnimation[i];
+			yield return new WaitForSeconds(0.01f);
+			if (i == destroyAnimation.Length-1)
+			{
+				Destroy (gameObject);
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fe487376132b3324daace209c54ae3ec
-timeCreated: 1464686668
+timeCreated: 1465556280
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -64,78 +64,74 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 300
+        y: 301
         width: 150
         height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -73, y: 75}
-        - {x: -75, y: 73}
-        - {x: -75, y: -72}
-        - {x: -72, y: -75}
-        - {x: 72, y: -75}
-        - {x: 75, y: -72}
-        - {x: 75, y: 74}
-        - {x: 74, y: 75}
+      - - {x: -74, y: 75}
+        - {x: -75, y: 74}
+        - {x: -75, y: -75}
+        - {x: 73, y: -75}
+        - {x: 75, y: -73}
+        - {x: 75, y: 73}
+        - {x: 73, y: 75}
     - name: FarmSpriteSheet_MaisRed
       rect:
         serializedVersion: 2
         x: 150
-        y: 300
+        y: 301
         width: 150
         height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -73, y: 75}
-        - {x: -75, y: 73}
-        - {x: -75, y: -72}
-        - {x: -72, y: -75}
-        - {x: 72, y: -75}
-        - {x: 75, y: -72}
-        - {x: 75, y: 74}
-        - {x: 74, y: 75}
+      - - {x: -74, y: 75}
+        - {x: -75, y: 74}
+        - {x: -75, y: -75}
+        - {x: 73, y: -75}
+        - {x: 75, y: -73}
+        - {x: 75, y: 73}
+        - {x: 73, y: 75}
     - name: FarmSpriteSheet_Unbreakable
       rect:
         serializedVersion: 2
         x: 0
-        y: 150
+        y: 151
         width: 150
         height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -73, y: 75}
-        - {x: -75, y: 73}
-        - {x: -75, y: -72}
-        - {x: -72, y: -75}
-        - {x: 72, y: -75}
-        - {x: 75, y: -72}
-        - {x: 75, y: 74}
-        - {x: 74, y: 75}
+      - - {x: -74, y: 75}
+        - {x: -75, y: 74}
+        - {x: -75, y: -75}
+        - {x: 73, y: -75}
+        - {x: 75, y: -73}
+        - {x: 75, y: 73}
+        - {x: 73, y: 75}
     - name: FarmSpriteSheet_MaisGreen
       rect:
         serializedVersion: 2
         x: 150
-        y: 150
+        y: 151
         width: 150
         height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -73, y: 75}
-        - {x: -75, y: 73}
-        - {x: -75, y: -72}
-        - {x: -72, y: -75}
-        - {x: 72, y: -75}
-        - {x: 75, y: -72}
-        - {x: 75, y: 74}
-        - {x: 74, y: 75}
+      - - {x: -74, y: 75}
+        - {x: -75, y: 74}
+        - {x: -75, y: -75}
+        - {x: 73, y: -75}
+        - {x: 75, y: -73}
+        - {x: 75, y: 73}
+        - {x: 73, y: 75}
     - name: FarmSpriteSheet_HardToGetThrough
       rect:
         serializedVersion: 2

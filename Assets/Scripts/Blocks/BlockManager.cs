@@ -12,10 +12,15 @@ public class BlockManager : MonoBehaviour
 	[SerializeField] private GameObject[] forrestStageTiles;
 	[SerializeField] private GameObject[] farmSpecialBlocks;
 	[SerializeField] private GameObject[] forrestSpecialBlocks;
+	[SerializeField] private GameObject FarmPigUp;
+	[SerializeField] private GameObject forrestPigUp;
+	private GameObject pigup;
 	private GameObject[] specialBlocks;
 	private GameObject[] currentStageTiles;
 	private int stageID;
 	private List<List<Block>> blocks;
+
+	private int normalPercentage = 90;
 
 	[SerializeField] private Transform playerPosition;
 	private Vector3 nextLinePosition;
@@ -50,6 +55,7 @@ public class BlockManager : MonoBehaviour
 	{
 		currentStageTiles = farmStageTiles;
 		specialBlocks = farmSpecialBlocks;
+		pigup = FarmPigUp;
 	}
 	/// <summary>
 	/// on reset it resets the tiles
@@ -72,17 +78,29 @@ public class BlockManager : MonoBehaviour
 			for (int y = 0; y < fieldHeight; y++)
 			{
 				int percentageCounter = Random.Range(0 , 100);
-				if (percentageCounter < 86)
+				if (percentageCounter < normalPercentage)
 				{
-					GameObject instantiateBlock = (GameObject)Instantiate(currentStageTiles[Random.Range(0 , currentStageTiles.Length)] , new Vector2(transform.position.x + x , transform.position.y - ( fieldHeight - y )) , Quaternion.identity);
-					instantiateBlock.GetComponent<Block>().Position = new Vector2(x , y);
-					tempList.Add(instantiateBlock.GetComponent<Block>());
+					if (percentageCounter < 3)
+					{
+						//pig up
+						GameObject instantiateBlock = (GameObject) Instantiate (pigup, new Vector2 (transform.position.x + x, transform.position.y - (fieldHeight - y)), Quaternion.identity);
+						instantiateBlock.GetComponent<Block> ().Position = new Vector2 (x, y);
+						tempList.Add (instantiateBlock.GetComponent<Block> ());
+					}
+					else
+					{
+						//normal tile
+						GameObject instantiateBlock = (GameObject) Instantiate (currentStageTiles[Random.Range (0, currentStageTiles.Length)], new Vector2 (transform.position.x + x, transform.position.y - (fieldHeight - y)), Quaternion.identity);
+						instantiateBlock.GetComponent<Block> ().Position = new Vector2 (x, y);
+						tempList.Add (instantiateBlock.GetComponent<Block> ());
+					}
 				}
 				else
 				{
-					GameObject instantiateBlock = (GameObject)Instantiate(specialBlocks[Random.Range(0 , specialBlocks.Length)] , new Vector2(transform.position.x + x , transform.position.y - ( fieldHeight - y )) , Quaternion.identity);
-					instantiateBlock.GetComponent<Block>().Position = new Vector2(x , y);
-					tempList.Add(instantiateBlock.GetComponent<Block>());
+					//special tile
+					GameObject instantiateBlock = (GameObject) Instantiate (specialBlocks[Random.Range (0, specialBlocks.Length)], new Vector2 (transform.position.x + x, transform.position.y - (fieldHeight - y)), Quaternion.identity);
+					instantiateBlock.GetComponent<Block> ().Position = new Vector2 (x, y);
+					tempList.Add (instantiateBlock.GetComponent<Block> ());
 				}
 			}
 			blocks.Add(tempList);
@@ -97,16 +115,19 @@ public class BlockManager : MonoBehaviour
 		if (stageID == 2)
 		{
 			stageID = 0;
+			normalPercentage -= 7;
 		}
 		switch (stageID)
 		{
 			case 0:
 				currentStageTiles = farmStageTiles;
 				specialBlocks = farmSpecialBlocks;
+				pigup = FarmPigUp;
 			break;
 			case 1:
 				currentStageTiles = forrestStageTiles;
 				specialBlocks = forrestSpecialBlocks;
+				pigup = forrestPigUp;
 			break;
 		}
 	}

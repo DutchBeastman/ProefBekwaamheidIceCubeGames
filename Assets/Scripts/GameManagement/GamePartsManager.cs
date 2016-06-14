@@ -26,7 +26,6 @@ public class GamePartsManager : MonoBehaviour
 	/// </summary>
 	public void BackToMainMenuButtonPushed ()
 	{
-		Debug.Log(buttonPushed);
 		if (!buttonPushed)
 		{
 			buttonPushed = true;

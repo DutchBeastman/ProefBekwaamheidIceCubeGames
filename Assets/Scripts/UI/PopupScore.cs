@@ -11,9 +11,6 @@ public class PopupScore : MonoBehaviour
 	[SerializeField] private GameObject player;
 	private List<RectTransform> rectTransforms;
 	private int justEarnedPoints;
-	private bool updatedCalled = false;
-	private bool changed = false;
-	private bool moveUp = false;
 
 	/// <summary>
 	/// Sets UI for the beginning of the game.

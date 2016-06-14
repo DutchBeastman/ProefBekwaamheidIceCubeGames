@@ -73,7 +73,7 @@ public class Block : MonoBehaviour {
 	/// <returns></returns>
 	private List<RaycastHit2D> GetNeighbours(Side side)
 	{
-		float distance = transform.localScale.x + 0.1f;
+		float distance = transform.localScale.x + 0.05f;
 		Vector2 origin = transform.position;
 
 		List<RaycastHit2D> hits = new List<RaycastHit2D>();
@@ -81,63 +81,21 @@ public class Block : MonoBehaviour {
 		{
 			/// sides
 			case Side.sides:
-				hits.Add(Physics2D.Raycast(origin + (Vector2.left * distance), Vector2.left, 0.1f));
-				hits.Add(Physics2D.Raycast(origin + (Vector2.right * distance), Vector2.right, 0.1f));
+				hits.Add(Physics2D.Raycast(origin + (Vector2.left * distance), Vector2.left, 0.05f));
+				hits.Add(Physics2D.Raycast(origin + (Vector2.right * distance), Vector2.right, 0.05f));
 				break;
 
 			/// up
 			case Side.up:
-				hits.Add(Physics2D.Raycast(origin + (Vector2.up * distance), Vector2.up, 0.1f));
+				hits.Add(Physics2D.Raycast(origin + (Vector2.up * distance), Vector2.up, 0.05f));
 				break;
 
 			/// down
 			case Side.down:
-				hits.Add(Physics2D.Raycast(origin + (Vector2.down * distance), Vector2.down, 0.1f));
+				hits.Add(Physics2D.Raycast(origin + (Vector2.down * distance), Vector2.down, 0.05f));
 				break;
 		}
 		return hits;
-	}
-	/// <summary>
-	/// Checks if the neighbours are falling to see if this block should fall too.
-	/// </summary>
-	public void CheckNeighboursFalling()
-	{
-		List<RaycastHit2D> hitsX = GetNeighbours(Side.sides);
-		for (int i = 0; i < hitsX.Count; i++)
-		{
-			if (hitsX[i].collider != null)
-			{
-				if (hitsX[i].transform.name != this.name)
-				{
-					Block b;
-					if (b = hitsX[i].transform.GetComponent<Block>())
-					{
-						if (b.type == this.type && !b.falling && !b.killed)
-						{
-							falling = false;
-						}
-					}
-				}
-			}
-		}
-		List<RaycastHit2D> hitsYDown = GetNeighbours(Side.down);
-		for (int i = 0; i < hitsYDown.Count; i++)
-		{
-			if (hitsYDown[i].collider != null)
-			{
-				if (hitsYDown[i].transform.name != this.name)
-				{
-					Block b;
-					if (b = hitsYDown[i].transform.GetComponent<Block>())
-					{
-						if (!b.falling && !b.killed)
-						{
-							falling = false;
-						}
-					}
-				}
-			}
-		}
 	}
 	/// <summary>
 	/// when killed GetKilled will tell other neighbours to fall so it will fill its place and remove himself and his adjecent groups.
@@ -145,13 +103,13 @@ public class Block : MonoBehaviour {
 	public void GetKilled()
 	{
 		killed = true;
-		TellNeighboursToFall();
+		TellUpperNeighbourToFall ();
 		KillGroup();
 	}
 	/// <summary>
-	/// this function tells the neighbours to fall.
+	/// this function tells the upper neighbour to fall.
 	/// </summary>
-	private void TellNeighboursToFall()
+	private void TellUpperNeighbourToFall()
 	{
 		List<RaycastHit2D> hitsYUp = GetNeighbours(Side.up);
 		for (int i = 0; i < hitsYUp.Count; i++)
@@ -171,9 +129,9 @@ public class Block : MonoBehaviour {
 		}
 	}
 	/// <summary>
-	/// this funtion will tell the neighbours to stop falling.
+	/// this funtion will tell the upper neighbour to stop falling.
 	/// </summary>
-	private void TellNeighboursToStopFalling ()
+	private void TellUpperNeighbourToStopFalling ()
 	{
 		List<RaycastHit2D> hitsYUp = GetNeighbours (Side.up);
 		for (int i = 0; i < hitsYUp.Count; i++)
@@ -244,8 +202,7 @@ public class Block : MonoBehaviour {
 	/// </summary>
 	public void StartFalling()
 	{
-		//CheckNeighboursFalling();
-		TellNeighboursToFall();
+		TellUpperNeighbourToFall ();
 		Invoke("Fall" , 1.5f);
 	}
 	/// <summary>
@@ -260,7 +217,7 @@ public class Block : MonoBehaviour {
 	/// </summary>
 	public void StopFalling()
 	{
-		TellNeighboursToStopFalling();
+		TellUpperNeighbourToStopFalling ();
 		falling = false;
 		rigid2D.isKinematic = true;
 	}
@@ -292,11 +249,7 @@ public class Block : MonoBehaviour {
 			{
 				if (coll.collider.GetComponent<Block> ().falling == false)
 				{
-					if (rigid2D.velocity.y < -0.2f)
-					{
 						StopFalling ();
-						//Invoke ("StopFalling", 0.1f);
-					}
 				}
 			}
 		}
@@ -305,7 +258,7 @@ public class Block : MonoBehaviour {
 			if (pickUp)
 			{
 				Destroy(gameObject);
-				TellNeighboursToFall ();
+				TellUpperNeighbourToFall ();
 				EventManager.TriggerEvent (StaticEventNames.GOTPICKUP);
 			}
 		}

@@ -201,6 +201,42 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 170708, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19850224, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19850224, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19850224, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
+      propertyPath: ShapeModule.radius
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 19850224, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
+      propertyPath: ShapeModule.type
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 19850224, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
+      propertyPath: ShapeModule.arc
+      value: 222.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 498772, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.98419565
+      objectReference: {fileID: 0}
+    - target: {fileID: 498772, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.17708458
+      objectReference: {fileID: 0}
+    - target: {fileID: 498772, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 159.59999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 439fb75234fe72c4b9fb850c75401a66, type: 2}
   m_IsPrefabParent: 0

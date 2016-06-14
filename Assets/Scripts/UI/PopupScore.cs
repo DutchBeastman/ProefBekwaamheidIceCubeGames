@@ -1,5 +1,5 @@
 ﻿// Created by: Jeremy Bond
-// Date: 
+// Date: 08/06/2016
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,10 +8,12 @@ using System.Collections.Generic;
 public class PopupScore : MonoBehaviour 
 {
 	[SerializeField] private Text[] scoreTexts;
+	[SerializeField] private GameObject player;
 	private List<RectTransform> rectTransforms;
 	private int justEarnedPoints;
 	private bool updatedCalled = false;
 	private bool changed = false;
+	private bool moveUp = false;
 
 	/// <summary>
 	/// Sets UI for the beginning of the game.
@@ -23,7 +25,6 @@ public class PopupScore : MonoBehaviour
 		{
 			rectTransforms.Add(t.GetComponent<RectTransform>());
 		}
-		Restart ();
 	}
 	/// <summary>
 	/// if the object gets enabled it will add all the pre-set listeners so that points can be achieved.
@@ -39,36 +40,26 @@ public class PopupScore : MonoBehaviour
 	{
 		EventManager.RemoveScoreListener (GainPoints);
 	}
+
+	protected void Update ()
+	{
+		if (rectTransforms[0].position.y <= 10)
+		{
+			Vector3 nextPosition = new Vector3(player.transform.position.x, rectTransforms[0].position.y + 0.1f, 0);
+			for (int i = 0; i < rectTransforms.Count; i++)
+			{
+				rectTransforms[i].position = nextPosition;
+			}
+		}
+	}
 	/// <summary>
 	/// Points that you just earned will be added to the score popup.
 	/// </summary>
 	/// <param name="score"></param>
 	private void GainPoints (int score)
 	{
-		if (updatedCalled)
-		{
-			changed = true;
-		}
-		updatedCalled = true;
 		justEarnedPoints += score;
 		Invoke ("UpdateUI", .15f);
-		Invoke("Restart", 1f);
-	}
-	/// <summary>
-	/// Empties the text areas and enables the restart mechanism.
-	/// </summary>
-	private void Restart ()
-	{
-		if (!changed)
-		{
-			foreach (Text scoreText in scoreTexts)
-			{
-				scoreText.text = "";
-			}
-			justEarnedPoints = 0;
-		}
-		changed = false;
-		updatedCalled = false;
 	}
 	/// <summary>
 	/// Function for the UI update, so the text will always remain relevant to the actual score.
@@ -77,10 +68,10 @@ public class PopupScore : MonoBehaviour
 	{
 		if (justEarnedPoints != 0)
 		{
-			Vector2 randomPosition = new Vector2 (Random.Range (-200, 200), Random.Range (-200, 200));
+			Vector2 randomPosition = Vector2.up + new Vector2(player.transform.position.x, player.transform.position.y);
 			for (int i = 0; i < rectTransforms.Count; i++)
 			{
-				rectTransforms[i].anchoredPosition = randomPosition;
+				rectTransforms[i].position = randomPosition;
 			}
 			foreach (Text t in scoreTexts)
 			{
